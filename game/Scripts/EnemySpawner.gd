@@ -4,7 +4,7 @@ export(int) var max_spawns = 2
 export(float) var spawn_interval = 0.0
 export(float) var spawn_counter = 3.0
 export(float) var lifetime = 6.0
-export var group_name = "Spawned"
+export(int,"Right","Left") var start_dir = 0
 
 var spawn_entities = 0
 
@@ -26,13 +26,12 @@ func _process(delta):
 			
 func do_spawn():
 	if max_spawns > 0 && spawn_entities >= max_spawns: return
+	spawn_entities += 1
 	
 	var enemy = prefab.instance()
 	enemy.set_pos(get_pos())
-	enemy.add_to_group(group_name)
-	
-	spawn_entities += 1
-	
+	enemy.start_dir = start_dir
+
 	var spawn_node = Node.new()
 	spawn_node.set_script(preload("SpawnedEnemy.gd"))
 	spawn_node.spawner = self

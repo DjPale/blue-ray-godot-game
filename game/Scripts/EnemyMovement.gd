@@ -18,7 +18,7 @@ var on_ground = false
 var on_left_edge = false
 var on_right_edge = false
 
-onready var tile_map = get_node("../TileMap")
+onready var tile_map = get_tree().get_root().find_node("TileMap", true, false)
 
 var dir
 

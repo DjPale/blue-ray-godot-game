@@ -159,7 +159,7 @@ func _fixed_process(delta):
 	_update_anim()
 
 	# temp death	
-	if get_pos().y > 600: reset_level()
+	if get_pos().y > 800: reset_level()
 
 func _do_timers(delta):
 	if jump_timer > 0:
@@ -213,6 +213,10 @@ func _crack_tile():
 func add_tilecount(cnt):
 	tile_count += cnt
 	if tile_count < 0: tile_count = 0
+	emit_signal("tile_count_change", tile_count)
+	
+func clear_tilecount():
+	tile_count = 0
 	emit_signal("tile_count_change", tile_count)
 
 func _do_tile():
