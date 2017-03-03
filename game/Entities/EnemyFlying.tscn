@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://Scripts/EnemyFlying.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/BasicEnemy.gd" type="Script" id=2]
+[ext_resource path="res://2D/Abstract/Enemies/spritesheet_enemies.enemyFlying_1.atex" type="Texture" id=3]
+[ext_resource path="res://2D/Abstract/Enemies/spritesheet_enemies.enemyFlying_2.atex" type="Texture" id=4]
+[ext_resource path="res://2D/Abstract/Enemies/spritesheet_enemies.enemyFlying_3.atex" type="Texture" id=5]
+
+
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -15, -15, 15, -15, 15, 15, -15, 15 )
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ { "frames":[ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ) ], "loop":true, "name":"flying", "speed":10.0 } ]
+
+[node name="EnemyFlying" type="KinematicBody2D"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+velocity = Vector2( 200, 0 )
+destroy_tiles = true
+
+[node name="BasicEnemy" type="Node2D" parent="."]
+
+script/script = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+build_mode = 0
+polygon = Vector2Array( -15, -15, 15, -15, 15, 15, -15, 15 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+
+frames = SubResource( 2 )
+animation = "flying"
+__meta__ = { "_edit_lock_":true }
+
+[node name="RayLeft" type="RayCast2D" parent="."]
+
+transform/pos = Vector2( -14, 0 )
+enabled = true
+cast_to = Vector2( -23, 0 )
+layer_mask = 1
+type_mask = 13
+__meta__ = { "_edit_lock_":true }
+
+[node name="RayRight" type="RayCast2D" parent="."]
+
+transform/pos = Vector2( 14, 0 )
+enabled = true
+cast_to = Vector2( 23, 0 )
+layer_mask = 1
+type_mask = 13
+__meta__ = { "_edit_lock_":true }
+
+

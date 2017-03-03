@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=1]
+
+[ext_resource path="res://Scripts/PlayerControl.gd" type="Script" id=1]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk1.atex" type="Texture" id=2]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk2.atex" type="Texture" id=3]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk3.atex" type="Texture" id=4]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk4.atex" type="Texture" id=5]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_stand.atex" type="Texture" id=6]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_switch1.atex" type="Texture" id=7]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_duck.atex" type="Texture" id=8]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 20, -20, 20, 32, -20, 32, -20, -20 )
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ { "frames":[ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ], "loop":true, "name":"walking", "speed":25.0 }, { "frames":[ ExtResource( 6 ) ], "loop":true, "name":"standing", "speed":5.0 }, { "frames":[ ExtResource( 7 ) ], "loop":true, "name":"jumping", "speed":5.0 }, { "frames":[ ExtResource( 8 ) ], "loop":true, "name":"crouching", "speed":5.0 } ]
+
+[node name="Player" type="KinematicBody2D"]
+
+transform/pos = Vector2( 415, 416 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+gravity = Vector2( 0, 200 )
+walk_speed = 200.0
+jump_max_height = 75.0
+jump_max_length = 54.0
+jump_time_to_height = 0.51
+jump_count = 1
+jump_pause = 0.15
+crouch_offset = Vector2( 0, 7 )
+current_map = NodePath("../TileMap")
+tile_pause = 0.6
+tile_length = 16.0
+freeze_time = 0.3
+tile_count = 0
+score = 0
+invincible = false
+debug_keys = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+build_mode = 0
+polygon = Vector2Array( -20, -20, -20, 32, 20, 32, 20, -20 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 32, 32 )
+frames = SubResource( 2 )
+animation = "standing"
+playing = true
+offset = Vector2( -32, -27 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="RayLeft" type="RayCast2D" parent="."]
+
+transform/pos = Vector2( -20, 0 )
+enabled = true
+cast_to = Vector2( 0, 33 )
+layer_mask = 1
+type_mask = 15
+__meta__ = { "_edit_lock_":true }
+
+[node name="RayRight" type="RayCast2D" parent="."]
+
+transform/pos = Vector2( 20, 0 )
+enabled = true
+cast_to = Vector2( 0, 33 )
+layer_mask = 1
+type_mask = 15
+__meta__ = { "_edit_lock_":true }
+
+

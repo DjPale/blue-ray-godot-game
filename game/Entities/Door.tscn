@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://Scripts/Door.gd" type="Script" id=1]
+[ext_resource path="res://2D/Abstract/Other/spritesheet_other.doorOpen_top.atex" type="Texture" id=2]
+[ext_resource path="res://2D/Abstract/Other/spritesheet_other.lockGreen.atex" type="Texture" id=3]
+
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 20 )
+
+[sub_resource type="SpriteFrames" id=4]
+
+animations = [ { "frames":[ ExtResource( 2 ) ], "loop":true, "name":"open", "speed":0.0 }, { "frames":[ ExtResource( 3 ) ], "loop":true, "name":"closed", "speed":0.0 } ]
+
+[node name="Door" type="Area2D"]
+
+transform/pos = Vector2( 800, 352 )
+input/pickable = true
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 8 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 1 )
+is_open = false
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+
+frames = SubResource( 4 )
+animation = "closed"
+playing = true
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( 0, 8 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[connection signal="body_enter" from="." to="." method="_on_body_enter"]
+
+

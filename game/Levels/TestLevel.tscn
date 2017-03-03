@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://Scripts/DebugLevel.gd" type="Script" id=1]
+[ext_resource path="res://2D/Abstract/blue_tiles.tres" type="TileSet" id=2]
+[ext_resource path="res://Scripts/TilemapManipulator.gd" type="Script" id=3]
+[ext_resource path="res://Levels/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://2D/debug-tileset.tres" type="TileSet" id=5]
+[ext_resource path="res://Scripts/DebugMap.gd" type="Script" id=6]
+[ext_resource path="res://Levels/UI Layer.tscn" type="PackedScene" id=7]
+
+
+
+
+[node name="TestLevel" type="Node"]
+
+script/script = ExtResource( 1 )
+draw_tile = 27
+
+[node name="TileMap" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 64, 64 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 524288, 27, 524289, 27, 524290, 27, 524291, 27, 524292, 27, 524293, 27, 524294, 27, 524295, 27, 524296, 27, 524297, 27, 524298, 27, 524299, 27, 524300, 27, 524301, 27, 524302, 27, 524303, 27 )
+script/script = ExtResource( 3 )
+tile_num = 16
+tile_num_crack = 7
+query_items = 5
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 164, 473 )
+jump_max_length = 54.0
+tile_length = 16.0
+tile_count = 0
+score = 0
+
+[node name="Debug-Tilemap" type="TileMap" parent="."]
+
+visibility/opacity = 0.5
+mode = 0
+tile_set = ExtResource( 5 )
+cell/size = Vector2( 64, 64 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray(  )
+script/script = ExtResource( 6 )
+tile_num = 0
+
+[node name="UI Layer" parent="." instance=ExtResource( 7 )]
+
+
