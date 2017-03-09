@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://Scripts/PlayerControl.gd" type="Script" id=1]
-[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk1.atex" type="Texture" id=2]
-[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk2.atex" type="Texture" id=3]
-[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk3.atex" type="Texture" id=4]
-[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk4.atex" type="Texture" id=5]
-[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_stand.atex" type="Texture" id=6]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_stand.atex" type="Texture" id=2]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk1.atex" type="Texture" id=3]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk2.atex" type="Texture" id=4]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk3.atex" type="Texture" id=5]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk4.atex" type="Texture" id=6]
 [ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_switch1.atex" type="Texture" id=7]
 [ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_duck.atex" type="Texture" id=8]
 
@@ -16,7 +16,7 @@ points = Vector2Array( 20, -20, 20, 32, -20, 32, -20, -20 )
 
 [sub_resource type="SpriteFrames" id=2]
 
-animations = [ { "frames":[ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ], "loop":true, "name":"walking", "speed":25.0 }, { "frames":[ ExtResource( 6 ) ], "loop":true, "name":"standing", "speed":5.0 }, { "frames":[ ExtResource( 7 ) ], "loop":true, "name":"jumping", "speed":5.0 }, { "frames":[ ExtResource( 8 ) ], "loop":true, "name":"crouching", "speed":5.0 } ]
+animations = [ { "frames":[ ExtResource( 2 ) ], "loop":true, "name":"standing", "speed":5.0 }, { "frames":[ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ) ], "loop":true, "name":"walking", "speed":25.0 }, { "frames":[ ExtResource( 7 ) ], "loop":true, "name":"jumping", "speed":5.0 }, { "frames":[ ExtResource( 8 ) ], "loop":true, "name":"crouching", "speed":5.0 } ]
 
 [node name="Player" type="KinematicBody2D"]
 
@@ -43,6 +43,7 @@ tile_length = 16.0
 freeze_time = 0.3
 tile_count = 0
 score = 0
+input_enable = false
 invincible = false
 debug_keys = true
 

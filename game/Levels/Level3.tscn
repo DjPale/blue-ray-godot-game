@@ -8,13 +8,13 @@
 [ext_resource path="res://Entities/Key.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Entities/Door.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Entities/BlockClearer.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Entities/EnemyFlying.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Entities/EnemyPatrolling.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Entities/Particles2D.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Entities/UI Layer.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Entities/Debug-Tilemap.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Entities/EnemySpawner.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Entities/EnemyFlying.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Entities/EnemyPatrolling.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Entities/EnemySpawner.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Entities/Particles2D.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Entities/UI Layer.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Entities/Debug-Tilemap.tscn" type="PackedScene" id=15]
 
 [node name="Level3" type="Node"]
 
@@ -24,6 +24,7 @@
 
 [node name="TileMap" parent="." instance=ExtResource( 3 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 1, 0 )
 tile_data = IntArray( -524289, 27, -589824, 27, -589823, 27, -589822, 27, -589821, 27, -589820, 27, -589819, 27, -589818, 27, -589817, 27, -589816, 27, -589815, 27, -589814, 27, -589813, 27, -589812, 27, -589811, 27, -589810, 27, -589809, 27, -589808, 27, -589807, 27, -589806, 27, -589805, 27, -589804, 27, -589803, 27, -589802, 27, -589801, 27, -589800, 27, -589799, 27, -589798, 27, -589797, 27, -589796, 27, -589795, 27, -589794, 27, -589793, 27, -458753, 27, -524281, 27, -524257, 27, -393217, 27, -458746, 27, -458745, 27, -458744, 27, -458721, 27, -327681, 27, -393211, 27, -393210, 27, -393209, 27, -393208, 27, -393207, 27, -393185, 27, -262145, 27, -327676, 27, -327675, 27, -327671, 27, -327670, 27, -327649, 27, -196609, 27, -262141, 27, -262140, 27, -262134, 27, -262113, 27, -131073, 27, -196605, 27, -196604, 16, -196598, 16, -196597, 27, -196577, 27, -65537, 27, -131069, 27, -131068, 16, -131062, 16, -131041, 27, -1, 27, -65533, 27, -65532, 27, -65526, 27, -65525, 27, -65524, 27, -65521, 27, -65520, 27, -65519, 16, -65505, 27, 65535, 27, 3, 27, 4, 16, 10, 16, 11, 27, 17, 27, 31, 27, 131071, 27, 65539, 27, 65540, 16, 65546, 16, 65547, 27, 65552, 16, 65553, 27, 65567, 27, 196607, 27, 131075, 27, 131076, 27, 131082, 27, 131083, 27, 131087, 27, 131088, 27, 131089, 16, 131103, 27, 262143, 27, 196611, 27, 196612, 16, 196618, 16, 196619, 27, 196639, 27, 327679, 27, 262147, 27, 262148, 16, 262154, 16, 262155, 27, 262175, 27, 393215, 27, 327682, 27, 327683, 27, 327684, 27, 327690, 27, 327691, 27, 327692, 27, 327711, 27, 458751, 27, 393219, 27, 393220, 16, 393226, 16, 393227, 27, 393235, 27, 393247, 27, 524287, 27, 458755, 27, 458756, 16, 458762, 16, 458763, 27, 458783, 27, 589823, 27, 524291, 16, 524292, 16, 524298, 16, 524299, 27, 524319, 27, 655359, 27, 589824, 3, 589825, 4, 589826, 4, 589827, 4, 589828, 4, 589829, 4, 589830, 4, 589831, 4, 589832, 4, 589833, 4, 589834, 4, 589835, 4, 589836, 4, 589837, 4, 589838, 5, 589855, 27, 720895, 27, 655360, 2, 655361, 2, 655362, 2, 655363, 2, 655364, 2, 655365, 2, 655366, 2, 655367, 2, 655368, 2, 655369, 2, 655370, 2, 655371, 2, 655372, 2, 655373, 2, 655374, 2, 655382, 23, 655383, 4, 655384, 24, 655391, 27, 786431, 27, 720927, 27, 851967, 27, 786463, 27 )
 
@@ -58,9 +59,39 @@ transform/pos = Vector2( 1503, 608 )
 
 [node name="BlockClearer" parent="." instance=ExtResource( 8 )]
 
-[node name="Player" parent="." instance=ExtResource( 9 )]
+[node name="Enemies" type="Node" parent="."]
 
-transform/pos = Vector2( 799, -96 )
+editor/display_folded = true
+
+[node name="EnemyFlying" parent="Enemies" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 352, 416 )
+
+[node name="EnemyFlying1" parent="Enemies" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 416, 224 )
+
+[node name="EnemyFlying2" parent="Enemies" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 480, 32 )
+
+[node name="EnemyFlying3" parent="Enemies" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 544, -160 )
+
+[node name="EnemyPatrolling" parent="Enemies" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 1056, -96 )
+
+[node name="EnemySpawner" parent="Enemies" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 1056, 32 )
+start_dir = 1
+
+[node name="Player" parent="." instance=ExtResource( 12 )]
+
+transform/pos = Vector2( 800, -96 )
+input_enable = false
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -82,39 +113,15 @@ drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 __meta__ = { "_edit_lock_":true }
 
-[node name="Enemies" type="Node" parent="."]
+[node name="Particles2D" parent="." instance=ExtResource( 13 )]
 
-editor/display_folded = true
+[node name="UI Layer" parent="." instance=ExtResource( 14 )]
 
-[node name="EnemyFlying" parent="Enemies" instance=ExtResource( 10 )]
+[node name="Transition" parent="UI Layer"]
 
-transform/pos = Vector2( 352, 416 )
+pre_delay_seconds = 2
 
-[node name="EnemyFlying1" parent="Enemies" instance=ExtResource( 10 )]
-
-transform/pos = Vector2( 416, 224 )
-
-[node name="EnemyFlying2" parent="Enemies" instance=ExtResource( 10 )]
-
-transform/pos = Vector2( 480, 32 )
-
-[node name="EnemyFlying3" parent="Enemies" instance=ExtResource( 10 )]
-
-transform/pos = Vector2( 544, -160 )
-
-[node name="EnemyPatrolling" parent="Enemies" instance=ExtResource( 11 )]
-
-transform/pos = Vector2( 1056, -96 )
-
-[node name="Particles2D" parent="." instance=ExtResource( 12 )]
-
-[node name="UI Layer" parent="." instance=ExtResource( 13 )]
-
-[node name="Debug-Tilemap" parent="." instance=ExtResource( 14 )]
-
-[node name="EnemySpawner" parent="." instance=ExtResource( 15 )]
-
-transform/pos = Vector2( 1056, 32 )
-start_dir = 1
+[node name="Debug-Tilemap" parent="." instance=ExtResource( 15 )]
 
 
+[editable path="UI Layer"]

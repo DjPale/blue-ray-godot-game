@@ -19,6 +19,7 @@ export(int,0,10) var tile_count = 0
 
 export(int) var score = 0
 
+export var input_enable = false
 export var invincible = false
 export var debug_keys = true
 
@@ -74,12 +75,16 @@ func _ready():
 		
 	connect("score_change", get_node("../UI Layer/Money"), "_on_count_change")
 	connect("tile_count_change", get_node("../UI Layer/Block Count"), "_on_count_change")
+	get_node("../UI Layer/Transition").connect("transition_complete", self, "_on_transition_complete")
 	
 	emit_signal("tile_count_change", tile_count)
 	emit_signal("score_change", score)
 
 	if debug_keys: set_process_input(true)
 	set_fixed_process(true)
+	
+func _on_transition_complete():
+	input_enable = true
 	
 func _input(event):
 	if event.type == InputEvent.KEY:
@@ -109,22 +114,22 @@ func _fixed_process(delta):
 	velocity.x = 0
 	velocity.y += delta * gravity.y
 
-	if (Input.is_action_pressed("ui_left")):
+	if (input_enable && Input.is_action_pressed("ui_left")):
 		velocity.x = -walk_speed
 		face_sign = -1
-	elif (Input.is_action_pressed("ui_right")):
+	elif (input_enable && Input.is_action_pressed("ui_right")):
 		velocity.x = walk_speed
 		face_sign = 1
 
-	if (Input.is_action_pressed("ui_down") && on_ground):
+	if (input_enable && Input.is_action_pressed("ui_down") && on_ground):
 		is_crouching = true
 		velocity.x = 0
 
 	if not on_ground: velocity.x *= jump_move_x_scale
 		
-	if Input.is_action_pressed("ui_up"): _jump()
+	if input_enable && Input.is_action_pressed("ui_up"): _jump()
 	
-	if Input.is_action_pressed("ui_accept"): _do_tile()
+	if input_enable && Input.is_action_pressed("ui_accept"): _do_tile()
 
 	# not sure why this happens TBH
 	if is_colliding():
