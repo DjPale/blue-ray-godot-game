@@ -99,6 +99,7 @@ transform/pos = Vector2( 608, 416 )
 [node name="Player" parent="." instance=ExtResource( 11 )]
 
 transform/pos = Vector2( 164, 473 )
+jump_grace = 0.1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 

@@ -9,7 +9,7 @@
 [ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk3.atex" type="Texture" id=7]
 [ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk4.atex" type="Texture" id=8]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=3]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 18, -18, 18, 32, -18, 32, -18, -18 )
@@ -22,7 +22,7 @@ animations = [ { "frames":[ ExtResource( 2 ) ], "loop":true, "name":"standing", 
 
 transform/pos = Vector2( 415, 416 )
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -33,9 +33,10 @@ gravity = Vector2( 0, 200 )
 walk_speed = 200.0
 jump_max_height = 75.0
 jump_max_length = 54.0
-jump_time_to_height = 0.51
+jump_time_to_height = 0.35
 jump_count = 1
-jump_pause = 0.15
+jump_pause = 0.1
+jump_grace = 1.0
 crouch_offset = Vector2( 0, 7 )
 current_map = NodePath("../TileMap")
 tile_pause = 0.6

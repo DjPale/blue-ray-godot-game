@@ -8,6 +8,7 @@ export(float,1.0,120,1.0) var jump_max_length = 64.0
 export(float,0.01,1.0,0.05) var jump_time_to_height = 0.5
 export(int,1,10) var jump_count = 1
 export(float,0,5.0,0.05) var jump_pause = 0.15
+export(float,0,1,0.05) var jump_grace = 0.1
 
 export var crouch_offset = Vector2(0, -4)
 
@@ -32,6 +33,7 @@ var move_speed_y = 0.0
 var jump_counter = 0
 var jump_timer = 0.0
 var jump_move_x_scale = 0.0
+var jump_grace_counter = 0
 
 var tile_timer = 0.0
 var freeze_timer = 0.0
@@ -140,9 +142,7 @@ func _fixed_process(delta):
 		if obj != tile_map: 
 			if obj.has_node("BasicEnemy"):
 				hit(obj)
-		
-		
-		
+
 	var motion = velocity * delta
 	
 	motion = move(motion)
@@ -174,6 +174,10 @@ func _do_timers(delta):
 	if tile_timer > 0:
 		tile_timer -= delta
 		if tile_timer < 0: tile_timer = 0
+		
+	if jump_grace_counter > 0:
+		jump_grace_counter -= delta
+		if jump_grace_counter < 0: jump_grace_counter = 0
 
 	if freeze_timer > 0:
 		freeze_timer -= delta
@@ -186,6 +190,7 @@ func _check_state():
 	
 	if on_ground:
 		jump_counter = jump_count
+		jump_grace_counter = jump_grace
 		
 		if was_airborne: 
 			jump_timer = jump_pause
@@ -196,7 +201,7 @@ func _is_on_ground():
 	return raycast_left.is_colliding() || raycast_right.is_colliding()
 
 func _jump():
-	if (jump_counter == 0 || jump_timer > 0 || not on_ground): return
+	if (jump_counter == 0 || jump_timer > 0 || (not on_ground and jump_grace_counter <= 0)) : return
 	
 	if was_airborne: velocity.y = 0
 	

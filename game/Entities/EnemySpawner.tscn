@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://Scripts/EnemySpawner.gd" type="Script" id=1]
 
@@ -6,6 +6,11 @@
 
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
+
+[sub_resource type="ColorRamp" id=2]
+
+offsets = FloatArray( 0, 0.0165563, 0.278146, 0.771523, 0.993378, 1 )
+colors = ColorArray( 0.820313, 0.0961304, 0.0961304, 0, 0.81343, 0.0984664, 0.0984664, 0.047619, 0.675781, 0.145187, 0.145187, 1, 0.519531, 0.184677, 0.184677, 1, 0.929114, 0.878533, 0.878533, 0.144928, 0.554688, 0.338013, 0.338013, 0 )
 
 [node name="EnemySpawner" type="Area2D"]
 
@@ -23,7 +28,7 @@ max_spawns = 0
 spawn_interval = 3.0
 spawn_counter = 3.0
 lifetime = 14.0
-group_name = "Spawned"
+start_dir = 0
 
 [node name="Particles2D" type="Particles2D" parent="."]
 
@@ -46,10 +51,12 @@ params/hue_variation = 0.0
 params/anim_speed_scale = 1.0
 params/anim_initial_pos = 0.0
 color/color = Color( 0.328125, 0.305054, 0.305054, 1 )
+color/color_ramp = SubResource( 2 )
 __meta__ = { "_edit_lock_":true }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
+visibility/visible = false
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0

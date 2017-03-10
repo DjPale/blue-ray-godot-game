@@ -31,7 +31,8 @@ func create_or_destroy_tile(tile_pos, can_create):
 	for c in collisions:
 		var col = c["collider"]
 		if col extends preload("Item.gd"):
-			col.reveal()
+			if can_create:
+				col.reveal()
 		else:
 			query_hit = true
 			

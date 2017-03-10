@@ -24,6 +24,9 @@
 
 [node name="TileMap-Decorations" parent="." instance=ExtResource( 2 )]
 
+cell/size = Vector2( 32, 32 )
+tile_data = IntArray( -196578, 5, 589828, 3, 589833, 4, 589849, 5, 720934, 3, 1114113, 6, 1114117, 5, 1114126, 4, 1114139, 1, 1245233, 3 )
+
 [node name="TileMap" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1, 0 )
@@ -121,7 +124,8 @@ start_dir = 1
 
 [node name="Player" parent="." instance=ExtResource( 14 )]
 
-transform/pos = Vector2( 800, -96 )
+transform/pos = Vector2( 96, 544 )
+jump_grace = 0.1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 

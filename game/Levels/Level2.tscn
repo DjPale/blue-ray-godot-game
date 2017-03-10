@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://Entities/Blue_Parallax_BG.tscn" type="PackedScene" id=1]
 [ext_resource path="res://2D/Abstract/Other/Other.tres" type="TileSet" id=2]
@@ -7,16 +7,11 @@
 [ext_resource path="res://Entities/Coin-Bronze.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Entities/Coin-Silver.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Entities/Door.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scripts/EnemySpawner.gd" type="Script" id=9]
+[ext_resource path="res://Entities/EnemySpawner.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Entities/Particles2D.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Entities/UI Layer.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Entities/Debug-Tilemap.tscn" type="PackedScene" id=12]
-
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 32, 32 )
 
 [node name="Level2" type="Node"]
 
@@ -26,7 +21,7 @@ extents = Vector2( 32, 32 )
 
 mode = 0
 tile_set = ExtResource( 2 )
-cell/size = Vector2( 64, 64 )
+cell/size = Vector2( 32, 32 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 cell/half_offset = 2
@@ -38,14 +33,17 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray(  )
+tile_data = IntArray( 458768, 5, 458774, 7, 720919, 5, 852003, 3, 983044, 7, 983048, 4, 983060, 4, 983071, 6 )
 
 [node name="TileMap" parent="." instance=ExtResource( 3 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 1, 0 )
 tile_data = IntArray( -1, 27, -65536, 27, -65535, 27, -65534, 27, -65533, 27, -65532, 27, -65531, 27, -65530, 27, -65529, 27, -65528, 27, -65527, 27, -65526, 27, -65525, 27, -65524, 27, -65523, 27, -65522, 27, -65521, 27, -65520, 27, -65519, 27, -65518, 27, -65517, 27, -65516, 27, -65515, 27, -65514, 27, -65513, 27, -65512, 27, -65511, 27, 65535, 27, 25, 27, 131071, 27, 65561, 27, 196607, 27, 131097, 27, 262143, 27, 196633, 27, 327679, 27, 262152, 14, 262153, 4, 262154, 4, 262155, 15, 262158, 16, 262169, 27, 393215, 27, 327681, 27, 327694, 27, 327705, 27, 458751, 27, 393217, 27, 393224, 16, 393227, 14, 393228, 4, 393229, 4, 393230, 15, 393241, 27, 524287, 27, 458753, 27, 458760, 27, 458769, 6, 458777, 27, 589823, 27, 524289, 3, 524290, 4, 524291, 4, 524292, 4, 524293, 4, 524294, 4, 524295, 4, 524296, 4, 524297, 4, 524298, 4, 524299, 4, 524300, 4, 524301, 4, 524302, 4, 524303, 5, 524305, 2, 524313, 27, 655359, 27, 589825, 2, 589826, 2, 589827, 2, 589828, 2, 589829, 2, 589830, 2, 589831, 2, 589832, 2, 589833, 2, 589834, 2, 589835, 2, 589836, 2, 589837, 2, 589838, 2, 589839, 2, 589841, 2, 589849, 27, 720895, 27, 655385, 27 )
 
 [node name="Pickups" type="Node" parent="TileMap"]
+
+editor/display_folded = true
 
 [node name="Key" parent="TileMap/Pickups" instance=ExtResource( 4 )]
 
@@ -68,7 +66,11 @@ hidden = true
 
 transform/pos = Vector2( 96, 288 )
 
-[node name="Player" parent="." instance=ExtResource( 8 )]
+[node name="EnemySpawner" parent="." instance=ExtResource( 8 )]
+
+[node name="Player" parent="." instance=ExtResource( 9 )]
+
+jump_grace = 0.1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -89,53 +91,6 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 __meta__ = { "_edit_lock_":true }
-
-[node name="EnemySpawner" type="Area2D" parent="."]
-
-transform/pos = Vector2( 608, 160 )
-input/pickable = true
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-script/script = ExtResource( 9 )
-max_spawns = 0
-spawn_interval = 3.0
-spawn_counter = 3.0
-lifetime = 14.0
-group_name = "Spawned"
-
-[node name="Particles2D" type="Particles2D" parent="EnemySpawner"]
-
-config/amount = 32
-config/lifetime = 2.0
-params/direction = 0.0
-params/spread = 180.0
-params/linear_velocity = 20.0
-params/spin_velocity = 1.0
-params/orbit_velocity = 2.0
-params/gravity_direction = 0.0
-params/gravity_strength = 0.0
-params/radial_accel = 0.0
-params/tangential_accel = 0.0
-params/damping = 0.0
-params/initial_angle = 0.0
-params/initial_size = 2.0
-params/final_size = 10.0
-params/hue_variation = 0.0
-params/anim_speed_scale = 1.0
-params/anim_initial_pos = 0.0
-color/color = Color( 0.328125, 0.305054, 0.305054, 1 )
-__meta__ = { "_edit_lock_":true }
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySpawner"]
-
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 0
 
 [node name="Particles2D" parent="." instance=ExtResource( 10 )]
 
