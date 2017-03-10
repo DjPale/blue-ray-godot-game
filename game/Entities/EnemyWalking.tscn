@@ -6,12 +6,10 @@
 [ext_resource path="res://2D/Abstract/Enemies/spritesheet_enemies.enemyWalking_3.atex" type="Texture" id=4]
 [ext_resource path="res://2D/Abstract/Enemies/spritesheet_enemies.enemyWalking_4.atex" type="Texture" id=5]
 
-
-
-[sub_resource type="ConvexPolygonShape2D" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=3]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -15, -22, 15, -22, 15, 22, -15, 22 )
+points = Vector2Array( -13, -20, 13, -20, 13, 22, -13, 22 )
 
 [sub_resource type="SpriteFrames" id=2]
 
@@ -19,9 +17,8 @@ animations = [ { "frames":[ ExtResource( 3 ) ], "loop":true, "name":"standing", 
 
 [node name="EnemyWalking" type="KinematicBody2D"]
 
-transform/pos = Vector2( 640, 384 )
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -41,7 +38,7 @@ script/script = ExtResource( 2 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
 build_mode = 0
-polygon = Vector2Array( -15, -22, 15, -22, 15, 22, -15, 22 )
+polygon = Vector2Array( -13, -20, 13, -20, 13, 22, -13, 22 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 __meta__ = { "_edit_lock_":true }
@@ -56,7 +53,7 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="RayLeft" type="RayCast2D" parent="."]
 
-transform/pos = Vector2( -14, 0 )
+transform/pos = Vector2( -13, 0 )
 enabled = true
 cast_to = Vector2( 0, 23 )
 layer_mask = 1
@@ -65,7 +62,7 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="RayRight" type="RayCast2D" parent="."]
 
-transform/pos = Vector2( 14, 0 )
+transform/pos = Vector2( 13, 0 )
 enabled = true
 cast_to = Vector2( 0, 23 )
 layer_mask = 1

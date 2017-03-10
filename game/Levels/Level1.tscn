@@ -17,7 +17,6 @@
 [ext_resource path="res://Entities/UI Layer.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Entities/Debug-Tilemap.tscn" type="PackedScene" id=16]
 
-
 [node name="Level1" type="Node"]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 1 )]
@@ -69,9 +68,13 @@ query_items = 5
 
 [node name="Jewel-Blue" parent="TileMap/Pickups" instance=ExtResource( 5 )]
 
+transform/pos = Vector2( 32, 288 )
+hidden = true
+
 [node name="Jewel-Blue2" parent="TileMap/Pickups" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 1185, 33 )
+hidden = true
 
 [node name="Coin-Gold" parent="TileMap/Pickups" instance=ExtResource( 6 )]
 
@@ -79,11 +82,15 @@ transform/pos = Vector2( 929, 161 )
 
 [node name="Coin-Silver" parent="TileMap/Pickups" instance=ExtResource( 7 )]
 
+transform/pos = Vector2( 288, 288 )
+
 [node name="Coin-Silver2" parent="TileMap/Pickups" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 417, 289 )
 
 [node name="Coin-Bronze" parent="TileMap/Pickups" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 608, 416 )
 
 [node name="Door" parent="TileMap" instance=ExtResource( 9 )]
 
@@ -92,8 +99,6 @@ transform/pos = Vector2( 417, 289 )
 [node name="Player" parent="." instance=ExtResource( 11 )]
 
 transform/pos = Vector2( 164, 473 )
-invincible = false
-debug_keys = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 

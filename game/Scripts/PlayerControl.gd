@@ -189,7 +189,6 @@ func _check_state():
 		
 		if was_airborne: 
 			jump_timer = jump_pause
-			print("ground_pos=",get_pos())
 		
 	was_airborne = !on_ground
 
@@ -197,7 +196,7 @@ func _is_on_ground():
 	return raycast_left.is_colliding() || raycast_right.is_colliding()
 
 func _jump():
-	if (jump_counter == 0 || jump_timer > 0): return
+	if (jump_counter == 0 || jump_timer > 0 || not on_ground): return
 	
 	if was_airborne: velocity.y = 0
 	
@@ -280,11 +279,11 @@ func enter_door():
 
 func reset_level():
 	global.score = orig_score
-	get_tree().reload_current_scene()
+	global.reset_level()
 
 func next_level():
 	global.score = score
-	get_tree().reload_current_scene()
+	global.next_level()
 	
 func _set_jump_equation(max_height, max_length, time_to_height):
 	gravity.y = (2.0 * max_height) / (time_to_height * time_to_height)

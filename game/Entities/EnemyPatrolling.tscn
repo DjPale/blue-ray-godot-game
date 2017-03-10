@@ -2,18 +2,18 @@
 
 [ext_resource path="res://Scripts/EnemyMovement.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/BasicEnemy.gd" type="Script" id=2]
-[ext_resource path="res://2D/Abstract/Enemies/spritesheet_enemies.enemyWalking_4.atex" type="Texture" id=3]
-[ext_resource path="res://2D/Abstract/Enemies/spritesheet_enemies.enemyWalking_2.atex" type="Texture" id=4]
-[ext_resource path="res://2D/Abstract/Enemies/spritesheet_enemies.enemyWalking_3.atex" type="Texture" id=5]
+[ext_resource path="res://2D/Abstract/Enemies/spritesheet_enemies.enemyWalking_2.atex" type="Texture" id=3]
+[ext_resource path="res://2D/Abstract/Enemies/spritesheet_enemies.enemyWalking_3.atex" type="Texture" id=4]
+[ext_resource path="res://2D/Abstract/Enemies/spritesheet_enemies.enemyWalking_4.atex" type="Texture" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -15, -22, 15, -22, 15, 22, -15, 22 )
+points = Vector2Array( -13, -20, 13, -20, 13, 22, -13, 22 )
 
 [sub_resource type="SpriteFrames" id=2]
 
-animations = [ { "frames":[ ExtResource( 3 ) ], "loop":true, "name":"dead", "speed":5.0 }, { "frames":[ ExtResource( 4 ) ], "loop":true, "name":"standing", "speed":5.0 }, { "frames":[ ExtResource( 4 ), ExtResource( 5 ) ], "loop":true, "name":"walk", "speed":5.0 } ]
+animations = [ { "frames":[ ExtResource( 3 ) ], "loop":true, "name":"standing", "speed":5.0 }, { "frames":[ ExtResource( 3 ), ExtResource( 4 ) ], "loop":true, "name":"walk", "speed":5.0 }, { "frames":[ ExtResource( 5 ) ], "loop":true, "name":"dead", "speed":5.0 } ]
 
 [node name="EnemyPatrolling" type="KinematicBody2D"]
 
@@ -38,7 +38,7 @@ script/script = ExtResource( 2 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
 build_mode = 0
-polygon = Vector2Array( -15, -22, 15, -22, 15, 22, -15, 22 )
+polygon = Vector2Array( -13, -20, 13, -20, 13, 22, -13, 22 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 __meta__ = { "_edit_lock_":true }
@@ -52,7 +52,7 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="RayLeft" type="RayCast2D" parent="."]
 
-transform/pos = Vector2( -14, 0 )
+transform/pos = Vector2( -13, 0 )
 enabled = true
 cast_to = Vector2( 0, 23 )
 layer_mask = 1
@@ -61,7 +61,7 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="RayRight" type="RayCast2D" parent="."]
 
-transform/pos = Vector2( 14, 0 )
+transform/pos = Vector2( 13, 0 )
 enabled = true
 cast_to = Vector2( 0, 23 )
 layer_mask = 1
