@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://Scripts/Projectile.gd" type="Script" id=1]
+[ext_resource path="res://2D/Abstract/Items/items_spritesheet.fireball.atex" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[sub_resource type="ColorRamp" id=2]
+
+offsets = FloatArray( 0, 0.218543, 0.622517, 0.811258, 1 )
+colors = ColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 0.789063, 0.78598, 0.78598, 1, 0.496094, 0.496094, 0.496094, 1, 1, 1, 1, 0 )
+
+[node name="Fireball" type="KinematicBody2D"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 2
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+speed = Vector2( 0, 0 )
+destroy_tiles = true
+lifetime = 6.0
+die_time = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Particles2D" type="Particles2D" parent="."]
+
+config/amount = 16
+config/lifetime = 1.0
+config/time_scale = 5.0
+config/local_space = false
+config/texture = ExtResource( 2 )
+params/direction = 0.0
+params/spread = 180.0
+params/linear_velocity = 10.0
+params/spin_velocity = 8.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 180.0
+params/gravity_strength = 15.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.75
+params/final_size = 0.2
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/spin_velocity = 0.5
+color/color_ramp = SubResource( 2 )
+__meta__ = { "_edit_lock_":true }
+
+

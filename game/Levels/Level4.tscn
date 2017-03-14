@@ -1,0 +1,314 @@
+[gd_scene load_steps=18 format=1]
+
+[ext_resource path="res://Entities/Blue_Parallax_BG.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entities/TileMap-Decorations.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/TileMap-Blue.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/Coin-Bronze.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/Coin-Silver.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Entities/Coin-Gold.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Entities/Key.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Entities/Door.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/StaticEnemy.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/BasicEnemy.gd" type="Script" id=10]
+[ext_resource path="res://2D/Abstract/Enemies/spritesheet_enemies.enemySpikey_2.atex" type="Texture" id=11]
+[ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Entities/Particles2D.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Entities/UI Layer.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Entities/Debug-Tilemap.tscn" type="PackedScene" id=15]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="Animation" id=4]
+
+length = 2.0
+loop = false
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/scale")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1, 2 ), "transitions":FloatArray( 0.25, 1, 1 ), "update":0, "values":[ Vector2( 1, 1 ), Vector2( 0.75, 0.9 ), Vector2( 1, 1 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.25, 0.5, 0.75, 1, 1.75, 2 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1 ), "update":0, "values":[ Color( 1, 1, 1, 1 ), Color( 0.761719, 0.19043, 0.19043, 1 ), Color( 1, 1, 1, 1 ), Color( 0.628906, 0.0319366, 0.0319366, 1 ), Color( 1, 1, 1, 1 ), Color( 0.8125, 0.152344, 0.152344, 1 ), Color( 1, 1, 1, 1 ) ] }
+tracks/2/type = "method"
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 1 ), "transitions":FloatArray( 1 ), "values":[ { "args":[  ], "method":"_do_spit" } ] }
+
+[node name="Level4" type="Node"]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 1 )]
+
+[node name="TileMap-Decorations" parent="." instance=ExtResource( 2 )]
+
+[node name="TileMap" parent="." instance=ExtResource( 3 )]
+
+tile_data = IntArray( 65536, 27, 65537, 27, 65538, 27, 65539, 27, 65540, 27, 65541, 27, 65542, 27, 65543, 27, 131072, 27, 131079, 27, 196608, 27, 196615, 27, 262144, 27, 262148, 16, 327680, 27, 327687, 27, 393216, 27, 393223, 27, 458752, 27, 458753, 16, 458758, 16, 458759, 27, 458761, 27, 524288, 27, 524289, 27, 524290, 27, 524291, 27, 524292, 27, 524293, 27, 524294, 27, 524295, 27, 524296, 27, 524297, 27, 524298, 27 )
+
+[node name="Pickups" type="Node" parent="TileMap"]
+
+[node name="Coin-Bronze" parent="TileMap/Pickups" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 224, 288 )
+
+[node name="Coin-Bronze1" parent="TileMap/Pickups" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 352, 288 )
+
+[node name="Coin-Silver" parent="TileMap/Pickups" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 96, 416 )
+hidden = true
+
+[node name="Coin-Gold" parent="TileMap/Pickups" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 544, 480 )
+hidden = true
+
+[node name="Coin-Silver1" parent="TileMap/Pickups" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 416, 416 )
+hidden = true
+
+[node name="Key" parent="TileMap" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 288, 288 )
+z/z = -1
+
+[node name="Door" parent="TileMap" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 672, 480 )
+
+[node name="EnemyStaticRight" type="KinematicBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 96, 224 )
+input/pickable = false
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -20, 0 )
+shapes/0/trigger = false
+collision/layers = 2
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 9 )
+spawn_interval = 3.0
+fireball_speed = Vector2( 150, 0 )
+fireball_lifetime = 6.0
+spawn_cnt = 0
+
+[node name="BasicEnemy" type="Node2D" parent="EnemyStaticRight"]
+
+script/script = ExtResource( 10 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyStaticRight"]
+
+transform/pos = Vector2( -20, 0 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="EnemyStaticRight"]
+
+transform/pos = Vector2( -20, 0 )
+transform/rot = -90.0
+transform/scale = Vector2( 0.75, 0.9 )
+texture = ExtResource( 11 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyStaticRight/Sprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Fire = SubResource( 4 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="EnemyStaticLeft" type="KinematicBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 416, 352 )
+input/pickable = false
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 20, 0 )
+shapes/0/trigger = false
+collision/layers = 2
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 9 )
+spawn_interval = 3.0
+fireball_speed = Vector2( -150, 0 )
+fireball_lifetime = 6.0
+spawn_cnt = 1.5
+
+[node name="BasicEnemy" type="Node2D" parent="EnemyStaticLeft"]
+
+script/script = ExtResource( 10 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyStaticLeft"]
+
+transform/pos = Vector2( 20, 0 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="EnemyStaticLeft"]
+
+transform/pos = Vector2( 20, 0 )
+transform/rot = 90.0
+transform/scale = Vector2( 0.75, 0.9 )
+texture = ExtResource( 11 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyStaticLeft/Sprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Fire = SubResource( 4 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="EnemyStaticUp" type="KinematicBody2D" parent="."]
+
+transform/pos = Vector2( 224, 480 )
+input/pickable = false
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 20 )
+shapes/0/trigger = false
+collision/layers = 2
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 9 )
+spawn_interval = 3.0
+fireball_speed = Vector2( 0, -150 )
+fireball_lifetime = 6.0
+spawn_cnt = 0
+
+[node name="BasicEnemy" type="Node2D" parent="EnemyStaticUp"]
+
+script/script = ExtResource( 10 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyStaticUp"]
+
+transform/pos = Vector2( 0, 20 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="EnemyStaticUp"]
+
+transform/pos = Vector2( 0, 20 )
+transform/scale = Vector2( 0.75, 0.9 )
+texture = ExtResource( 11 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyStaticUp/Sprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Fire = SubResource( 4 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="EnemyStaticDown" type="KinematicBody2D" parent="."]
+
+transform/pos = Vector2( 352, 160 )
+input/pickable = false
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, -20 )
+shapes/0/trigger = false
+collision/layers = 2
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 9 )
+spawn_interval = 3.0
+fireball_speed = Vector2( 0, 150 )
+fireball_lifetime = 6.0
+spawn_cnt = 0
+
+[node name="BasicEnemy" type="Node2D" parent="EnemyStaticDown"]
+
+script/script = ExtResource( 10 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyStaticDown"]
+
+transform/pos = Vector2( 0, -20 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="Sprite" type="Sprite" parent="EnemyStaticDown"]
+
+transform/pos = Vector2( 0, -20 )
+transform/rot = 180.0
+transform/scale = Vector2( 0.75, 0.9 )
+texture = ExtResource( 11 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyStaticDown/Sprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Fire = SubResource( 4 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="Player" parent="." instance=ExtResource( 12 )]
+
+transform/pos = Vector2( 160, 480 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+anchor_mode = 1
+rotating = false
+current = false
+zoom = Vector2( 1, 1 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+__meta__ = { "_edit_lock_":true }
+
+[node name="Particles2D" parent="." instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 0, 0 )
+
+[node name="UI Layer" parent="." instance=ExtResource( 14 )]
+
+[node name="Debug-Tilemap" parent="." instance=ExtResource( 15 )]
+
+
