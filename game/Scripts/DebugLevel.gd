@@ -22,9 +22,4 @@ func _input(event):
 				map.set_cellv(tpos, -1)
 	elif event.type == InputEvent.KEY:
 		var released = not event.pressed
-		
-		if released:
-			if event.scancode == KEY_1:
-				player.add_tilecount(1)
-			elif event.scancode == KEY_2:
-				player.add_tilecount(-1)
+

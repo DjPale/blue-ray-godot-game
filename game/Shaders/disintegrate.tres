@@ -1,0 +1,6 @@
+[gd_resource type="CanvasItemShader" format=1]
+
+[resource]
+
+_code = { "fragment":"uniform float resolution = 2.0;\nuniform float percentage = 1.0;\n\nfloat t = 1.57 * percentage;\n\nvec2 uv = UV;\nvec2 fragCoord = uv * vec2(512, 512);\n\nvec2 lowres = vec2(floor(fragCoord.x / resolution), floor(fragCoord.y / resolution));\n\nif (sin(t) > fract(sin(dot(lowres.xy ,vec2(12.9898,78.233))) * 43758.5453))\n{\n\tCOLOR = tex(TEXTURE, uv);\n}\nelse\n{\n\tCOLOR = vec4(0.0, 0.0, 0.0, 0.0);\n}", "fragment_ofs":0, "light":"", "light_ofs":0, "vertex":"", "vertex_ofs":0 }
+

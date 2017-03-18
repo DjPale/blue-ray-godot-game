@@ -40,7 +40,7 @@ func _clear_tiles():
 	
 func _update_tiles(pos):
 	var blocks = 0
-	if _player != null: blocks = _player.tile_count
+	if _player != null: blocks = _player.get_tile_count()
 	
 	var tpos = world_to_map(pos)
 	_update_tile(tpos, blocks)

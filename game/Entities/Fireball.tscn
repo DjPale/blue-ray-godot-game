@@ -27,6 +27,7 @@ speed = Vector2( 0, 0 )
 destroy_tiles = true
 lifetime = 6.0
 die_time = 0.5
+hitbox_offset = Vector2( 5, 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 

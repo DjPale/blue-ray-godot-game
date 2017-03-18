@@ -16,7 +16,6 @@ export(NodePath) var current_map = null
 export(float) var tile_pause = 0.25
 export(float) var tile_length = 50.0
 export(float) var freeze_time = 0.3 # freeze when manipulating tiles and crashing head in them
-export(int,0,10) var tile_count = 0
 
 export(int) var score = 0
 
@@ -53,6 +52,8 @@ var orig_score # level reset
 var raycast_left
 var raycast_right
 
+var tile_list = []
+
 onready var global = get_node("/root/Global")
 
 onready var anim = get_node("Sprite")
@@ -79,7 +80,7 @@ func _ready():
 	connect("tile_count_change", get_node("../UI Layer/Block Count"), "_on_count_change")
 	get_node("../UI Layer/Transition").connect("transition_complete", self, "_on_transition_complete")
 	
-	emit_signal("tile_count_change", tile_count)
+	_emit_count_change()
 	emit_signal("score_change", score)
 
 	if debug_keys: set_process_input(true)
@@ -101,9 +102,11 @@ func _input(event):
 			invincible = not invincible
 						
 		if key == KEY_1:
-			add_tilecount(1)
+			tile_list.append(null)
+			_emit_count_change()
 		elif key == KEY_2:
-			add_tilecount(-1)
+			tile_list.pop_back()
+			_emit_count_change()
 
 
 func _fixed_process(delta):
@@ -222,14 +225,16 @@ func _crack_tile():
 	
 	# _freeze(true)
 	
-func add_tilecount(cnt):
-	tile_count += cnt
-	if tile_count < 0: tile_count = 0
-	emit_signal("tile_count_change", tile_count)
 	
 func clear_tilecount():
-	tile_count = 0
-	emit_signal("tile_count_change", tile_count)
+	tile_list.clear()
+	_emit_count_change()
+	
+func get_tile_count():
+	return tile_list.size()
+	
+func _emit_count_change():
+	emit_signal("tile_count_change", get_tile_count())
 
 func _do_tile():
 	if tile_timer > 0 || tile_map == null: return
@@ -243,11 +248,20 @@ func _do_tile():
 	if particles != null:
 		particles.set_pos(reach_pos * 64)
 		particles.set_emitting(true)
+
+	var list_pos = null
+	if get_tile_count() > 0:
+		list_pos = tile_list[tile_list.size() - 1]
+
+	var tiles_ret = tile_map.create_or_destroy_tile(reach_pos, list_pos, (get_tile_count() > 0))
 	
-	var tiles_added = tile_map.create_or_destroy_tile(reach_pos, (tile_count > 0))
-	
-	add_tilecount(-tiles_added)
-		
+	if typeof(tiles_ret) == TYPE_BOOL:
+		if tiles_ret: tile_list.pop_back()
+	else: # Vector2 or null (or bust)
+		tile_list.append(tiles_ret)
+
+	_emit_count_change()
+
 	_freeze(true)
 
 func _freeze(f):
