@@ -55,12 +55,12 @@ var orig_score # level reset
 var raycast_left
 var raycast_right
 
-var tile_list = []
-
 onready var global = get_node("/root/Global")
 
 onready var anim = get_node("Sprite")
 onready var particles = get_node("../Particles2D")
+onready var indicator = get_node("Indicator")
+onready var beam = get_node("Beam")
 
 func _ready():
 	orig_pos = get_pos()
@@ -84,11 +84,12 @@ func _ready():
 	connect("score_change", get_node("../UI Layer/Money"), "_on_count_change")
 	connect("tile_count_change", get_node("../UI Layer/Block Count"), "_on_count_change")
 	get_node("../UI Layer/Transition").connect("transition_complete", self, "_on_transition_complete")
-	
+
 	_emit_count_change()
 	emit_signal("score_change", score)
 
 	if debug_keys: set_process_input(true)
+	set_process(true)
 	set_fixed_process(true)
 	
 func _on_transition_complete():
@@ -110,12 +111,15 @@ func _input(event):
 			invincible = not invincible
 						
 		if key == KEY_1:
-			tile_list.append(null)
+			add_tiles(1)
 			_emit_count_change()
 		elif key == KEY_2:
-			tile_list.pop_back()
+			add_tiles(-1)
 			_emit_count_change()
 
+func _process(delta):
+	var reach_pos = get_reach_pos()
+	indicator.set_global_pos(reach_pos * Vector2(64, 64) + Vector2(32, 32))
 
 func _fixed_process(delta):
 	_do_timers(delta)
@@ -235,6 +239,15 @@ func _crack_tile():
 	
 	# _freeze(true)
 	
+func get_reach_pos():
+	var tile_point = get_pos() + Vector2(face_sign * tile_length, 0)
+	var reach_pos = tile_map.world_to_map(tile_point)
+
+	reach_pos.x += face_sign
+	if is_crouching: reach_pos.y += 1
+	
+	return reach_pos
+	
 func add_tiles(num):
 	tile_count += num
 	_emit_count_change()
@@ -247,21 +260,26 @@ func get_tile_count():
 	return tile_count
 	
 func _emit_count_change():
+	# indicator.set_hidden(get_tile_count() == 0)
 	emit_signal("tile_count_change", get_tile_count())
+
+func _do_beam():
+	var deg = 45 if is_crouching else 90
+	deg *= face_sign
+	
+	beam.set_param(Particles2D.PARAM_DIRECTION, deg)
+	beam.set_emitting(true)
 
 func _do_tile():
 	if tile_timer > 0 || tile_map == null: return
 	
-	var tile_point = get_pos() + Vector2(face_sign * tile_length, 0)
-	var reach_pos = tile_map.world_to_map(tile_point)
-
-	reach_pos.x += face_sign
-	if is_crouching: reach_pos.y += 1
+	var reach_pos = get_reach_pos()
 	
 	if particles != null:
 		particles.set_pos(reach_pos * 64)
 		particles.set_emitting(true)
 
+	_do_beam()
 
 	var tiles_ret = tile_map.create_or_destroy_tile(reach_pos, (get_tile_count() > 0))
 	add_tiles(-tiles_ret)
