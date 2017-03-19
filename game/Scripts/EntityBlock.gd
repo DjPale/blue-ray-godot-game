@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Node2D
 
 export var timeout = 0.5
 export var is_reverse = false

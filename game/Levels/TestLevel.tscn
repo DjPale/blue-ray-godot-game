@@ -34,11 +34,12 @@ script/script = ExtResource( 3 )
 tile_num = 16
 tile_num_crack = 7
 query_items = 5
-regen_tiles = true
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 164, 473 )
+head_crack_tiles = true
+regain_destroyed_tiles = true
 
 [node name="Debug-Tilemap" type="TileMap" parent="."]
 

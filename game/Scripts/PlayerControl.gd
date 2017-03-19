@@ -13,6 +13,9 @@ export(float,0,1,0.05) var jump_grace = 0.1
 export var crouch_offset = Vector2(0, -4)
 
 export(NodePath) var current_map = null
+export(bool) var head_crack_tiles = true
+export(bool) var regain_destroyed_tiles = true
+export(int) var tile_count = 0
 export(float) var tile_pause = 0.25
 export(float) var tile_length = 50.0
 export(float) var freeze_time = 0.3 # freeze when manipulating tiles and crashing head in them
@@ -76,6 +79,8 @@ func _ready():
 	score += global.score
 	orig_score = score
 		
+	if regain_destroyed_tiles: tile_map.connect("tile_destroyed", self, "_on_tile_destroyed")
+		
 	connect("score_change", get_node("../UI Layer/Money"), "_on_count_change")
 	connect("tile_count_change", get_node("../UI Layer/Block Count"), "_on_count_change")
 	get_node("../UI Layer/Transition").connect("transition_complete", self, "_on_transition_complete")
@@ -88,6 +93,9 @@ func _ready():
 	
 func _on_transition_complete():
 	input_enable = true
+	
+func _on_tile_destroyed():
+	add_tiles(1)
 	
 func _input(event):
 	if event.type == InputEvent.KEY:
@@ -217,6 +225,8 @@ func _jump():
 	velocity.y -= move_speed_y
 	
 func _crack_tile():
+	if not head_crack_tiles: return
+	
 	var reach_pos = tile_map.world_to_map(get_pos() )
 
 	reach_pos.y -= 1
@@ -225,13 +235,16 @@ func _crack_tile():
 	
 	# _freeze(true)
 	
+func add_tiles(num):
+	tile_count += num
+	_emit_count_change()
 	
 func clear_tilecount():
-	tile_list.clear()
+	tile_count = 0
 	_emit_count_change()
 	
 func get_tile_count():
-	return tile_list.size()
+	return tile_count
 	
 func _emit_count_change():
 	emit_signal("tile_count_change", get_tile_count())
@@ -249,18 +262,9 @@ func _do_tile():
 		particles.set_pos(reach_pos * 64)
 		particles.set_emitting(true)
 
-	var list_pos = null
-	if get_tile_count() > 0:
-		list_pos = tile_list[tile_list.size() - 1]
 
-	var tiles_ret = tile_map.create_or_destroy_tile(reach_pos, list_pos, (get_tile_count() > 0))
-	
-	if typeof(tiles_ret) == TYPE_BOOL:
-		if tiles_ret: tile_list.pop_back()
-	else: # Vector2 or null (or bust)
-		tile_list.append(tiles_ret)
-
-	_emit_count_change()
+	var tiles_ret = tile_map.create_or_destroy_tile(reach_pos, (get_tile_count() > 0))
+	add_tiles(-tiles_ret)
 
 	_freeze(true)
 
