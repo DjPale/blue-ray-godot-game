@@ -142,7 +142,7 @@ func _fixed_process(delta):
 		if n.x != 0: velocity.x = 0
 		if n.y != 0: velocity.y = 0
 		var obj = get_collider()
-		if obj != tile_map: 
+		if obj != null && obj != tile_map: 
 			# TODO: OMMMGG find better solution on this scenario
 			# This is probably because the collision test will trigger at on object first and prevent it from colliding with the targetr
 			# Therefore only one of the entities tests positive on "is_colliding"...
@@ -156,7 +156,7 @@ func _fixed_process(delta):
 	if (is_colliding()):
 		var n = get_collision_normal()
 		var obj = get_collider()
-		if obj != tile_map: 
+		if obj != null && obj != tile_map: 
 			if obj.has_node("BasicEnemy") || obj extends preload("Projectile.gd"):
 				hit(obj)
 			

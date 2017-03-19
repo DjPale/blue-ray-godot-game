@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://Fonts/Kenney-Block.fnt" type="BitmapFont" id=1]
 [ext_resource path="res://Scripts/LabelCounter.gd" type="Script" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://2D/gradient2.png" type="Texture" id=5]
 [ext_resource path="res://Shaders/TextureTransition.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/SetLevelName.gd" type="Script" id=7]
-[ext_resource path="res://Scripts/StartAnimation.gd" type="Script" id=8]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -133,8 +132,6 @@ anims/Fade = SubResource( 2 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
-autoplay = ""
-script/script = ExtResource( 8 )
-anim_name = "Fade"
+autoplay = "Fade"
 
 

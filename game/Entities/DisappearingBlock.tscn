@@ -14,7 +14,7 @@ extents = Vector2( 32, 32 )
 shader/shader = ExtResource( 2 )
 shader/shading_mode = 0
 shader_param/resolution = 12.0
-shader_param/percentage = 1.0
+shader_param/percentage = 0.0
 
 [sub_resource type="Animation" id=3]
 
@@ -33,7 +33,7 @@ tracks/1/interp = 0
 tracks/1/imported = false
 tracks/1/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ), "transitions":FloatArray( 0, 1, 1, 1, 1, 1 ), "update":0, "values":[ Vector2( 0.5, 0.5 ), Vector2( 0.75, 0.75 ), Vector2( 0.5, 0.5 ), Vector2( 0.9, 0.9 ), Vector2( 0.75, 0.75 ), Vector2( 1, 1 ) ] }
 
-[node name="AppearingBlock" type="StaticBody2D"]
+[node name="DisappearingBlock" type="StaticBody2D"]
 
 transform/pos = Vector2( 224, 352 )
 input/pickable = false
@@ -48,10 +48,12 @@ friction = 1.0
 bounce = 0.0
 script/script = ExtResource( 1 )
 timeout = 0.3
+is_reverse = true
 
 [node name="Sprite" type="Sprite" parent="."]
 
 material/material = SubResource( 2 )
+transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 __meta__ = { "_edit_lock_":true }
 
@@ -71,6 +73,6 @@ anims/Fade = SubResource( 3 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
-autoplay = "Fade"
+autoplay = ""
 
 

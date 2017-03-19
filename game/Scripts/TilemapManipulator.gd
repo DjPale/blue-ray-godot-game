@@ -66,10 +66,15 @@ func spawn_cell(tile_pos):
 	var e = preload("res://Entities/AppearingBlock.tscn").instance()
 	e.set_global_pos(map_to_world(tile_pos) + Vector2(32, 32))
 	e.tilemap = self
+	add_child(e)
 	
+func despawn_cell(tile_pos):
+	var e = preload("res://Entities/DisappearingBlock.tscn").instance()
+	e.set_global_pos(map_to_world(tile_pos) + Vector2(32, 32))
 	add_child(e)
 	
 func clear_cell(tile_pos):
+	despawn_cell(tile_pos)
 	set_cellv(tile_pos, -1)
 	
 func tile_on(entity):
