@@ -1,7 +1,6 @@
 #TODO for Blue Ray
 
 * Mechanics
-	* Only regain tile if player placed it
 
 * Gfx and misc fx
 	* Better beam-fx for placing / displacing block (player)
