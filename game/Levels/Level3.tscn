@@ -34,6 +34,8 @@ tile_data = IntArray( -524289, 27, -589824, 27, -589823, 27, -589822, 27, -58982
 
 [node name="Pickups" type="Node" parent="TileMap"]
 
+editor/display_folded = true
+
 [node name="Coin-Gold" parent="TileMap/Pickups" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 160, 288 )
@@ -95,8 +97,6 @@ transform/pos = Vector2( 1503, 608 )
 
 [node name="Enemies" type="Node" parent="."]
 
-editor/display_folded = true
-
 [node name="EnemyFlying" parent="Enemies" instance=ExtResource( 11 )]
 
 transform/pos = Vector2( 352, 416 )
@@ -125,7 +125,6 @@ start_dir = 1
 [node name="Player" parent="." instance=ExtResource( 14 )]
 
 transform/pos = Vector2( 96, 544 )
-jump_grace = 0.1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 

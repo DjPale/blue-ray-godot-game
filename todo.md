@@ -1,10 +1,10 @@
 #TODO for Blue Ray
 
+* Mechanics
+	* Only regain tile if player placed it
+
 * Gfx and misc fx
-	* Indicator for block (player
-	* Beam-fx for placing / displacing block (player)
-	* Add block +/- indicator (floating text upwards or similar)
-	* Add score indicator (see prev point)
+	* Better beam-fx for placing / displacing block (player)
 
 * Audio
 	* Figure out how audio works in Godot

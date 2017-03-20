@@ -55,7 +55,8 @@ var orig_score # level reset
 var raycast_left
 var raycast_right
 
-onready var global = get_node("/root/Global")
+onready var Global = get_node("/root/Global")
+onready var VFX_Manager = get_node("/root/VFX_Manager")
 
 onready var anim = get_node("Sprite")
 onready var particles = get_node("../Particles2D")
@@ -76,7 +77,7 @@ func _ready():
 
 	if current_map != null: tile_map = get_node(current_map)
 
-	score += global.score
+	score += Global.score
 	orig_score = score
 		
 	if regain_destroyed_tiles: tile_map.connect("tile_destroyed", self, "_on_tile_destroyed")
@@ -109,13 +110,14 @@ func _input(event):
 
 		if key == KEY_I:
 			invincible = not invincible
+			
+		if key == KEY_N:
+			next_level()
 						
 		if key == KEY_1:
 			add_tiles(1)
-			_emit_count_change()
 		elif key == KEY_2:
 			add_tiles(-1)
-			_emit_count_change()
 
 func _process(delta):
 	var reach_pos = get_reach_pos()
@@ -250,12 +252,13 @@ func get_reach_pos():
 	
 func add_tiles(num):
 	tile_count += num
+	if tile_count < 0: tile_count = 0
+	if num != 0: VFX_Manager.floating_text(self, String(num))
 	_emit_count_change()
 	
 func clear_tilecount():
-	tile_count = 0
-	_emit_count_change()
-	
+	add_tiles(-tile_count)
+		
 func get_tile_count():
 	return tile_count
 	
@@ -310,6 +313,7 @@ func _update_anim():
 			anim.set_animation("standing")
 		
 func collect(points):
+	VFX_Manager.floating_text(self, "$" + String(points))
 	score += points
 	emit_signal("score_change", score)
 	
@@ -322,12 +326,12 @@ func enter_door():
 	next_level()
 
 func reset_level():
-	global.score = orig_score
-	global.reset_level()
+	Global.score = orig_score
+	Global.reset_level()
 
 func next_level():
-	global.score = score
-	global.next_level()
+	Global.score = score
+	Global.next_level()
 	
 func _set_jump_equation(max_height, max_length, time_to_height):
 	gravity.y = (2.0 * max_height) / (time_to_height * time_to_height)

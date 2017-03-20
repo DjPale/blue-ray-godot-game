@@ -7,6 +7,8 @@ export(int) var query_items = 5
 var test_shape
 var test_shape_query
 
+var player_tiles = {}
+
 signal tile_destroyed
 
 func _ready():
@@ -42,9 +44,11 @@ func create_or_destroy_tile(tile_pos, can_create):
 	
 	if cur_tile == tile_num || cur_tile == tile_num_crack:
 		clear_cell(tile_pos)
+		player_tiles.erase(tile_pos)
 		ret = -1
 	elif can_create && cur_tile == -1 && not query_hit:
 		spawn_cell(tile_pos)
+		player_tiles[tile_pos] = true
 		ret = 1
 		
 	return ret
@@ -68,10 +72,10 @@ func tile_on(entity):
 	var tile_pos = world_to_map(entity.get_global_pos())
 	set_cellv(tile_pos, tile_num)
 	
-func _emit_tile_destroyed():
-	emit_signal("tile_destroyed")
+func _emit_tile_destroyed(tile_pos):
+	if player_tiles.has(tile_pos): emit_signal("tile_destroyed")
 	
-# used by enemies and player headbutt
+# used by enemies
 func destroy_tile(tile_pos):
 	var ret = 0
 	
@@ -79,7 +83,7 @@ func destroy_tile(tile_pos):
 	
 	if cur_tile == tile_num || cur_tile == tile_num_crack:
 		clear_cell(tile_pos)
-		_emit_tile_destroyed()
+		_emit_tile_destroyed(tile_pos)
 		ret = -1
 		
 	return ret
@@ -94,7 +98,9 @@ func crack_tile(tile_pos):
 		ret = 0
 	elif cur_tile == tile_num_crack:
 		clear_cell(tile_pos)
-		_emit_tile_destroyed()
+		#_emit_tile_destroyed(tile_pos)
+		emit_signal("tile_destroyed")
+		player_tiles.erase(tile_pos)
 		ret = -1
 		
 	return ret
