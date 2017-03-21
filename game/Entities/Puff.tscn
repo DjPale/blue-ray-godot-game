@@ -1,13 +1,14 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=3 format=1]
 
-[sub_resource type="ColorRamp" id=7]
+[ext_resource path="res://Scripts/DeathByTimeout.gd" type="Script" id=1]
+
+[sub_resource type="ColorRamp" id=1]
 
 offsets = FloatArray( 0, 0.997403 )
 colors = ColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[node name="Particles2D" type="Particles2D"]
+[node name="Puff" type="Particles2D"]
 
-transform/pos = Vector2( 160, 416 )
 config/amount = 20
 config/lifetime = 0.5
 config/emit_timeout = 0.5
@@ -30,6 +31,8 @@ params/final_size = 1.0
 params/hue_variation = 0.0
 params/anim_speed_scale = 1.0
 params/anim_initial_pos = 0.0
-color/color_ramp = SubResource( 7 )
+color/color_ramp = SubResource( 1 )
+script/script = ExtResource( 1 )
+timeout = 0.6
 
 

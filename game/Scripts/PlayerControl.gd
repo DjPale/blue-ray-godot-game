@@ -59,7 +59,6 @@ onready var Global = get_node("/root/Global")
 onready var VFX_Manager = get_node("/root/VFX_Manager")
 
 onready var anim = get_node("Sprite")
-onready var particles = get_node("../Particles2D")
 onready var indicator = get_node("Indicator")
 onready var beam = get_node("Beam")
 
@@ -278,14 +277,12 @@ func _do_tile():
 	
 	var reach_pos = get_reach_pos()
 	
-	if particles != null:
-		particles.set_pos(reach_pos * 64)
-		particles.set_emitting(true)
-
 	_do_beam()
 
 	var tiles_ret = tile_map.create_or_destroy_tile(reach_pos, (get_tile_count() > 0))
 	add_tiles(-tiles_ret)
+
+	if tiles_ret == 0: VFX_Manager.puff(get_parent(), reach_pos * 64)
 
 	_freeze(true)
 

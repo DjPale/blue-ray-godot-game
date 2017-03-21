@@ -10,6 +10,8 @@ Related to core mechanics of the game
 	* Title screen
 	* Credits
 	* Pause mechanism (pause menu?)
+	* Save points?
+	* "Block steal areas" must be inaccessable afterwards to avoid impossible situations - close door or similar
 	* Collision bugs (non-critical)
 		* Find out about "enemy escape" situation
 		* Stuck when hugging wall + jumping sometimes
@@ -20,6 +22,7 @@ Visual fx stuff
 	* Better beam-fx for placing / displacing block (player)
 	* Death animation for player
 	* Intro graphics
+	* Font is cool but is transparent inside :( - consider replacing the font
 
 ## Audio
 Audio-related things

@@ -7,15 +7,15 @@
 [ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk2.atex" type="Texture" id=5]
 [ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk3.atex" type="Texture" id=6]
 [ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk4.atex" type="Texture" id=7]
-[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_switch1.atex" type="Texture" id=8]
-[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_duck.atex" type="Texture" id=9]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_duck.atex" type="Texture" id=8]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_switch1.atex" type="Texture" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 10, -16, 10, 32, -10, 32, -10, -16 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=5]
 
 resource/name = "Pulse"
 length = 1.5
@@ -27,9 +27,9 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ), "transitions":FloatArray( 4, 1, -4, 1, 0.25, 1 ), "update":0, "values":[ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 0.75, 0.75 ), Vector2( 1.1, 1.1 ), Vector2( 0.75, 0.75 ), Vector2( 1, 1 ) ] }
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=3]
 
-animations = [ { "frames":[ ExtResource( 3 ) ], "loop":true, "name":"standing", "speed":5.0 }, { "frames":[ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ) ], "loop":true, "name":"walking", "speed":25.0 }, { "frames":[ ExtResource( 8 ) ], "loop":true, "name":"jumping", "speed":5.0 }, { "frames":[ ExtResource( 9 ) ], "loop":true, "name":"crouching", "speed":5.0 } ]
+animations = [ { "frames":[ ExtResource( 3 ) ], "loop":true, "name":"standing", "speed":5.0 }, { "frames":[ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ) ], "loop":true, "name":"walking", "speed":25.0 }, { "frames":[ ExtResource( 8 ) ], "loop":true, "name":"crouching", "speed":5.0 }, { "frames":[ ExtResource( 9 ) ], "loop":true, "name":"jumping", "speed":5.0 } ]
 
 [sub_resource type="ColorRamp" id=4]
 
@@ -60,7 +60,7 @@ current_map = NodePath("../TileMap")
 head_crack_tiles = true
 regain_destroyed_tiles = true
 tile_count = 0
-tile_pause = 0.6
+tile_pause = 0.3
 tile_length = 9.0
 freeze_time = 0.3
 score = 0
@@ -78,7 +78,7 @@ modulate = Color( 1, 1, 1, 0.501961 )
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/Pulse = SubResource( 3 )
+anims/Pulse = SubResource( 5 )
 playback/active = true
 playback/speed = 0.75
 blend_times = [  ]
@@ -95,7 +95,7 @@ __meta__ = { "_edit_lock_":true }
 [node name="Sprite" type="AnimatedSprite" parent="."]
 
 transform/pos = Vector2( 32, 32 )
-frames = SubResource( 2 )
+frames = SubResource( 3 )
 animation = "standing"
 playing = true
 offset = Vector2( -32, -27 )

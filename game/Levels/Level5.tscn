@@ -9,7 +9,7 @@
 [ext_resource path="res://Entities/UI Layer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Entities/Debug-Tilemap.tscn" type="PackedScene" id=8]
 
-[node name="Level-Template" type="Node"]
+[node name="Level5" type="Node"]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 1 )]
 

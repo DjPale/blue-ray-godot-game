@@ -6,8 +6,6 @@
 [ext_resource path="res://2D/Abstract/Enemies/spritesheet_enemies.enemyFlying_2.atex" type="Texture" id=4]
 [ext_resource path="res://2D/Abstract/Enemies/spritesheet_enemies.enemyFlying_3.atex" type="Texture" id=5]
 
-
-
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
