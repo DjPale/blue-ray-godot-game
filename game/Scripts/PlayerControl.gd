@@ -47,7 +47,6 @@ var is_crouching = false
 
 var face_sign = 1
 
-var orig_pos
 var orig_velocity # used for freezing
 var orig_offset # used for crouching
 var orig_score # level reset
@@ -63,7 +62,9 @@ onready var indicator = get_node("Indicator")
 onready var beam = get_node("Beam")
 
 func _ready():
-	orig_pos = get_pos()
+	if Global.spawn_point != Vector2():
+		set_global_pos(Global.spawn_point)
+	
 	orig_offset = anim.get_offset()
 	jump_counter = jump_count
 	_set_jump_equation(jump_max_height, jump_max_length, jump_time_to_height)
@@ -128,9 +129,12 @@ func _fixed_process(delta):
 	if freeze_timer > 0: return
 	
 	_check_state()
-	
+
 	velocity.x = 0
-	velocity.y += delta * gravity.y
+	if on_ground: 
+		velocity.y = 0
+	else:
+		velocity.y += delta * gravity.y
 
 	if (input_enable && Input.is_action_pressed("ui_left")):
 		velocity.x = -walk_speed
@@ -163,9 +167,8 @@ func _fixed_process(delta):
 				hit(obj)
 
 	var motion = velocity * delta
-	
 	motion = move(motion)
-	
+
 	if (is_colliding()):
 		var n = get_collision_normal()
 		var obj = get_collider()
@@ -183,7 +186,7 @@ func _fixed_process(delta):
 	_update_anim()
 
 	# temp death	
-	if get_pos().y > 800: reset_level()
+	if get_pos().y > 800: hit(self)
 
 func _do_timers(delta):
 	if jump_timer > 0:
@@ -310,12 +313,18 @@ func _update_anim():
 			anim.set_animation("standing")
 		
 func collect(points):
-	VFX_Manager.floating_text(self, "$" + String(points))
-	score += points
-	emit_signal("score_change", score)
+	if score + points < 0:
+		points = -score
+	
+	if points != 0:
+		VFX_Manager.floating_text(self, String(points))
+		score += points
+		emit_signal("score_change", score)
 	
 func hit(obj):
 	if invincible: return
+	
+	#collect(-1000)
 	
 	reset_level()
 	
@@ -329,6 +338,9 @@ func reset_level():
 func next_level():
 	Global.score = score
 	Global.next_level()
+	
+func set_spawn(obj):
+	Global.spawn_point = obj.get_global_pos()
 	
 func _set_jump_equation(max_height, max_length, time_to_height):
 	gravity.y = (2.0 * max_height) / (time_to_height * time_to_height)

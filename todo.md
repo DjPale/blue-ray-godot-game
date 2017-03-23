@@ -10,11 +10,8 @@ Related to core mechanics of the game
 	* Title screen
 	* Credits
 	* Pause mechanism (pause menu?)
-	* Save points?
-	* "Block steal areas" must be inaccessable afterwards to avoid impossible situations - close door or similar
 	* Collision bugs (non-critical)
 		* Find out about "enemy escape" situation
-		* Stuck when hugging wall + jumping sometimes
 
 ## Gfx and misc fx
 Visual fx stuff

@@ -13,31 +13,32 @@ signal tile_destroyed
 
 func _ready():
 	test_shape = RectangleShape2D.new()
-	test_shape.set_extents(Vector2(get_cell_size().x / 2, get_cell_size().y / 2))
+	test_shape.set_extents(Vector2(get_cell_size().x / 2 - 2, get_cell_size().y / 2 - 2))
 	
 	test_shape_query = Physics2DShapeQueryParameters.new()
 	test_shape_query.set_shape(test_shape)
 	test_shape_query.set_exclude([self])
 	#test_shape_query.set_object_type_mask(test_shape_query.get_object_type_mask() | Physics2DDirectSpaceState.TYPE_MASK_AREA)
-	test_shape_query.set_object_type_mask(Physics2DDirectSpaceState.TYPE_MASK_KINEMATIC_BODY | Physics2DDirectSpaceState.TYPE_MASK_AREA)
+	test_shape_query.set_object_type_mask(Physics2DDirectSpaceState.TYPE_MASK_KINEMATIC_BODY | Physics2DDirectSpaceState.TYPE_MASK_AREA | Physics2DDirectSpaceState.TYPE_MASK_STATIC_BODY)
 	
 # only to be used by player placement
 func create_or_destroy_tile(tile_pos, can_create):
 	var ret = 0
 	var space_state = get_world_2d().get_direct_space_state()
 	
-	test_shape_query.set_transform(Matrix32(0, tile_pos * get_cell_size() + test_shape.get_extents()))
+	test_shape_query.set_transform(Matrix32(0, tile_pos * get_cell_size() + test_shape.get_extents() + Vector2(1, 1)))
 	var collisions = space_state.intersect_shape(test_shape_query, query_items)
 	
 	var query_hit = false
 	
 	# hacckkkk :( -> since Area doesn't detect StaticBodies which the tiles are using
 	for c in collisions:
+		print("Collide with ", c)
 		var col = c["collider"]
 		if col extends preload("Item.gd"):
 			if can_create:
 				col.reveal()
-		else:
+		elif col != self:
 			query_hit = true
 
 	var cur_tile = get_cellv(tile_pos)

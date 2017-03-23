@@ -2,6 +2,7 @@ extends Node
 
 var score = 0
 var level = 0
+var spawn_point = Vector2()
 
 var level_list = [
 	"Level1",
@@ -24,6 +25,7 @@ func next_level():
 	level += 1
 	if level >= level_list.size(): level = 0
 	
+	spawn_point = Vector2()
 	get_tree().change_scene("res://Levels/" + level_list[level] + ".tscn")
 	
 func get_level_name():
