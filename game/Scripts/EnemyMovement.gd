@@ -72,8 +72,8 @@ func _do_movement(delta):
 		if obj extends preload("PlayerControl.gd"):
 			obj.hit(self)
 
-		if n.x < 0: dir = 1
-		if n.x > 0: dir = 0
+		if n.x == -1: dir = 1
+		if n.x == 1: dir = 0
 
 		motion = n.slide(motion)
 		velocity = n.slide(velocity)

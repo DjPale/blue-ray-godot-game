@@ -89,7 +89,10 @@ func _ready():
 	_emit_count_change()
 	emit_signal("score_change", score)
 
-	if debug_keys: set_process_input(true)
+	if debug_keys: 
+		set_process_input(true)
+		get_parent().call_deferred("add_child", preload("res://Entities/Debug-Tilemap.tscn").instance())
+		
 	set_process(true)
 	set_fixed_process(true)
 	
@@ -129,7 +132,7 @@ func _fixed_process(delta):
 	if freeze_timer > 0: return
 	
 	_check_state()
-
+		
 	velocity.x = 0
 	if on_ground: 
 		velocity.y = 0
@@ -153,18 +156,21 @@ func _fixed_process(delta):
 	
 	if input_enable && Input.is_action_pressed("ui_accept"): _do_tile()
 
-	# not sure why this happens TBH
-	if is_colliding():
-		var n = get_collision_normal()
-		if n.x != 0: velocity.x = 0
-		if n.y != 0: velocity.y = 0
-		var obj = get_collider()
-		if obj != null && obj != tile_map: 
-			# TODO: OMMMGG find better solution on this scenario
-			# This is probably because the collision test will trigger at on object first and prevent it from colliding with the targetr
-			# Therefore only one of the entities tests positive on "is_colliding"...
-			if obj.has_node("BasicEnemy") || obj extends preload("Projectile.gd"):
-				hit(obj)
+	if on_ground:
+		var vel_add = false
+		
+		if raycast_left.is_colliding(): 
+			var obj = raycast_left.get_collider()
+			_deadly_collision_check(obj)
+			if "velocity" in obj: 
+				velocity.x += obj.velocity.x
+				vel_add = true
+			
+		if raycast_right.is_colliding(): 
+			var obj = raycast_left.get_collider()
+			_deadly_collision_check(obj)
+			if not vel_add && "velocity" in obj: 
+				velocity.x += obj.velocity.x
 
 	var motion = velocity * delta
 	motion = move(motion)
@@ -172,9 +178,7 @@ func _fixed_process(delta):
 	if (is_colliding()):
 		var n = get_collision_normal()
 		var obj = get_collider()
-		if obj != null && obj != tile_map: 
-			if obj.has_node("BasicEnemy") || obj extends preload("Projectile.gd"):
-				hit(obj)
+		_deadly_collision_check(obj)
 			
 		motion = n.slide(motion)
 		velocity = n.slide(velocity)
@@ -321,8 +325,15 @@ func collect(points):
 		score += points
 		emit_signal("score_change", score)
 	
+func _deadly_collision_check(obj):
+	if obj != null && obj != tile_map: 
+		if obj.has_node("BasicEnemy") || obj extends preload("Projectile.gd"):
+			hit(obj)
+	
 func hit(obj):
 	if invincible: return
+	
+	input_enable = false
 	
 	#collect(-1000)
 	

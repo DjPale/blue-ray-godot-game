@@ -10,14 +10,19 @@ Related to core mechanics of the game
 	* Title screen
 	* Credits
 	* Pause mechanism (pause menu?)
-	* Collision bugs (non-critical)
-		* Find out about "enemy escape" situation
+
+## Enemies / AI
+Enemy types
+
+	* Complete "spinner" enemy type
+	* Additional "aggressive" walker type with fire / fireballs? (Like Solomon's key)
+	* Final "boss"?
 
 ## Gfx and misc fx
 Visual fx stuff
 
 	* Better beam-fx for placing / displacing block (player)
-	* Death animation for player
+	* Death animation / transition for player
 	* Intro graphics
 	* Font is cool but is transparent inside :( - consider replacing the font
 
@@ -29,12 +34,10 @@ Audio-related things
 	* Create / Download Sfx
 	* Create / Download Music
 
-## Levels
-Level design
+## Levels / game design
+Level design and story and stuff
 
-	* Design tutorial level
-	* Design moar levls!
-	* See previous point
+	* See "levels.md"
 
 ## Promotion [e]
 "Promoting" the game

@@ -5,10 +5,11 @@ var level = 0
 var spawn_point = Vector2()
 
 var level_list = [
-	"Level1",
-	"Level2",
-	"Level3",
-	"Level4"
+	"Blind leading the Blind",
+	"The Beginning",
+	"Do not go with the flow",
+	"The Tower",
+	"Boxed"
 ]
 
 func _ready():
@@ -27,6 +28,3 @@ func next_level():
 	
 	spawn_point = Vector2()
 	get_tree().change_scene("res://Levels/" + level_list[level] + ".tscn")
-	
-func get_level_name():
-	return "Level " + String(level + 1)
