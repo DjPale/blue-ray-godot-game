@@ -33,7 +33,7 @@ func create_or_destroy_tile(tile_pos, can_create):
 	
 	# hacckkkk :( -> since Area doesn't detect StaticBodies which the tiles are using
 	for c in collisions:
-		print("Collide with ", c)
+		#print("Collide with ", c)
 		var col = c["collider"]
 		if col extends preload("Item.gd"):
 			if can_create:

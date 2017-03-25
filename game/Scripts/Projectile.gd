@@ -53,7 +53,7 @@ func _do_movement(delta):
 	
 	if is_colliding():
 		var obj = get_collider()
-		print("projectile#", self.get_name(), "->", obj)
+		#print("projectile#", self.get_name(), "->", obj)
 		
 		if (destroy_tiles && obj == tile_map):
 			tile_map.destroy_tile(tile_map.world_to_map(get_collision_pos() + Vector2(sign(velocity.x) * 2, sign(velocity.y))))

@@ -36,7 +36,7 @@ No idea... Alien something something
 	- Should be an easy level
 
 ### The Beginning
-* State: Final polish (secrets)
+* State: Needs polish (secrets)
 * Theme: World intro, first "real level"
 * Size: Small
 * Enemies: 1 patrol + 1 flying
@@ -44,16 +44,6 @@ No idea... Alien something something
 	- How to avoid enemies
 	- Find hidden coins
 * Description: Easy, introduces fliers. Needs basic avoiding to reach level.
-
-### "Upsize"
-* State: Not started
-* Theme: ?
-* Size: Medium+
-* Enemies:
-	- ?
-* Learn:
-	- ?
-* Description:
 
 ### "Placeholder 1"
 * State: Not started
@@ -64,6 +54,16 @@ No idea... Alien something something
 * Learn:
 	- ?
 * Description:
+
+### Upscale
+* State: Needs polish
+* Theme: Narrow jumps, precision
+* Size: Medium+
+* Enemies:
+	- Static
+* Learn:
+	- Reclaim blocks, precision
+* Description: Narrow platforms but not too hard
 
 ### Flow manipulator
 * State: Complete
