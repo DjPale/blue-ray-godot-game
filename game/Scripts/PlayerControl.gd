@@ -139,22 +139,22 @@ func _fixed_process(delta):
 	else:
 		velocity.y += delta * gravity.y
 
-	if (input_enable && Input.is_action_pressed("ui_left")):
+	if (input_enable && Input.is_action_pressed("player_left")):
 		velocity.x = -walk_speed
 		face_sign = -1
-	elif (input_enable && Input.is_action_pressed("ui_right")):
+	elif (input_enable && Input.is_action_pressed("player_right")):
 		velocity.x = walk_speed
 		face_sign = 1
 
-	if (input_enable && Input.is_action_pressed("ui_down") && on_ground):
+	if (input_enable && Input.is_action_pressed("player_crouch") && on_ground):
 		is_crouching = true
 		velocity.x = 0
 
 	if not on_ground: velocity.x *= jump_move_x_scale
 		
-	if input_enable && Input.is_action_pressed("ui_up"): _jump()
+	if input_enable && Input.is_action_pressed("player_jump"): _jump()
 	
-	if input_enable && Input.is_action_pressed("ui_accept"): _do_tile()
+	if input_enable && Input.is_action_pressed("player_action"): _do_tile()
 
 	if on_ground:
 		var vel_add = false
