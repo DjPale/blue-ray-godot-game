@@ -17,10 +17,10 @@ shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 4
-collision/mask = 4
+collision/mask = 0
 collision/margin = 0.08
 script/script = ExtResource( 1 )
-speed = Vector2( -100, 100 )
+speed = Vector2( 100, 0 )
 
 [node name="BasicEnemy" type="Node2D" parent="."]
 

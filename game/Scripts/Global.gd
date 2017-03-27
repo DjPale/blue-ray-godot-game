@@ -7,6 +7,7 @@ var spawn_point = Vector2()
 var level_list = [
 	"Blind leading the Blind",
 	"The Beginning",
+	"Spin Spin Sugar",
 	"Upscale",
 	"Do not go with the flow",
 	"The Tower",

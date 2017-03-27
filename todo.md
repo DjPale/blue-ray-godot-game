@@ -27,6 +27,7 @@ Visual fx stuff
 
 	* Better beam-fx for placing / displacing block (player)
 	* Death animation / transition for player
+	* Small smoke-like particles for enemies when touching ground (walkers + spinners)
 	* Intro graphics
 	* Font is cool but is transparent inside :( - consider replacing the font
 

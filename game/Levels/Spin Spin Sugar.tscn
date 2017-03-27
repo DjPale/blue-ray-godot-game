@@ -1,0 +1,141 @@
+[gd_scene load_steps=13 format=1]
+
+[ext_resource path="res://Entities/Blue_Parallax_BG.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entities/TileMap-Decorations.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/TileMap-Blue.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/Jewel-Blue.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/Coin-Gold.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Entities/Coin-Silver.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Entities/Coin-Bronze.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Entities/Key.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Entities/Door.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Entities/EnemySpinning.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Entities/UI Layer.tscn" type="PackedScene" id=12]
+
+[node name="Spin Spin Sugar" type="Node"]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 1 )]
+
+[node name="TileMap-Decorations" parent="." instance=ExtResource( 2 )]
+
+cell/size = Vector2( 32, 32 )
+tile_data = IntArray( 196617, 1, 589844, 3, 589852, 0, 983042, 0, 983050, 6, 983056, 1, 983063, 6, 1245188, 5, 1245192, 0, 1245196, 4, 1245204, 1, 1245209, 3, 1245218, 1, 1245222, 0, 1245227, 4 )
+
+[node name="TileMap" parent="." instance=ExtResource( 3 )]
+
+tile_data = IntArray( 131072, 27, 131076, 25, 131077, 26, 131078, 0, 196608, 27, 262144, 27, 262166, 27, 327680, 27, 327685, 16, 327690, 27, 327693, 27, 327694, 27, 327702, 27, 393216, 27, 393221, 16, 393225, 27, 393227, 27, 393229, 27, 393230, 27, 393238, 27, 458752, 27, 458766, 27, 458774, 27, 524288, 27, 524289, 4, 524290, 4, 524291, 4, 524292, 4, 524293, 4, 524294, 4, 524295, 4, 524296, 4, 524297, 4, 524298, 4, 524299, 15, 524302, 27, 524308, 27, 524310, 27, 589824, 27, 589838, 27, 589840, 16, 589846, 27, 655360, 3, 655361, 4, 655362, 4, 655363, 4, 655364, 4, 655365, 4, 655366, 4, 655367, 4, 655368, 4, 655369, 4, 655370, 4, 655371, 4, 655372, 4, 655373, 4, 655374, 5, 655376, 3, 655377, 4, 655378, 4, 655379, 4, 655380, 4, 655381, 4, 655382, 5, 720896, 2, 720897, 2, 720898, 2, 720899, 2, 720900, 2, 720901, 2, 720902, 2, 720903, 2, 720904, 2, 720905, 2, 720906, 2, 720907, 2, 720908, 2, 720909, 2, 720910, 2, 720912, 2, 720913, 2, 720914, 2, 720915, 2, 720916, 2, 720917, 2, 720918, 2 )
+
+[node name="Pickups" type="Node" parent="TileMap"]
+
+[node name="Jewel-Blue" parent="TileMap/Pickups" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 96, 608 )
+appear_timeout = 0.3
+
+[node name="Coin-Gold" parent="TileMap/Pickups" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 224, 608 )
+appear_timeout = 0.3
+
+[node name="Coin-Gold1" parent="TileMap/Pickups" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 864, 288 )
+hidden = true
+appear_timeout = 0.3
+
+[node name="Coin-Silver" parent="TileMap/Pickups" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 352, 608 )
+appear_timeout = 0.3
+
+[node name="Coin-Silver1" parent="TileMap/Pickups" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 992, 608 )
+hidden = true
+appear_timeout = 0.3
+
+[node name="Coin-Silver2" parent="TileMap/Pickups" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1312, 608 )
+hidden = true
+appear_timeout = 0.3
+
+[node name="Coin-Bronze" parent="TileMap/Pickups" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 480, 608 )
+appear_timeout = 0.3
+
+[node name="Coin-Bronze2" parent="TileMap/Pickups" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 928, 288 )
+appear_timeout = 0.3
+
+[node name="Coin-Bronze3" parent="TileMap/Pickups" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 1184, 544 )
+appear_timeout = 0.3
+
+[node name="Coin-Bronze1" parent="TileMap/Pickups" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 672, 416 )
+appear_timeout = 0.3
+
+[node name="Key" parent="TileMap" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 352, 288 )
+
+[node name="Door" parent="TileMap" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 1312, 480 )
+
+[node name="Enemies" type="Node" parent="TileMap"]
+
+[node name="EnemySpinning" parent="TileMap/Enemies" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 352, 292 )
+
+[node name="EnemySpinning4" parent="TileMap/Enemies" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 1312, 485 )
+
+[node name="EnemySpinning1" parent="TileMap/Enemies" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 672, 416 )
+
+[node name="EnemySpinning2" parent="TileMap/Enemies" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( -28, 480 )
+speed = Vector2( 0, -100 )
+
+[node name="EnemySpinning3" parent="TileMap/Enemies" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 868, 294 )
+
+[node name="Player" parent="." instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 160, 480 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = -64
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 764
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+__meta__ = { "_edit_lock_":true }
+
+[node name="UI Layer" parent="." instance=ExtResource( 12 )]
+
+

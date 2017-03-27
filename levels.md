@@ -46,7 +46,7 @@ No idea... Alien something something
 * Description: Easy, introduces fliers. Needs basic avoiding to reach level.
 
 ### Spin Spin Sugar
-* State: Not started
+* State: Final polish (too small?)
 * Theme: Spinning enemies
 * Size: Small
 * Enemies:

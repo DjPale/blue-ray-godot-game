@@ -39,7 +39,8 @@ func _get_tile(dir, vel_add = true):
 	return tile_map.get_cellv(tile_map.world_to_map(reach_pos))
 
 func _is_fixed_tile(dir, vel_add = true):
-	return (_get_tile(dir, vel_add) != -1)
+	var t = _get_tile(dir, vel_add)
+	return (t != -1 && t != 2)
 
 func _check_state():
 	has_tile_lock = false
