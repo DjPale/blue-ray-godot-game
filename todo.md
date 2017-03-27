@@ -1,6 +1,10 @@
 # TODO for Blue Ray
 
-Goal is to have an OK game - put it on itch.io and possibly get it showcased on Godot pages :)
+## Goals 
+* OK game with ~ 20 levels
+* Finsihed before LDJam #38 (21.04.17)
+* Put it on itch.io
+* Get it in the Godot showcase? :)
 
 ## Mechanics
 Related to core mechanics of the game
@@ -8,13 +12,13 @@ Related to core mechanics of the game
 	* Death timeout for player
 	* Some kind of introductory story?
 	* Title screen
-	* Credits
+	* End-of-game screen
 	* Pause mechanism (pause menu?)
+	* Credits (could be in pause menu)
 
 ## Enemies / AI
 Enemy types
 
-	* Complete "spinner" enemy type
 	* Additional "aggressive" walker type with fire / fireballs? (Like Solomon's key)
 	* Final "boss"?
 

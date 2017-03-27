@@ -85,6 +85,8 @@ func _check_state():
 	on_right_edge = not raycast_right.is_colliding() and raycast_left.is_colliding()
 	
 	on_ground = raycast_left.is_colliding() or raycast_right.is_colliding()
+	
+	if get_global_pos().y > 1000: queue_free()
 
 func _update_anims():
 	anim.set_flip_h(dir == 1)

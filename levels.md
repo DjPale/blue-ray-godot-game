@@ -45,24 +45,25 @@ No idea... Alien something something
 	- Find hidden coins
 * Description: Easy, introduces fliers. Needs basic avoiding to reach level.
 
-### "Placeholder 1"
+### Spin Spin Sugar
 * State: Not started
-* Theme: ?
-* Size: ?
+* Theme: Spinning enemies
+* Size: Small
 * Enemies:
-	- ?
+	- Spinners
 * Learn:
-	- ?
-* Description:
+	- Manipulate spinning enemies
+* Description: Manipulate in order to proceed, learn the behaviour
 
 ### Upscale
-* State: Needs polish
+* State: Needs polish + coins
 * Theme: Narrow jumps, precision
 * Size: Medium+
 * Enemies:
 	- Static
 * Learn:
 	- Reclaim blocks, precision
+	- Block spacing
 * Description: Narrow platforms but not too hard
 
 ### Flow manipulator

@@ -11,5 +11,3 @@ func _fixed_process(delta):
 		var obj = body.get_collider()
 		if obj extends preload("PlayerControl.gd"):
 			obj.hit(self)
-			
-	if get_pos().y > 800: queue_free()

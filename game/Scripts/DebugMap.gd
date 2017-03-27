@@ -23,10 +23,10 @@ func _ready():
 	set_process_input(true)
 	
 func _input(event):
-	if event.type == InputEvent.MOUSE_BUTTON:
-		if not event.pressed and event.button_index == BUTTON_LEFT:
-			_do_shit(get_global_mouse_pos())
-	elif event.type == InputEvent.KEY:
+	#if event.type == InputEvent.MOUSE_BUTTON:
+		#if not event.pressed and event.button_index == BUTTON_LEFT:
+		#	_do_shit(get_global_mouse_pos())
+	if event.type == InputEvent.KEY:
 		if not event.pressed and event.scancode == KEY_D:
 			_do_shit(_player.get_global_pos())
 

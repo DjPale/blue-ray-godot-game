@@ -3,19 +3,19 @@
 [ext_resource path="res://Scripts/PlayerControl.gd" type="Script" id=1]
 [ext_resource path="res://2D/Abstract/abstract_tiles.tileBlue_03.atex" type="Texture" id=2]
 [ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_stand.atex" type="Texture" id=3]
-[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk1.atex" type="Texture" id=4]
-[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk2.atex" type="Texture" id=5]
-[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk3.atex" type="Texture" id=6]
-[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk4.atex" type="Texture" id=7]
-[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_duck.atex" type="Texture" id=8]
-[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_switch1.atex" type="Texture" id=9]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_switch1.atex" type="Texture" id=4]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_duck.atex" type="Texture" id=5]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk1.atex" type="Texture" id=6]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk2.atex" type="Texture" id=7]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk3.atex" type="Texture" id=8]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk4.atex" type="Texture" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 10, -16, 10, 32, -10, 32, -10, -16 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 
 resource/name = "Pulse"
 length = 1.5
@@ -29,7 +29,7 @@ tracks/0/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ), "transitions":
 
 [sub_resource type="SpriteFrames" id=3]
 
-animations = [ { "frames":[ ExtResource( 3 ) ], "loop":true, "name":"standing", "speed":5.0 }, { "frames":[ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ) ], "loop":true, "name":"walking", "speed":25.0 }, { "frames":[ ExtResource( 8 ) ], "loop":true, "name":"crouching", "speed":5.0 }, { "frames":[ ExtResource( 9 ) ], "loop":true, "name":"jumping", "speed":5.0 } ]
+animations = [ { "frames":[ ExtResource( 3 ) ], "loop":true, "name":"standing", "speed":5.0 }, { "frames":[ ExtResource( 4 ) ], "loop":true, "name":"jumping", "speed":5.0 }, { "frames":[ ExtResource( 5 ) ], "loop":true, "name":"crouching", "speed":5.0 }, { "frames":[ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ) ], "loop":true, "name":"walking", "speed":25.0 } ]
 
 [sub_resource type="ColorRamp" id=4]
 
@@ -44,7 +44,7 @@ shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
-collision/mask = 3
+collision/mask = 7
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 gravity = Vector2( 0, 200 )
@@ -78,7 +78,7 @@ modulate = Color( 1, 1, 1, 0.501961 )
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/Pulse = SubResource( 5 )
+anims/Pulse = SubResource( 2 )
 playback/active = true
 playback/speed = 0.75
 blend_times = [  ]
