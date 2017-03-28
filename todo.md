@@ -15,6 +15,7 @@ Related to core mechanics of the game
 	* End-of-game screen
 	* Pause mechanism (pause menu?)
 	* Credits (could be in pause menu)
+	* Pressure plate mechanics? (Probably not...)
 
 ## Enemies / AI
 Enemy types
@@ -25,11 +26,11 @@ Enemy types
 ## Gfx and misc fx
 Visual fx stuff
 
+	* Change tileset after level 10?
 	* Better beam-fx for placing / displacing block (player)
 	* Death animation / transition for player
 	* Small smoke-like particles for enemies when touching ground (walkers + spinners)
 	* Intro graphics
-	* Font is cool but is transparent inside :( - consider replacing the font
 
 ## Audio
 Audio-related things
@@ -43,6 +44,7 @@ Audio-related things
 Level design and story and stuff
 
 	* See "levels.md"
+	* Currently ~ 8 / 20
 
 ## Promotion [e]
 "Promoting" the game
