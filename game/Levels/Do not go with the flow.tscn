@@ -72,6 +72,8 @@ transform/pos = Vector2( 96, 288 )
 
 [node name="Player" parent="." instance=ExtResource( 9 )]
 
+transform/pos = Vector2( 352, 480 )
+
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 anchor_mode = 1

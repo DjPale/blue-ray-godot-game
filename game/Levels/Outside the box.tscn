@@ -15,7 +15,7 @@
 [ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Entities/UI Layer.tscn" type="PackedScene" id=14]
 
-[node name="Boxed" type="Node"]
+[node name="Outside the box" type="Node"]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 1 )]
 

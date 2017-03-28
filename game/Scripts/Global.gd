@@ -8,10 +8,11 @@ var level_list = [
 	"Blind leading the Blind",
 	"The Beginning",
 	"Spin Spin Sugar",
-	"Upscale",
+	"Firestarter",
 	"Do not go with the flow",
 	"The Tower",
-	"Boxed"
+	"Shields Aligned",
+	"Outside the box"
 ]
 
 func _ready():

@@ -15,7 +15,7 @@ func _process(delta):
 		life_counter -= delta
 		if life_counter <= 0:
 			deallocate()
-			get_parent().queue_free()
+			get_parent().die()
 
 func deallocate():
 	if spawner != null: 

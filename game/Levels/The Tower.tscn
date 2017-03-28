@@ -145,7 +145,7 @@ start_dir = 1
 
 [node name="Player" parent="." instance=ExtResource( 15 )]
 
-transform/pos = Vector2( 800, -224 )
+transform/pos = Vector2( 96, 544 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 

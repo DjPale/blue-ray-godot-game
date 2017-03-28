@@ -55,7 +55,7 @@ No idea... Alien something something
 	- Manipulate spinning enemies
 * Description: Manipulate in order to proceed, learn the behaviour
 
-### Upscale
+### Firestarter
 * State: Needs polish + coins
 * Theme: Narrow jumps, precision
 * Size: Medium+
@@ -75,16 +75,6 @@ No idea... Alien something something
 * Description:
 	- Medium difficulty
 
-### "Placeholder 2"
-* State: Not started
-* Theme: ?
-* Size: ?
-* Enemies:
-	- ?
-* Learn:
-	- ?
-* Description:
-
 ### The Tower
 * State: Complete(?)
 * File: 
@@ -98,3 +88,27 @@ No idea... Alien something something
 * Description:
 	* Climb up tower, manage tiles to get on top
 	* When exiting on top, savepoint
+
+### Shields Aligned
+* State: Outline complete, lack polish + coins + secrets
+* Theme: More complex - block enemies, may get stuck :((
+* Size: Medium
+* Enemies:
+	- Spinners
+	- Spawners
+	- Static
+* Learn:
+	- Use blocks extensively in order to disrupt enemy flow!
+* Description:
+	- May get stuck! (Hopefully with a way to get killed by fall / enemies)
+
+### Outside the Box
+* State: Not started
+* Theme: Multiple boxes
+* Size: ?
+* Enemies:
+	- All
+* Learn: -
+* Description: 
+	- Contained "boxes" with more advanced puzzles.
+	- Spawnpoint + closing doors after each box.

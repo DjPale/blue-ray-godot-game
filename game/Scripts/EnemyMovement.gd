@@ -19,6 +19,7 @@ var on_left_edge = false
 var on_right_edge = false
 
 onready var tile_map = get_tree().get_root().find_node("TileMap", true, false)
+onready var VFX_Manager = get_node("/root/VFX_Manager")
 
 var dir
 
@@ -86,7 +87,7 @@ func _check_state():
 	
 	on_ground = raycast_left.is_colliding() or raycast_right.is_colliding()
 	
-	if get_global_pos().y > 1000: queue_free()
+	if get_global_pos().y > 2000: die()
 
 func _update_anims():
 	anim.set_flip_h(dir == 1)
@@ -94,3 +95,7 @@ func _update_anims():
 		anim.set_animation("walk")
 	else:
 		anim.set_animation("standing")
+
+func die():
+	VFX_Manager.puff(get_node("/root"), get_global_pos() - Vector2(32, 32))
+	queue_free()

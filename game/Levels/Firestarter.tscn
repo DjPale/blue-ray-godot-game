@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://Entities/Blue_Parallax_BG.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/TileMap-Decorations.tscn" type="PackedScene" id=2]
@@ -9,10 +9,12 @@
 [ext_resource path="res://Entities/EnemyStaticDown.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Entities/EnemyStaticLeft.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Entities/EnemyPatrolling.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Entities/UI Layer.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Entities/EnemyStaticRight.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Entities/EnemySpinning.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Entities/UI Layer.tscn" type="PackedScene" id=13]
 
-[node name="Upscale" type="Node"]
+[node name="Firestarter" type="Node"]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 1 )]
 
@@ -20,7 +22,7 @@
 
 [node name="TileMap" parent="." instance=ExtResource( 3 )]
 
-tile_data = IntArray( -196585, 27, 65550, 27, 65551, 16, 65552, 27, 65558, 25, 65559, 26, 65560, 0, 131074, 27, 131078, 27, 131082, 27, 131086, 25, 131087, 26, 131088, 0, 327678, 27, 327679, 16, 393214, 25, 393215, 26, 327680, 0, 393220, 1, 458760, 1, 655358, 16, 589838, 16, 720894, 3, 720895, 4, 655360, 5, 655364, 6, 655368, 6, 655372, 3, 655373, 4, 655374, 5 )
+tile_data = IntArray( -196585, 27, 65550, 27, 65551, 16, 65552, 27, 65558, 14, 65559, 4, 65560, 15, 131074, 27, 131078, 27, 131082, 27, 131086, 25, 131087, 26, 131088, 0, 131095, 2, 196631, 2, 327678, 27, 327679, 16, 262167, 2, 393214, 25, 393215, 26, 327680, 0, 327703, 2, 393220, 1, 393239, 2, 458760, 1, 458775, 2, 524311, 2, 655358, 16, 589838, 16, 589847, 2, 720894, 3, 720895, 4, 655360, 5, 655364, 6, 655368, 6, 655372, 3, 655373, 4, 655374, 5, 655383, 2 )
 
 [node name="Pickups" type="Node" parent="TileMap"]
 
@@ -67,6 +69,10 @@ spawn_cnt = 2.0
 
 transform/pos = Vector2( 96, 160 )
 
+[node name="EnemyStaticLeft1" parent="TileMap/Enemies" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 608, 160 )
+
 [node name="EnemyPatrolling" parent="TileMap/Enemies" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( -96, 224 )
@@ -75,9 +81,25 @@ transform/pos = Vector2( -96, 224 )
 
 transform/pos = Vector2( 992, 32 )
 
-[node name="Player" parent="." instance=ExtResource( 10 )]
+[node name="EnemyStaticRight" parent="TileMap/Enemies" instance=ExtResource( 10 )]
 
-transform/pos = Vector2( 672, 96 )
+transform/pos = Vector2( 224, 160 )
+
+[node name="EnemyStaticRight1" parent="TileMap/Enemies" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 736, 160 )
+
+[node name="EnemyStaticRight2" parent="TileMap/Enemies" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 1120, 96 )
+
+[node name="EnemySpinning" parent="TileMap/Enemies" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 1440, 36 )
+
+[node name="Player" parent="." instance=ExtResource( 12 )]
+
+transform/pos = Vector2( -32, 608 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -99,6 +121,6 @@ drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 __meta__ = { "_edit_lock_":true }
 
-[node name="UI Layer" parent="." instance=ExtResource( 11 )]
+[node name="UI Layer" parent="." instance=ExtResource( 13 )]
 
 

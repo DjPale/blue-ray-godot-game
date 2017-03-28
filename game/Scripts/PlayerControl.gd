@@ -57,6 +57,7 @@ var raycast_right
 onready var Global = get_node("/root/Global")
 onready var VFX_Manager = get_node("/root/VFX_Manager")
 
+onready var camera = get_node("Camera2D")
 onready var anim = get_node("Sprite")
 onready var indicator = get_node("Indicator")
 onready var beam = get_node("Beam")
@@ -162,14 +163,14 @@ func _fixed_process(delta):
 		if raycast_left.is_colliding(): 
 			var obj = raycast_left.get_collider()
 			_deadly_collision_check(obj)
-			if "velocity" in obj: 
+			if obj != null && "velocity" in obj: 
 				velocity.x += obj.velocity.x
 				vel_add = true
 			
 		if raycast_right.is_colliding(): 
 			var obj = raycast_left.get_collider()
 			_deadly_collision_check(obj)
-			if not vel_add && "velocity" in obj: 
+			if not vel_add && obj != null && "velocity" in obj: 
 				velocity.x += obj.velocity.x
 
 	var motion = velocity * delta
@@ -189,8 +190,11 @@ func _fixed_process(delta):
 		
 	_update_anim()
 
-	# temp death	
-	if get_pos().y > 800: hit(self)
+	# temp death
+	if camera != null:
+		if get_pos().y > camera.get_limit(MARGIN_BOTTOM): hit(self)
+	else:
+		if get_pos().y > 1500: hit(self)
 
 func _do_timers(delta):
 	if jump_timer > 0:

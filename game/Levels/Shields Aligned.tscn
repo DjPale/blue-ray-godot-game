@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=1]
+
+[ext_resource path="res://Entities/Blue_Parallax_BG.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entities/TileMap-Decorations.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/TileMap-Blue.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/Key.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/Door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Entities/EnemySpawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Entities/EnemySpinning.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Entities/EnemyStaticDown.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Entities/UI Layer.tscn" type="PackedScene" id=10]
+
+[node name="Shields Aligned" type="Node"]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 1 )]
+
+[node name="TileMap-Decorations" parent="." instance=ExtResource( 2 )]
+
+[node name="TileMap" parent="." instance=ExtResource( 3 )]
+
+tile_data = IntArray( -196624, 27, -196623, 27, -196622, 27, -196621, 27, -196620, 27, -196619, 27, -196618, 27, -196617, 27, -196616, 27, -196615, 27, -196614, 27, -196613, 27, -196612, 27, -196611, 27, -196610, 27, -196609, 27, -262144, 27, -262143, 27, -262142, 27, -262141, 27, -262140, 27, -262139, 27, -262138, 27, -262137, 27, -262136, 27, -262135, 27, -262134, 27, -262133, 27, -262132, 27, -262131, 27, -262130, 27, -262129, 27, -131088, 27, -196593, 27, -65552, 27, -131057, 27, -16, 27, -65521, 27, 65520, 27, 15, 27, 131056, 27, 131066, 27, 131067, 16, 131068, 27, 65544, 27, 65551, 27, 196592, 27, 196602, 27, 196604, 27, 131075, 27, 131080, 27, 131087, 27, 262128, 27, 262134, 27, 262138, 27, 262139, 27, 262140, 27, 196616, 27, 196623, 27, 327664, 27, 327670, 27, 327671, 27, 262152, 27, 262159, 27, 393200, 27, 393206, 27, 393210, 27, 393211, 27, 393212, 27, 327688, 27, 327695, 27, 458736, 27, 458742, 27, 458745, 27, 458748, 27, 393224, 27, 393231, 27, 524272, 27, 524281, 27, 524284, 27, 458758, 27, 458760, 27, 458767, 27, 589808, 27, 589816, 27, 589817, 27, 589820, 27, 589821, 16, 589822, 27, 589823, 27, 524288, 27, 524289, 27, 524290, 27, 524291, 27, 524292, 27, 524293, 27, 524294, 27, 524295, 27, 524296, 27, 524303, 27, 655344, 27, 655349, 27, 655353, 27, 655356, 27, 589832, 27, 589839, 27, 720880, 27, 720885, 27, 720886, 27, 720889, 27, 720892, 27, 720893, 27, 720894, 27, 720895, 27, 655360, 27, 655361, 27, 655362, 27, 655363, 27, 655364, 27, 655365, 27, 655368, 27, 655375, 27, 786416, 27, 786421, 27, 786422, 27, 720911, 27, 851952, 27, 851957, 27, 851958, 27, 851961, 27, 851962, 27, 851963, 27, 851964, 27, 851965, 27, 851966, 27, 851967, 27, 786432, 27, 786433, 27, 786434, 27, 786435, 27, 786436, 16, 786437, 16, 786438, 27, 786439, 27, 786440, 27, 786441, 27, 786442, 27, 786443, 27, 786447, 27, 917488, 27, 851977, 27, 851979, 27, 851983, 27, 983024, 27, 917513, 16, 917515, 27, 917519, 27, 1048560, 27, 983045, 27, 983046, 27, 983049, 27, 983050, 27, 983051, 27, 983055, 27 )
+
+[node name="Pickups" type="Node" parent="TileMap"]
+
+[node name="Key" parent="TileMap" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 673, 928 )
+
+[node name="Door" parent="TileMap" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 225, 96 )
+
+[node name="Enemies" type="Node" parent="TileMap"]
+
+[node name="EnemySpawner" parent="TileMap/Enemies" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 160, 352 )
+start_dir = 1
+
+[node name="EnemySpawner1" parent="TileMap/Enemies" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( -352, 608 )
+
+[node name="EnemySpinning" parent="TileMap/Enemies" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 672, 928 )
+
+[node name="EnemySpinning1" parent="TileMap/Enemies" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( -288, 160 )
+speed = Vector2( -100, 0 )
+
+[node name="EnemyStaticDown" parent="TileMap/Enemies" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( -480, 608 )
+spawn_interval = 4.0
+
+[node name="EnemyStaticDown1" parent="TileMap/Enemies" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( -544, 352 )
+spawn_interval = 4.0
+
+[node name="Player" parent="." instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 416, 416 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = -950
+limit/top = -180
+limit/right = 950
+limit/bottom = 1200
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+__meta__ = { "_edit_lock_":true }
+
+[node name="UI Layer" parent="." instance=ExtResource( 10 )]
+
+

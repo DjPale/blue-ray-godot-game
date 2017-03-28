@@ -86,7 +86,6 @@ tile_num = 0
 [node name="EnemySpinning" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 352, 224 )
-speed = Vector2( 100, 0 )
 
 [node name="EnemyPatrolling" parent="." instance=ExtResource( 9 )]
 
