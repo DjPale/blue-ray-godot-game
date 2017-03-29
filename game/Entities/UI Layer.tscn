@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://Fonts/Kenney-Block.fnt" type="BitmapFont" id=1]
 [ext_resource path="res://Scripts/LabelCounter.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://2D/gradient2.png" type="Texture" id=5]
 [ext_resource path="res://Shaders/TextureTransition.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/SetLevelName.gd" type="Script" id=7]
+[ext_resource path="res://2D/UI Theme.tres" type="Theme" id=8]
+[ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=9]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -131,5 +133,302 @@ playback/active = true
 playback/speed = 2.0
 blend_times = [  ]
 autoplay = "Fade"
+
+[node name="Pause Menu" type="PanelContainer" parent="."]
+
+process/pause_mode = 2
+visibility/visible = false
+visibility/opacity = 0.8
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 8 )
+margin/left = 256.0
+margin/top = 108.0
+margin/right = -256.0
+margin/bottom = -148.0
+script/script = ExtResource( 9 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="Popup" type="PopupPanel" parent="Pause Menu"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 7.0
+margin/top = 7.0
+margin/right = 512.0
+margin/bottom = 249.0
+popup/exclusive = false
+
+[node name="MarginContainer" type="MarginContainer" parent="Pause Menu/Popup"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 8.0
+margin/bottom = 40.0
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause Menu/Popup/MarginContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 20.0
+margin/top = 20.0
+margin/right = 457.0
+margin/bottom = 206.0
+custom_constants/separation = 10
+alignment = 0
+
+[node name="Label" type="Label" parent="Pause Menu/Popup/MarginContainer/VBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 437.0
+margin/bottom = 24.0
+text = "Design / Code / Music"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label 2" type="Label" parent="Pause Menu/Popup/MarginContainer/VBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 34.0
+margin/right = 437.0
+margin/bottom = 58.0
+text = "dj_pale 2017"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="HSeparator" type="HSeparator" parent="Pause Menu/Popup/MarginContainer/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 68.0
+margin/right = 437.0
+margin/bottom = 71.0
+
+[node name="Label 3" type="Label" parent="Pause Menu/Popup/MarginContainer/VBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 81.0
+margin/right = 437.0
+margin/bottom = 105.0
+text = "Gfx /  Sfx Assets"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label 4" type="Label" parent="Pause Menu/Popup/MarginContainer/VBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 115.0
+margin/right = 437.0
+margin/bottom = 139.0
+text = "www.kenney.nl"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="HSeparator1" type="HSeparator" parent="Pause Menu/Popup/MarginContainer/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 149.0
+margin/right = 437.0
+margin/bottom = 152.0
+
+[node name="Label 5" type="Label" parent="Pause Menu/Popup/MarginContainer/VBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 162.0
+margin/right = 437.0
+margin/bottom = 186.0
+text = "Made with Godot Engine"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="MarginContainer" type="MarginContainer" parent="Pause Menu"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 7.0
+margin/top = 7.0
+margin/right = 505.0
+margin/bottom = 249.0
+custom_constants/margin_top = 10
+custom_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause Menu/MarginContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 8.0
+margin/top = 10.0
+margin/right = 498.0
+margin/bottom = 232.0
+alignment = 0
+
+[node name="Label" type="Label" parent="Pause Menu/MarginContainer/VBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 490.0
+margin/bottom = 45.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Game Paused"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="MarginContainer" type="MarginContainer" parent="Pause Menu/MarginContainer/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 49.0
+margin/right = 490.0
+margin/bottom = 177.0
+custom_constants/margin_top = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause Menu/MarginContainer/VBoxContainer/MarginContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 8.0
+margin/top = 20.0
+margin/right = 490.0
+margin/bottom = 128.0
+alignment = 0
+
+[node name="Resume" type="Button" parent="Pause Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 482.0
+margin/bottom = 24.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Resume"
+flat = false
+
+[node name="Restart" type="Button" parent="Pause Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 28.0
+margin/right = 482.0
+margin/bottom = 52.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Restart level"
+flat = false
+
+[node name="Credits" type="Button" parent="Pause Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 56.0
+margin/right = 482.0
+margin/bottom = 80.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Credits"
+flat = false
+
+[node name="Quit" type="Button" parent="Pause Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 84.0
+margin/right = 482.0
+margin/bottom = 108.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Quit"
+flat = false
+
+[connection signal="pressed" from="Pause Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Resume" to="Pause Menu" method="_on_Resume_pressed"]
+
+[connection signal="pressed" from="Pause Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Restart" to="Pause Menu" method="_on_Restart_pressed"]
+
+[connection signal="pressed" from="Pause Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Credits" to="Pause Menu" method="_on_Credits_pressed"]
+
+[connection signal="pressed" from="Pause Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Quit" to="Pause Menu" method="_on_Quit_pressed"]
 
 

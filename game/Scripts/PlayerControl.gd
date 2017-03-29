@@ -85,6 +85,9 @@ func _ready():
 		
 	connect("score_change", get_node("../UI Layer/Money"), "_on_count_change")
 	connect("tile_count_change", get_node("../UI Layer/Block Count"), "_on_count_change")
+
+	get_node("../UI Layer/Pause Menu").connect("menu_restart", self, "reset_level")
+	get_node("../UI Layer/Pause Menu").connect("menu_quit", self, "quit_game")
 	get_node("../UI Layer/Transition").connect("transition_complete", self, "_on_transition_complete")
 
 	_emit_count_change()
@@ -345,6 +348,9 @@ func hit(obj):
 	
 func enter_door():
 	next_level()
+	
+func quit_game():
+	get_tree().quit()
 
 func reset_level():
 	Global.score = orig_score

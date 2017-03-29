@@ -13,8 +13,6 @@ Related to core mechanics of the game
 	* Some kind of introductory story?
 	* Title screen
 	* End-of-game screen
-	* Pause mechanism (pause menu?)
-	* Credits (could be in pause menu)
 	* Pressure plate mechanics? (Probably not...)
 
 ## Enemies / AI
