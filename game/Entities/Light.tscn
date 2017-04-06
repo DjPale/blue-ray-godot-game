@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://Shaders/TextureLight.tres" type="Shader" id=1]
+[ext_resource path="res://2D/light.png" type="Texture" id=2]
+[ext_resource path="res://Shaders/ObjectLight.gd" type="Script" id=3]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+shader/shader = ExtResource( 1 )
+shader/shading_mode = 0
+shader_param/tint = Color( 0.896655, 0.898438, 0.670319, 1 )
+shader_param/noise = 0.0
+
+[node name="Light" type="Sprite"]
+
+visibility/blend_mode = 1
+material/material = SubResource( 1 )
+texture = ExtResource( 2 )
+script/script = ExtResource( 3 )
+follow = "Camera2D"
+
+

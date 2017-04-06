@@ -3,6 +3,7 @@ extends KinematicBody2D
 export var velocity = Vector2(100, 0)
 export var destroy_tiles = true
 
+onready var VFX_Manager = get_node("/root/VFX_Manager")
 
 var raycast_left
 var raycast_right
@@ -19,7 +20,12 @@ func _ready():
 	
 	get_node("Sprite").play()
 	
+	VFX_Manager.add_light(self, 0.5)
+	
 	set_fixed_process(true)
+	
+func _exit_tree():
+	VFX_Manager.destroy_light(self)
 	
 func _fixed_process(delta):
 	_do_ai(delta)

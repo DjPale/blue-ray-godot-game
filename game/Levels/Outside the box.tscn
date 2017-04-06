@@ -1,19 +1,26 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=22 format=1]
 
 [ext_resource path="res://Entities/Blue_Parallax_BG.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/TileMap-Decorations.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entities/TileMap-Blue.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Entities/Coin-Bronze.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Entities/Coin-Silver.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Entities/Coin-Gold.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Entities/Key.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Entities/Door.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Entities/BlockClearer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/SpawnPoint.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Entities/Coin-Bronze.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Entities/Coin-Silver.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Entities/Coin-Gold.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Entities/EnemyStaticRight.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Entities/EnemyStaticLeft.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Entities/EnemyStaticUp.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Entities/EnemyStaticDown.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Entities/UI Layer.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Entities/EnemySpinning.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Entities/Jewel-Blue.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Entities/EnemyPatrolling.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Entities/EnemySpawner.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Entities/EnemyFlying.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Entities/Key.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Entities/Door.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Entities/UI Layer.tscn" type="PackedScene" id=21]
 
 [node name="Outside the box" type="Node"]
 
@@ -23,59 +30,215 @@
 
 [node name="TileMap" parent="." instance=ExtResource( 3 )]
 
+tile_data = IntArray( -131072, 27, -131065, 27, -131058, 27, -131042, 27, -131030, 27, -65536, 27, -65529, 27, -65522, 27, -65506, 27, -65494, 27, 0, 27, 7, 27, 14, 27, 30, 27, 31, 27, 32, 27, 33, 27, 34, 27, 35, 27, 36, 27, 37, 27, 38, 27, 39, 27, 40, 27, 41, 27, 42, 27, 65536, 27, 65537, 27, 65538, 27, 65539, 27, 65540, 27, 65541, 27, 65542, 27, 65543, 27, 65550, 27, 65551, 27, 65552, 27, 65553, 27, 65554, 27, 65555, 27, 65556, 27, 65557, 27, 65558, 27, 65559, 27, 65560, 27, 65566, 27, 65567, 27, 65577, 27, 65578, 27, 131072, 27, 131079, 27, 131086, 27, 131087, 27, 131088, 27, 131094, 27, 131095, 27, 131096, 27, 131097, 27, 131101, 27, 131102, 27, 131114, 27, 196608, 27, 196615, 27, 196616, 27, 196650, 27, 262144, 27, 262148, 16, 262158, 27, 262159, 27, 262161, 27, 262163, 27, 262165, 27, 262168, 27, 262169, 27, 262170, 27, 262172, 27, 262173, 27, 262174, 27, 262177, 16, 262179, 16, 262186, 27, 327680, 27, 327687, 27, 327688, 27, 327689, 27, 327693, 27, 327694, 16, 327695, 27, 327703, 27, 327704, 27, 327710, 27, 327711, 27, 327722, 27, 393216, 27, 393223, 27, 393230, 27, 393231, 27, 393234, 27, 393235, 16, 393236, 27, 393239, 27, 393247, 27, 393258, 27, 458752, 27, 458753, 16, 458758, 16, 458759, 27, 458761, 27, 458765, 27, 458766, 16, 458767, 27, 458775, 27, 458783, 27, 458794, 27, 524288, 3, 524289, 4, 524290, 4, 524291, 4, 524292, 4, 524293, 4, 524294, 4, 524295, 4, 524296, 4, 524297, 4, 524298, 5, 524300, 3, 524301, 4, 524302, 4, 524303, 5, 524311, 6, 524319, 3, 524320, 4, 524321, 4, 524322, 4, 524323, 4, 524324, 5, 524325, 16, 524326, 3, 524327, 4, 524328, 5, 524330, 27, 589824, 2, 589825, 2, 589826, 2, 589827, 2, 589828, 2, 589829, 2, 589830, 2, 589831, 2, 589832, 2, 589833, 2, 589834, 2, 589836, 2, 589837, 2, 589838, 2, 589839, 2, 589847, 2, 589855, 27, 589856, 27, 589857, 27, 589858, 27, 589859, 27, 589860, 27, 589861, 27, 589862, 27, 589863, 27, 589864, 27, 589866, 27 )
+
+[node name="Box 1" type="Node" parent="TileMap"]
+
 editor/display_folded = true
-tile_data = IntArray( 65536, 27, 65537, 27, 65538, 27, 65539, 27, 65540, 27, 65541, 27, 65542, 27, 65543, 27, 131072, 27, 131079, 27, 196608, 27, 196615, 27, 262144, 27, 262148, 16, 327680, 27, 327687, 27, 393216, 27, 393223, 27, 458752, 27, 458753, 16, 458758, 16, 458759, 27, 458761, 27, 524288, 3, 524289, 4, 524290, 4, 524291, 4, 524292, 4, 524293, 4, 524294, 4, 524295, 4, 524296, 4, 524297, 4, 524298, 5 )
 
-[node name="Pickups" type="Node" parent="TileMap"]
+[node name="BlockClearer" parent="TileMap/Box 1" instance=ExtResource( 4 )]
 
-[node name="Coin-Bronze" parent="TileMap/Pickups" instance=ExtResource( 4 )]
+transform/pos = Vector2( 544, 288 )
+
+[node name="SpawnPoint" parent="TileMap/Box 1" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 544, 288 )
+
+[node name="Pickups" type="Node" parent="TileMap/Box 1"]
+
+editor/display_folded = true
+
+[node name="Coin-Bronze" parent="TileMap/Box 1/Pickups" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 224, 288 )
 appear_timeout = 0.5
 
-[node name="Coin-Bronze1" parent="TileMap/Pickups" instance=ExtResource( 4 )]
+[node name="Coin-Bronze1" parent="TileMap/Box 1/Pickups" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 352, 288 )
 appear_timeout = 0.5
 
-[node name="Coin-Silver" parent="TileMap/Pickups" instance=ExtResource( 5 )]
+[node name="Coin-Silver" parent="TileMap/Box 1/Pickups" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 96, 416 )
 hidden = true
 appear_timeout = 0.5
 
-[node name="Coin-Gold" parent="TileMap/Pickups" instance=ExtResource( 6 )]
+[node name="Coin-Gold1" parent="TileMap/Box 1/Pickups" instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 544, 480 )
+transform/pos = Vector2( 864, 416 )
 hidden = true
 appear_timeout = 0.5
 
-[node name="Coin-Silver1" parent="TileMap/Pickups" instance=ExtResource( 5 )]
+[node name="Coin-Silver1" parent="TileMap/Box 1/Pickups" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 416, 416 )
 hidden = true
 appear_timeout = 0.5
 
-[node name="Key" parent="TileMap" instance=ExtResource( 7 )]
+[node name="Enemies" type="Node" parent="TileMap/Box 1"]
 
-transform/pos = Vector2( 288, 288 )
+editor/display_folded = true
+
+[node name="EnemyStaticRight" parent="TileMap/Box 1/Enemies" instance=ExtResource( 9 )]
+
+[node name="EnemyStaticLeft" parent="TileMap/Box 1/Enemies" instance=ExtResource( 10 )]
+
+[node name="EnemyStaticUp" parent="TileMap/Box 1/Enemies" instance=ExtResource( 11 )]
+
+[node name="EnemyStaticDown" parent="TileMap/Box 1/Enemies" instance=ExtResource( 12 )]
+
+[node name="Box 2" type="Node" parent="TileMap"]
+
+editor/display_folded = true
+
+[node name="BlockClearer2" parent="TileMap/Box 2" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1632, 224 )
+
+[node name="SpawnPoint2" parent="TileMap/Box 2" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1632, 224 )
+
+[node name="Pickups" type="Node" parent="TileMap/Box 2"]
+
+editor/display_folded = true
+
+[node name="Coin-Gold" parent="TileMap/Box 2/Pickups" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 1184, 352 )
+appear_timeout = 0.3
+
+[node name="Coin-Gold1" parent="TileMap/Box 2/Pickups" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 1312, 352 )
+appear_timeout = 0.3
+
+[node name="Coin-Bronze" parent="TileMap/Box 2/Pickups" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1248, 160 )
+appear_timeout = 0.3
+
+[node name="Enemies" type="Node" parent="TileMap/Box 2"]
+
+editor/display_folded = true
+
+[node name="EnemySpinning" parent="TileMap/Box 2/Enemies" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 1056, 288 )
+
+[node name="EnemySpinning1" parent="TileMap/Box 2/Enemies" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 1120, 416 )
+
+[node name="EnemySpinning2" parent="TileMap/Box 2/Enemies" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 1184, 288 )
+
+[node name="EnemySpinning3" parent="TileMap/Box 2/Enemies" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 1312, 288 )
+
+[node name="EnemySpinning4" parent="TileMap/Box 2/Enemies" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 1372, 416 )
+speed = Vector2( -100, 0 )
+
+[node name="Box 3" type="Node" parent="TileMap"]
+
+editor/display_folded = true
+
+[node name="Pickups" type="Node" parent="TileMap/Box 3"]
+
+[node name="Coin-Bronze" parent="TileMap/Box 3/Pickups" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 2400, 224 )
+appear_timeout = 0.3
+
+[node name="Coin-Bronze1" parent="TileMap/Box 3/Pickups" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 2528, 224 )
+appear_timeout = 0.3
+
+[node name="Coin-Silver" parent="TileMap/Box 3/Pickups" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 2144, 96 )
+appear_timeout = 0.3
+
+[node name="Coin-Silver1" parent="TileMap/Box 3/Pickups" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 2528, 96 )
+appear_timeout = 0.3
+
+[node name="Coin-Silver2" parent="TileMap/Box 3/Pickups" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 2656, 480 )
+hidden = true
+appear_timeout = 0.3
+
+[node name="Coin-Silver3" parent="TileMap/Box 3/Pickups" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 1888, 96 )
+hidden = true
+appear_timeout = 0.3
+
+[node name="Coin-Gold" parent="TileMap/Box 3/Pickups" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 2400, 480 )
+appear_timeout = 0.3
+
+[node name="Jewel-Blue" parent="TileMap/Box 3/Pickups" instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 992, 32 )
+hidden = true
+appear_timeout = 0.3
+
+[node name="Jewel-Blue1" parent="TileMap/Box 3/Pickups" instance=ExtResource( 14 )]
+
+transform/pos = Vector2( 544, 480 )
+hidden = true
+appear_timeout = 0.3
+
+[node name="Enemies" type="Node" parent="TileMap/Box 3"]
+
+[node name="EnemyPatrolling" parent="TileMap/Box 3/Enemies" instance=ExtResource( 15 )]
+
+transform/pos = Vector2( 2144, 224 )
+
+[node name="EnemyPatrolling1" parent="TileMap/Box 3/Enemies" instance=ExtResource( 15 )]
+
+transform/pos = Vector2( 2272, 224 )
+
+[node name="EnemySpawner" parent="TileMap/Box 3/Enemies" instance=ExtResource( 16 )]
+
+transform/pos = Vector2( 2592, 288 )
+lifetime = 9.0
+start_dir = 1
+
+[node name="EnemyFlying" parent="TileMap/Box 3/Enemies" instance=ExtResource( 17 )]
+
+transform/pos = Vector2( 1761, 96 )
+
+[node name="EnemyFlying1" parent="TileMap/Box 3/Enemies" instance=ExtResource( 17 )]
+
+transform/pos = Vector2( 1761, 96 )
+
+[node name="EnemyFlying2" parent="TileMap/Box 3/Enemies" instance=ExtResource( 17 )]
+
+transform/pos = Vector2( 2336, 96 )
+
+[node name="Key" parent="TileMap" instance=ExtResource( 18 )]
+
+transform/pos = Vector2( 2400, 544 )
 z/z = -1
 
-[node name="Door" parent="TileMap" instance=ExtResource( 8 )]
+[node name="Door" parent="TileMap" instance=ExtResource( 19 )]
 
-transform/pos = Vector2( 672, 480 )
+transform/pos = Vector2( 1120, 32 )
 
-[node name="EnemyStaticRight" parent="." instance=ExtResource( 9 )]
+[node name="Player" parent="." instance=ExtResource( 20 )]
 
-[node name="EnemyStaticLeft" parent="." instance=ExtResource( 10 )]
-
-[node name="EnemyStaticUp" parent="." instance=ExtResource( 11 )]
-
-[node name="EnemyStaticDown" parent="." instance=ExtResource( 12 )]
-
-[node name="Player" parent="." instance=ExtResource( 13 )]
-
-transform/pos = Vector2( 160, 480 )
+transform/pos = Vector2( 288, 480 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -86,7 +249,7 @@ zoom = Vector2( 1, 1 )
 limit/left = -10000000
 limit/top = -10000000
 limit/right = 10000000
-limit/bottom = 10000000
+limit/bottom = 640
 drag_margin/h_enabled = true
 drag_margin/v_enabled = true
 smoothing/enable = false
@@ -97,6 +260,6 @@ drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 __meta__ = { "_edit_lock_":true }
 
-[node name="UI Layer" parent="." instance=ExtResource( 14 )]
+[node name="UI Layer" parent="." instance=ExtResource( 21 )]
 
 

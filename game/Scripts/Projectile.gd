@@ -17,10 +17,11 @@ var lifetime_cnt = 0
 var prev_speed = Vector2()
 
 onready var coll_shape = get_node("CollisionShape2D")
+onready var VFX_Manager = get_node("/root/VFX_Manager")
 
 func _ready():
 	lifetime_cnt = lifetime
-	
+	VFX_Manager.add_light(self, 0.5)
 	set_fixed_process(true)
 	
 func _fixed_process(delta):
@@ -70,4 +71,5 @@ func _die():
 	get_node("Particles2D").set_emitting(false)
 	yield(Util.timer(self, die_time), "timeout")
 	#print("projectile died")
+	VFX_Manager.destroy_light(self)
 	self.queue_free()

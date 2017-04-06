@@ -7,6 +7,8 @@ var indicator = null
 
 onready var tile_map = get_tree().get_root().find_node("TileMap", true, false)
 
+onready var VFX_Manager = get_node("/root/VFX_Manager")
+
 var velocity = Vector2()
 var ground = Vector2()
 
@@ -17,8 +19,14 @@ var tile_pos = Vector2()
 func _ready():
 	if has_node("Indicator"): indicator = get_node("Indicator") # to avoid error message
 	velocity = speed
+	
+	VFX_Manager.add_light(self, 0.3)
+	
 	set_process(true)
 	set_fixed_process(true)
+	
+func _exit_tree():
+	VFX_Manager.destroy_light(self)
 	
 func _process(delta):
 	_update_anims(delta)

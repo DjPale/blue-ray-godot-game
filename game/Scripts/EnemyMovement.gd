@@ -36,7 +36,12 @@ func _ready():
 	
 	dir = start_dir
 	
+	if stop_on_edges: VFX_Manager.add_light(self, 2.0)
+	
 	set_fixed_process(true)
+
+func _exit_tree():
+	VFX_Manager.destroy_light(self)
 
 func _fixed_process(delta):
 	_check_state()
@@ -68,7 +73,7 @@ func _do_movement(delta):
 		var obj = get_collider()
 		
 		if (destroy_tiles && obj == tile_map && n.y == 0):
-			tile_map.destroy_tile(tile_map.world_to_map(get_collision_pos() + Vector2(sign(velocity.x) * 2, 0)))
+			tile_map.destroy_tile(tile_map.world_to_map(get_collision_pos() + Vector2(sign(velocity.x) * 2, -sign(velocity.y) * 2)))
 			
 		if obj extends preload("PlayerControl.gd"):
 			obj.hit(self)

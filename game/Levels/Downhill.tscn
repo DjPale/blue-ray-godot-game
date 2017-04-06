@@ -1,0 +1,147 @@
+[gd_scene load_steps=14 format=1]
+
+[ext_resource path="res://Entities/Blue_Parallax_BG.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entities/TileMap-Decorations.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/TileMap-Blue.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/Key.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/Door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Entities/EnemySpawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Entities/EnemySpinning.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Entities/EnemyFlying.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Entities/EnemyStaticUp.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Entities/UI Layer.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/DarknessEnabler.gd" type="Script" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 16 )
+
+[node name="Downhill" type="Node"]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 1 )]
+
+[node name="TileMap-Decorations" parent="." instance=ExtResource( 2 )]
+
+[node name="TileMap" parent="." instance=ExtResource( 3 )]
+
+editor/display_folded = true
+tile_data = IntArray( 393222, 16, 393238, 8, 393239, 12, 393240, 9, 458773, 8, 458774, 17, 458775, 2, 458776, 18, 458777, 9, 524293, 8, 524294, 4, 524295, 9, 524308, 8, 524309, 17, 524310, 27, 524312, 27, 524313, 18, 524314, 9, 589828, 8, 589829, 17, 589830, 2, 589831, 18, 589832, 9, 589843, 8, 589844, 17, 589845, 2, 589846, 27, 589848, 27, 589849, 2, 589850, 18, 589851, 9, 655363, 8, 655364, 17, 655365, 27, 655366, 27, 655367, 27, 655368, 18, 655369, 9, 655378, 8, 655379, 17, 655380, 2, 655381, 2, 655382, 27, 655384, 27, 655385, 2, 655386, 2, 655387, 18, 655388, 9, 720898, 8, 720899, 17, 720900, 2, 720901, 27, 720903, 27, 720904, 2, 720905, 18, 720906, 9, 720913, 8, 720914, 17, 720915, 2, 720916, 2, 720917, 2, 720918, 27, 720920, 27, 720921, 2, 720922, 2, 720923, 2, 720924, 18, 720925, 9, 786433, 8, 786434, 17, 786435, 2, 786436, 2, 786437, 27, 786439, 27, 786440, 27, 786441, 27, 786442, 27, 786443, 27, 786448, 8, 786449, 17, 786450, 2, 786451, 2, 786452, 2, 786453, 2, 786454, 27, 786456, 27, 786457, 2, 786458, 2, 786459, 2, 786460, 2, 786461, 18, 786462, 9, 917503, 16, 851968, 8, 851969, 17, 851970, 2, 851971, 2, 851972, 2, 851973, 27, 851979, 7, 851983, 8, 851984, 17, 851985, 2, 851986, 2, 851987, 2, 851988, 2, 851989, 2, 851990, 27, 851992, 27, 851993, 2, 851994, 2, 851995, 2, 851996, 2, 851997, 2, 851998, 18, 851999, 9, 983039, 3, 917504, 17, 917505, 27, 917506, 27, 917507, 27, 917508, 27, 917509, 27, 917510, 27, 917511, 27, 917512, 27, 917513, 27, 917514, 27, 917515, 27, 917516, 3, 917517, 4, 917518, 4, 917519, 17, 917520, 27, 917521, 27, 917522, 27, 917523, 27, 917524, 27, 917525, 27, 917526, 27, 917528, 27, 917529, 2, 917530, 2, 917531, 2, 917532, 2, 917533, 2, 917534, 2, 1048575, 27, 983062, 7, 983064, 27, 1114111, 27, 1048576, 16, 1048577, 27, 1048579, 27, 1048581, 27, 1048583, 27, 1048585, 27, 1048586, 27, 1048587, 27, 1048588, 27, 1048589, 27, 1048590, 27, 1048591, 27, 1048592, 27, 1048593, 27, 1048594, 27, 1048595, 27, 1048596, 27, 1048597, 27, 1048598, 27, 1048599, 27, 1048600, 27, 1179647, 27, 1114113, 27, 1114115, 27, 1114117, 27, 1114119, 27, 1114121, 27, 1245183, 27, 1179649, 27, 1179650, 27, 1179651, 27, 1179652, 27, 1179653, 27, 1179654, 27, 1179655, 27, 1179656, 27, 1179657, 27, 1179658, 27, 1179659, 27, 1179660, 27, 1310719, 27, 1376255, 27, 1310722, 27, 1310724, 27, 1310726, 27, 1310728, 27, 1310730, 27, 1310731, 27, 1310732, 27, 1441791, 27, 1376266, 27, 1376267, 27, 1376268, 27, 1376269, 27, 1507327, 27, 1441792, 27, 1441793, 27, 1441794, 27, 1441795, 27, 1441796, 27, 1441797, 27, 1441798, 27, 1441799, 27, 1441800, 27, 1441801, 27, 1441802, 27, 1441803, 27, 1441804, 27, 1441805, 27, 1441806, 27, 1507343, 27 )
+
+[node name="Pickups" type="Node" parent="TileMap"]
+
+[node name="Key" parent="TileMap" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 96, 992 )
+
+[node name="Door" parent="TileMap" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 672, 480 )
+
+[node name="Enemies" type="Node" parent="TileMap"]
+
+[node name="EnemySpawner" parent="TileMap/Enemies" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 96, 672 )
+
+[node name="EnemySpinning" parent="TileMap/Enemies" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 416, 736 )
+
+[node name="EnemyFlying" parent="TileMap/Enemies" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 800, 672 )
+
+[node name="EnemyStaticUp" parent="TileMap/Enemies" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 160, 1120 )
+spawn_interval = 2.0
+
+[node name="EnemyStaticUp1" parent="TileMap/Enemies" instance=ExtResource( 9 )]
+
+editor/display_folded = false
+transform/pos = Vector2( 288, 1120 )
+spawn_interval = 2.0
+spawn_cnt = 0.5
+
+[node name="EnemySpinning1" parent="TileMap/Enemies/EnemyStaticUp1" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( -192, 192 )
+
+[node name="EnemySpinning2" parent="TileMap/Enemies/EnemyStaticUp1" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( -64, 192 )
+
+[node name="EnemySpinning3" parent="TileMap/Enemies/EnemyStaticUp1" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 64, 192 )
+
+[node name="EnemySpinning4" parent="TileMap/Enemies/EnemyStaticUp1" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 192, 192 )
+
+[node name="EnemyStaticUp2" parent="TileMap/Enemies" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 416, 1120 )
+spawn_interval = 2.0
+spawn_cnt = 1.0
+
+[node name="EnemyStaticUp3" parent="TileMap/Enemies" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 544, 1120 )
+spawn_interval = 2.0
+spawn_cnt = 1.5
+
+[node name="Player" parent="." instance=ExtResource( 10 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 1440, 352 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+__meta__ = { "_edit_lock_":true }
+
+[node name="UI Layer" parent="." instance=ExtResource( 11 )]
+
+[node name="Darkness" type="Area2D" parent="."]
+
+transform/pos = Vector2( 1504, 480 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+monitorable = false
+script/script = ExtResource( 12 )
+y_range_scale = 600.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Darkness"]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+__meta__ = { "_edit_lock_":true }
+
+[connection signal="body_exit" from="Darkness" to="Darkness" method="_on_body_exit"]
+
+

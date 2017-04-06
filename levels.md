@@ -103,12 +103,21 @@ No idea... Alien something something
 	- May get stuck! (Hopefully with a way to get killed by fall / enemies)
 
 ### Outside the Box
-* State: Not started
+* State: Lack polish
 * Theme: Multiple boxes
-* Size: ?
+* Size: Medium+
 * Enemies:
 	- All
 * Learn: -
 * Description: 
 	- Contained "boxes" with more advanced puzzles.
 	- Spawnpoint + closing doors after each box.
+
+### Pyramid / Downhill from here
+* State: Not started
+* Theme: 45-degree tiles
+* Size: Medium
+* Enemies:
+* Learn: ?
+* Description
+	- Extensive use of 45-degree tiles

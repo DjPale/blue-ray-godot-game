@@ -10,11 +10,14 @@ var spawn_entities = 0
 
 var prefab
 
+onready var VFX_Manager = get_node("/root/VFX_Manager")
+
 func _ready():
 	prefab = preload("res://Entities/EnemyWalking.tscn")
 
 	spawn_counter = spawn_interval
-			
+	
+	VFX_Manager.add_light(self, 2.0)
 	set_process(true)
 	
 func _process(delta):
@@ -40,7 +43,8 @@ func do_spawn():
 	
 	get_parent().add_child(enemy)
 
-	
 func free_pool():
 	spawn_entities -= 1
 	
+func _exit_tree():
+	VFX_Manager.destroy_light(self)

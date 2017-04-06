@@ -92,6 +92,10 @@ func _ready():
 
 	_emit_count_change()
 	emit_signal("score_change", score)
+	
+	var l = VFX_Manager.add_light(self, 4.0)
+	l.follow = "Camera2D"
+	l.follow_object = null
 
 	if debug_keys: 
 		set_process_input(true)
@@ -105,6 +109,8 @@ func _on_transition_complete():
 	
 func _on_tile_destroyed():
 	add_tiles(1)
+	
+var dark = 0
 	
 func _input(event):
 	if event.type == InputEvent.KEY:
@@ -125,6 +131,15 @@ func _input(event):
 			add_tiles(1)
 		elif key == KEY_2:
 			add_tiles(-1)
+			
+		if key == KEY_K:
+			dark += 0.1
+			dark = clamp(dark, 0.0, 1.0)
+			VFX_Manager.set_darkness(dark)
+		elif key == KEY_L:
+			dark -= 0.1
+			dark = clamp(dark, 0.0, 1.0)
+			VFX_Manager.set_darkness(dark)
 
 func _process(delta):
 	var reach_pos = get_reach_pos()

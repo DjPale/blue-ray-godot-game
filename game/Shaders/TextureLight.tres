@@ -1,0 +1,6 @@
+[gd_resource type="CanvasItemShader" format=1]
+
+[resource]
+
+_code = { "fragment":"uniform color tint;\nuniform float noise;\n\nfloat n = fract(sin(dot(UV ,vec2(12.9898,78.233))) * 438.5453);\nn = pow(n, noise);\n\ncolor pixel = vec4(texscreen(SCREEN_UV), 1.0);\n\nCOLOR = pixel * tint * n * tex(TEXTURE, UV);", "fragment_ofs":0, "light":"", "light_ofs":0, "vertex":"", "vertex_ofs":0 }
+

@@ -13,7 +13,7 @@ Related to core mechanics of the game
 	* Some kind of introductory story?
 	* Title screen
 	* End-of-game screen
-	* Pressure plate mechanics? (Probably not...)
+	* Lighting and darkness
 
 ## Enemies / AI
 Enemy types

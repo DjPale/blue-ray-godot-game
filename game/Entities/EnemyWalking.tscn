@@ -3,8 +3,8 @@
 [ext_resource path="res://Scripts/EnemyMovement.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/BasicEnemy.gd" type="Script" id=2]
 [ext_resource path="res://2D/Abstract/Enemies/spritesheet_enemies.enemyWalking_2.atex" type="Texture" id=3]
-[ext_resource path="res://2D/Abstract/Enemies/spritesheet_enemies.enemyWalking_4.atex" type="Texture" id=4]
-[ext_resource path="res://2D/Abstract/Enemies/spritesheet_enemies.enemyWalking_3.atex" type="Texture" id=5]
+[ext_resource path="res://2D/Abstract/Enemies/spritesheet_enemies.enemyWalking_3.atex" type="Texture" id=4]
+[ext_resource path="res://2D/Abstract/Enemies/spritesheet_enemies.enemyWalking_4.atex" type="Texture" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -13,7 +13,7 @@ points = Vector2Array( -13, -20, 13, -20, 13, 22, -13, 22 )
 
 [sub_resource type="SpriteFrames" id=2]
 
-animations = [ { "frames":[ ExtResource( 3 ) ], "loop":true, "name":"standing", "speed":5.0 }, { "frames":[ ExtResource( 4 ) ], "loop":true, "name":"dead", "speed":5.0 }, { "frames":[ ExtResource( 3 ), ExtResource( 5 ) ], "loop":true, "name":"walk", "speed":5.0 } ]
+animations = [ { "frames":[ ExtResource( 3 ), ExtResource( 4 ) ], "loop":true, "name":"walk", "speed":5.0 }, { "frames":[ ExtResource( 5 ) ], "loop":true, "name":"dead", "speed":5.0 }, { "frames":[ ExtResource( 3 ) ], "loop":true, "name":"standing", "speed":5.0 } ]
 
 [node name="EnemyWalking" type="KinematicBody2D"]
 

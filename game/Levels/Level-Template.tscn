@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://Entities/Blue_Parallax_BG.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/TileMap-Decorations.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entities/TileMap-Blue.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Entities/Key.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Entities/Door.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Entities/UI Layer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Entities/EnemyWalking.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Entities/UI Layer.tscn" type="PackedScene" id=8]
 
 [node name="Level-Template" type="Node"]
 
@@ -16,7 +17,7 @@
 
 [node name="TileMap" parent="." instance=ExtResource( 3 )]
 
-tile_data = IntArray( 524294, 6, 524296, 6, 524298, 6 )
+tile_data = IntArray( 393222, 16, 524293, 8, 524294, 4, 524295, 9, 589828, 8, 589829, 17, 589831, 18, 589832, 9, 655363, 8, 655364, 17, 655368, 18, 655369, 9, 720898, 8, 720899, 17, 720905, 18, 720906, 9 )
 
 [node name="Pickups" type="Node" parent="TileMap"]
 
@@ -28,7 +29,15 @@ transform/pos = Vector2( 544, 480 )
 
 transform/pos = Vector2( 672, 480 )
 
-[node name="Player" parent="." instance=ExtResource( 6 )]
+[node name="Enemies" type="Node" parent="TileMap"]
+
+[node name="EnemyWalking" parent="TileMap/Enemies" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 160, 672 )
+
+[node name="Player" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 416, 352 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -50,6 +59,6 @@ drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 __meta__ = { "_edit_lock_":true }
 
-[node name="UI Layer" parent="." instance=ExtResource( 7 )]
+[node name="UI Layer" parent="." instance=ExtResource( 8 )]
 
 

@@ -8,8 +8,11 @@ export(float) var spawn_cnt = 0
 onready var anim = find_node("AnimationPlayer")
 var cur_projectile = null
 
+onready var VFX_Manager = get_node("/root/VFX_Manager")
+
 func _ready():
 	if spawn_cnt == 0: spawn_cnt = spawn_interval
+	VFX_Manager.add_light(self, 1.5)
 	set_process(true)
 
 func _process(delta):
@@ -34,3 +37,6 @@ func _do_spit():
 	if cur_projectile != null:
 		cur_projectile.speed = fireball_speed
 		cur_projectile = null
+		
+func _exit_tree():
+	VFX_Manager.destroy_light(self)

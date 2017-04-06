@@ -3,12 +3,12 @@
 [ext_resource path="res://Scripts/PlayerControl.gd" type="Script" id=1]
 [ext_resource path="res://2D/Abstract/abstract_tiles.tileBlue_03.atex" type="Texture" id=2]
 [ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_stand.atex" type="Texture" id=3]
-[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_switch1.atex" type="Texture" id=4]
-[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_duck.atex" type="Texture" id=5]
-[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk1.atex" type="Texture" id=6]
-[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk2.atex" type="Texture" id=7]
-[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk3.atex" type="Texture" id=8]
-[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk4.atex" type="Texture" id=9]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk1.atex" type="Texture" id=4]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk2.atex" type="Texture" id=5]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk3.atex" type="Texture" id=6]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_walk4.atex" type="Texture" id=7]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_duck.atex" type="Texture" id=8]
+[ext_resource path="res://2D/Abstract/Players/spritesheet_players.playerBlue_switch1.atex" type="Texture" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -29,7 +29,7 @@ tracks/0/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ), "transitions":
 
 [sub_resource type="SpriteFrames" id=3]
 
-animations = [ { "frames":[ ExtResource( 3 ) ], "loop":true, "name":"standing", "speed":5.0 }, { "frames":[ ExtResource( 4 ) ], "loop":true, "name":"jumping", "speed":5.0 }, { "frames":[ ExtResource( 5 ) ], "loop":true, "name":"crouching", "speed":5.0 }, { "frames":[ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ) ], "loop":true, "name":"walking", "speed":25.0 } ]
+animations = [ { "frames":[ ExtResource( 3 ) ], "loop":true, "name":"standing", "speed":5.0 }, { "frames":[ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ) ], "loop":true, "name":"walking", "speed":25.0 }, { "frames":[ ExtResource( 8 ) ], "loop":true, "name":"crouching", "speed":5.0 }, { "frames":[ ExtResource( 9 ) ], "loop":true, "name":"jumping", "speed":5.0 } ]
 
 [sub_resource type="ColorRamp" id=4]
 
