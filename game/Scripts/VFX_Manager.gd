@@ -7,6 +7,7 @@ var Light = preload("res://Entities/Light.tscn")
 var light_root = null
 var darkness = null
 var bg_layer = null
+var darkness_enable = false
 
 func floating_text(obj, txt):
 	var ft = FloatingText.instance()
@@ -19,7 +20,12 @@ func puff(root, pos):
 	p.set_global_pos(pos)
 	root.add_child(p)
 	
+func enable_darkness(enable):
+	darkness_enable = enable
+	
 func set_darkness(amount):
+	if not darkness_enable: return
+	
 	amount = clamp(amount, 0.0, 1.0)
 	var rev = 1.0 - amount
 	darkness.set_modulate(Color(rev, rev, rev, rev))

@@ -1,22 +1,23 @@
-[gd_scene load_steps=14 format=1]
+[gd_scene load_steps=19 format=1]
 
 [ext_resource path="res://Entities/Blue_Parallax_BG.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/TileMap-Decorations.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entities/TileMap-Blue.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Entities/Key.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Entities/Door.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Entities/EnemySpawner.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Entities/EnemySpinning.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Entities/EnemySpinning.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Entities/EnemySpawner.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Entities/EnemyFlying.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Entities/EnemyStaticUp.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Entities/UI Layer.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scripts/DarknessEnabler.gd" type="Script" id=12]
-
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 32, 16 )
+[ext_resource path="res://Entities/EnemyPatrolling.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Entities/EnemyStaticLeft.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Entities/EnemyStaticRight.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Entities/BlockClearer.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Entities/SpawnPoint.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Entities/DarknessDetector.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scripts/PositionalDarkness.gd" type="Script" id=17]
+[ext_resource path="res://Entities/UI Layer.tscn" type="PackedScene" id=18]
 
 [node name="Downhill" type="Node"]
 
@@ -26,8 +27,7 @@ extents = Vector2( 32, 16 )
 
 [node name="TileMap" parent="." instance=ExtResource( 3 )]
 
-editor/display_folded = true
-tile_data = IntArray( 393222, 16, 393238, 8, 393239, 12, 393240, 9, 458773, 8, 458774, 17, 458775, 2, 458776, 18, 458777, 9, 524293, 8, 524294, 4, 524295, 9, 524308, 8, 524309, 17, 524310, 27, 524312, 27, 524313, 18, 524314, 9, 589828, 8, 589829, 17, 589830, 2, 589831, 18, 589832, 9, 589843, 8, 589844, 17, 589845, 2, 589846, 27, 589848, 27, 589849, 2, 589850, 18, 589851, 9, 655363, 8, 655364, 17, 655365, 27, 655366, 27, 655367, 27, 655368, 18, 655369, 9, 655378, 8, 655379, 17, 655380, 2, 655381, 2, 655382, 27, 655384, 27, 655385, 2, 655386, 2, 655387, 18, 655388, 9, 720898, 8, 720899, 17, 720900, 2, 720901, 27, 720903, 27, 720904, 2, 720905, 18, 720906, 9, 720913, 8, 720914, 17, 720915, 2, 720916, 2, 720917, 2, 720918, 27, 720920, 27, 720921, 2, 720922, 2, 720923, 2, 720924, 18, 720925, 9, 786433, 8, 786434, 17, 786435, 2, 786436, 2, 786437, 27, 786439, 27, 786440, 27, 786441, 27, 786442, 27, 786443, 27, 786448, 8, 786449, 17, 786450, 2, 786451, 2, 786452, 2, 786453, 2, 786454, 27, 786456, 27, 786457, 2, 786458, 2, 786459, 2, 786460, 2, 786461, 18, 786462, 9, 917503, 16, 851968, 8, 851969, 17, 851970, 2, 851971, 2, 851972, 2, 851973, 27, 851979, 7, 851983, 8, 851984, 17, 851985, 2, 851986, 2, 851987, 2, 851988, 2, 851989, 2, 851990, 27, 851992, 27, 851993, 2, 851994, 2, 851995, 2, 851996, 2, 851997, 2, 851998, 18, 851999, 9, 983039, 3, 917504, 17, 917505, 27, 917506, 27, 917507, 27, 917508, 27, 917509, 27, 917510, 27, 917511, 27, 917512, 27, 917513, 27, 917514, 27, 917515, 27, 917516, 3, 917517, 4, 917518, 4, 917519, 17, 917520, 27, 917521, 27, 917522, 27, 917523, 27, 917524, 27, 917525, 27, 917526, 27, 917528, 27, 917529, 2, 917530, 2, 917531, 2, 917532, 2, 917533, 2, 917534, 2, 1048575, 27, 983062, 7, 983064, 27, 1114111, 27, 1048576, 16, 1048577, 27, 1048579, 27, 1048581, 27, 1048583, 27, 1048585, 27, 1048586, 27, 1048587, 27, 1048588, 27, 1048589, 27, 1048590, 27, 1048591, 27, 1048592, 27, 1048593, 27, 1048594, 27, 1048595, 27, 1048596, 27, 1048597, 27, 1048598, 27, 1048599, 27, 1048600, 27, 1179647, 27, 1114113, 27, 1114115, 27, 1114117, 27, 1114119, 27, 1114121, 27, 1245183, 27, 1179649, 27, 1179650, 27, 1179651, 27, 1179652, 27, 1179653, 27, 1179654, 27, 1179655, 27, 1179656, 27, 1179657, 27, 1179658, 27, 1179659, 27, 1179660, 27, 1310719, 27, 1376255, 27, 1310722, 27, 1310724, 27, 1310726, 27, 1310728, 27, 1310730, 27, 1310731, 27, 1310732, 27, 1441791, 27, 1376266, 27, 1376267, 27, 1376268, 27, 1376269, 27, 1507327, 27, 1441792, 27, 1441793, 27, 1441794, 27, 1441795, 27, 1441796, 27, 1441797, 27, 1441798, 27, 1441799, 27, 1441800, 27, 1441801, 27, 1441802, 27, 1441803, 27, 1441804, 27, 1441805, 27, 1441806, 27, 1507343, 27 )
+tile_data = IntArray( 393222, 16, 393238, 8, 393239, 12, 393240, 9, 458773, 8, 458774, 17, 458775, 2, 458776, 18, 458777, 9, 524293, 8, 524294, 4, 524295, 9, 524308, 8, 524309, 17, 524310, 27, 524312, 27, 524313, 18, 524314, 9, 589828, 8, 589829, 17, 589830, 2, 589831, 18, 589832, 9, 589843, 8, 589844, 17, 589845, 2, 589846, 27, 589848, 27, 589849, 2, 589850, 18, 589851, 9, 589858, 27, 655363, 8, 655364, 17, 655365, 27, 655366, 27, 655367, 27, 655368, 18, 655369, 9, 655378, 8, 655379, 17, 655380, 2, 655381, 2, 655382, 27, 655384, 27, 655385, 2, 655386, 2, 655387, 18, 655388, 9, 655394, 27, 720898, 8, 720899, 17, 720900, 2, 720901, 27, 720903, 27, 720904, 2, 720905, 18, 720906, 9, 720913, 8, 720914, 17, 720915, 2, 720916, 2, 720917, 2, 720918, 27, 720920, 27, 720921, 2, 720922, 2, 720923, 2, 720924, 18, 720925, 9, 720930, 27, 786433, 8, 786434, 17, 786435, 2, 786436, 2, 786437, 27, 786439, 27, 786440, 27, 786441, 27, 786442, 27, 786443, 27, 786448, 8, 786449, 17, 786450, 2, 786451, 2, 786452, 2, 786453, 2, 786454, 27, 786456, 27, 786457, 2, 786458, 2, 786459, 2, 786460, 2, 786461, 18, 786462, 9, 786466, 27, 917503, 16, 851968, 8, 851969, 17, 851970, 2, 851971, 2, 851972, 2, 851973, 27, 851979, 7, 851983, 8, 851984, 17, 851985, 2, 851986, 2, 851987, 2, 851988, 2, 851989, 2, 851990, 27, 851992, 27, 851993, 2, 851994, 2, 851995, 2, 851996, 2, 851997, 2, 851998, 18, 851999, 9, 852002, 27, 983039, 3, 917504, 17, 917505, 27, 917506, 27, 917507, 27, 917508, 27, 917509, 27, 917510, 27, 917511, 27, 917512, 27, 917513, 27, 917514, 27, 917515, 27, 917516, 3, 917517, 4, 917518, 4, 917519, 17, 917520, 27, 917521, 27, 917522, 27, 917523, 27, 917524, 27, 917525, 27, 917526, 27, 917528, 27, 917529, 27, 917530, 27, 917531, 27, 917532, 27, 917533, 27, 917534, 27, 917535, 27, 917538, 27, 1048575, 27, 983062, 7, 983064, 27, 983074, 27, 1114111, 27, 1048576, 16, 1048577, 27, 1048579, 27, 1048581, 27, 1048583, 27, 1048585, 27, 1048587, 3, 1048588, 4, 1048589, 4, 1048590, 4, 1048591, 4, 1048592, 4, 1048593, 4, 1048594, 4, 1048595, 4, 1048596, 4, 1048597, 4, 1048598, 4, 1048599, 4, 1048600, 4, 1048601, 4, 1048602, 4, 1048603, 4, 1048604, 4, 1048605, 4, 1048606, 4, 1048607, 4, 1048608, 4, 1048609, 4, 1048610, 5, 1179647, 27, 1114113, 27, 1114115, 27, 1114117, 27, 1114119, 27, 1114121, 27, 1114122, 27, 1114123, 27, 1114124, 27, 1114125, 7, 1114126, 7, 1114136, 27, 1114137, 27, 1114138, 2, 1114139, 2, 1114140, 2, 1114141, 2, 1114142, 2, 1114143, 2, 1114144, 2, 1114145, 2, 1114146, 27, 1245183, 27, 1179649, 25, 1179650, 26, 1179651, 26, 1179652, 26, 1179653, 26, 1179654, 26, 1179655, 26, 1179656, 26, 1179657, 26, 1179658, 0, 1179659, 27, 1179660, 27, 1179661, 27, 1179663, 14, 1179664, 4, 1179665, 4, 1179666, 4, 1179667, 4, 1179668, 4, 1179669, 15, 1179672, 27, 1179673, 27, 1179674, 2, 1179675, 2, 1179676, 2, 1179677, 2, 1179678, 2, 1179679, 2, 1179680, 2, 1179681, 2, 1179682, 27, 1310719, 27, 1245208, 27, 1245209, 27, 1245210, 2, 1245211, 2, 1245212, 2, 1245213, 2, 1245214, 2, 1245215, 2, 1245216, 2, 1245217, 2, 1245218, 27, 1376255, 27, 1310722, 27, 1310724, 27, 1310726, 27, 1310728, 27, 1310731, 27, 1310732, 27, 1310744, 7, 1310745, 27, 1310746, 2, 1310747, 2, 1310748, 2, 1310749, 2, 1310750, 2, 1310751, 2, 1310752, 2, 1310753, 2, 1310754, 27, 1441791, 27, 1376266, 27, 1376267, 27, 1376268, 7, 1376269, 27, 1376274, 14, 1376275, 4, 1376276, 4, 1376277, 15, 1376280, 27, 1376281, 27, 1376282, 2, 1376283, 2, 1376284, 2, 1376285, 2, 1376286, 2, 1376287, 2, 1376288, 2, 1376289, 2, 1376290, 27, 1507327, 3, 1441792, 4, 1441793, 4, 1441794, 4, 1441795, 4, 1441796, 4, 1441797, 4, 1441798, 4, 1441799, 4, 1441800, 4, 1441801, 4, 1441802, 4, 1441803, 4, 1441804, 4, 1441805, 4, 1441806, 9, 1441816, 27, 1441817, 27, 1441818, 2, 1441819, 2, 1441820, 2, 1441821, 2, 1441822, 2, 1441823, 2, 1441824, 2, 1441825, 2, 1441826, 27, 1572863, 27, 1507328, 2, 1507329, 2, 1507330, 2, 1507331, 2, 1507332, 2, 1507333, 2, 1507334, 2, 1507335, 2, 1507336, 2, 1507337, 2, 1507338, 2, 1507339, 2, 1507340, 2, 1507341, 2, 1507342, 18, 1507343, 9, 1507352, 27, 1507353, 27, 1507354, 27, 1507355, 27, 1507356, 27, 1507357, 27, 1507358, 27, 1507359, 27, 1507360, 27, 1507361, 27, 1507362, 27, 1638399, 27, 1572864, 2, 1572865, 2, 1572866, 2, 1572867, 2, 1572868, 2, 1572869, 2, 1572870, 2, 1572871, 2, 1572872, 2, 1572873, 2, 1572874, 2, 1572875, 2, 1572876, 2, 1572877, 2, 1572878, 2, 1572879, 18, 1572880, 26, 1572881, 0, 1572884, 27, 1572888, 27, 1703935, 27, 1638400, 27, 1638401, 27, 1638402, 27, 1638403, 27, 1638404, 27, 1638405, 27, 1638406, 27, 1638407, 27, 1638408, 27, 1638409, 27, 1638410, 27, 1638411, 27, 1638412, 27, 1638413, 27, 1638414, 27, 1638415, 27, 1638424, 27, 1769471, 27, 1703940, 27, 1703946, 27, 1703951, 27, 1703956, 27, 1703960, 27, 1835007, 27, 1769476, 16, 1769480, 27, 1769492, 27, 1769496, 27, 1900543, 27, 1835008, 27, 1835009, 27, 1835010, 27, 1835011, 27, 1835012, 27, 1835013, 27, 1835014, 27, 1835015, 27, 1835016, 27, 1835017, 27, 1835018, 27, 1835019, 27, 1835020, 27, 1835021, 27, 1835022, 27, 1835023, 27, 1835024, 27, 1835032, 27, 1966079, 27, 1900568, 27, 2031615, 27, 1966104, 27 )
 
 [node name="Pickups" type="Node" parent="TileMap"]
 
@@ -37,15 +37,43 @@ transform/pos = Vector2( 96, 992 )
 
 [node name="Door" parent="TileMap" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 672, 480 )
+transform/pos = Vector2( 96, 1760 )
 
 [node name="Enemies" type="Node" parent="TileMap"]
 
-[node name="EnemySpawner" parent="TileMap/Enemies" instance=ExtResource( 6 )]
+[node name="EnemySpinning1" parent="TileMap/Enemies" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 96, 1312 )
+
+[node name="EnemySpinning2" parent="TileMap/Enemies" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 224, 1312 )
+
+[node name="EnemySpinning3" parent="TileMap/Enemies" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 352, 1312 )
+
+[node name="EnemySpinning4" parent="TileMap/Enemies" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 480, 1312 )
+
+[node name="EnemySpinning5" parent="TileMap/Enemies" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1248, 1568 )
+
+[node name="EnemySpinning6" parent="TileMap/Enemies" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 224, 1760 )
+
+[node name="EnemySpinning7" parent="TileMap/Enemies" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1248, 1760 )
+
+[node name="EnemySpawner" parent="TileMap/Enemies" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 96, 672 )
 
-[node name="EnemySpinning" parent="TileMap/Enemies" instance=ExtResource( 7 )]
+[node name="EnemySpinning" parent="TileMap/Enemies" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 416, 736 )
 
@@ -65,22 +93,6 @@ transform/pos = Vector2( 288, 1120 )
 spawn_interval = 2.0
 spawn_cnt = 0.5
 
-[node name="EnemySpinning1" parent="TileMap/Enemies/EnemyStaticUp1" instance=ExtResource( 7 )]
-
-transform/pos = Vector2( -192, 192 )
-
-[node name="EnemySpinning2" parent="TileMap/Enemies/EnemyStaticUp1" instance=ExtResource( 7 )]
-
-transform/pos = Vector2( -64, 192 )
-
-[node name="EnemySpinning3" parent="TileMap/Enemies/EnemyStaticUp1" instance=ExtResource( 7 )]
-
-transform/pos = Vector2( 64, 192 )
-
-[node name="EnemySpinning4" parent="TileMap/Enemies/EnemyStaticUp1" instance=ExtResource( 7 )]
-
-transform/pos = Vector2( 192, 192 )
-
 [node name="EnemyStaticUp2" parent="TileMap/Enemies" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 416, 1120 )
@@ -93,10 +105,44 @@ transform/pos = Vector2( 544, 1120 )
 spawn_interval = 2.0
 spawn_cnt = 1.5
 
-[node name="Player" parent="." instance=ExtResource( 10 )]
+[node name="EnemyPatrolling" parent="TileMap/Enemies" instance=ExtResource( 10 )]
 
-editor/display_folded = true
-transform/pos = Vector2( 1440, 352 )
+transform/pos = Vector2( 1312, 1312 )
+
+[node name="EnemyPatrolling1" parent="TileMap/Enemies" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 544, 1696 )
+
+[node name="EnemyStaticLeft" parent="TileMap/Enemies" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 1504, 1440 )
+
+[node name="EnemyStaticLeft1" parent="TileMap/Enemies" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 928, 1696 )
+spawn_interval = 2.0
+
+[node name="EnemyStaticRight" parent="TileMap/Enemies" instance=ExtResource( 12 )]
+
+transform/pos = Vector2( 352, 1696 )
+spawn_interval = 2.0
+
+[node name="Spawns" type="Node" parent="TileMap"]
+
+[node name="BlockClearer" parent="TileMap/Spawns" instance=ExtResource( 13 )]
+
+transform/pos = Vector2( 800, 1248 )
+
+[node name="SpawnPoint" parent="TileMap/Spawns/BlockClearer" instance=ExtResource( 14 )]
+
+[node name="Darkness" parent="TileMap/Spawns" instance=ExtResource( 15 )]
+
+transform/pos = Vector2( 1504, 544 )
+enable = true
+
+[node name="Player" parent="." instance=ExtResource( 16 )]
+
+transform/pos = Vector2( 224, 992 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -118,30 +164,13 @@ drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 __meta__ = { "_edit_lock_":true }
 
-[node name="UI Layer" parent="." instance=ExtResource( 11 )]
+[node name="Son of Darkness" type="Node2D" parent="Player"]
 
-[node name="Darkness" type="Area2D" parent="."]
-
-transform/pos = Vector2( 1504, 480 )
-input/pickable = true
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-monitorable = false
-script/script = ExtResource( 12 )
-y_range_scale = 600.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Darkness"]
-
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 0
+script/script = ExtResource( 17 )
 __meta__ = { "_edit_lock_":true }
+start = Vector2( 1440, 460 )
+scale_y = 800.0
 
-[connection signal="body_exit" from="Darkness" to="Darkness" method="_on_body_exit"]
+[node name="UI Layer" parent="." instance=ExtResource( 18 )]
 
 

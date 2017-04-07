@@ -12,7 +12,8 @@ var level_list = [
 	"Do not go with the flow",
 	"The Tower",
 	"Shields Aligned",
-	"Outside the box"
+	"Outside the box",
+	"Downhill"
 ]
 
 var level_data = {}
@@ -39,6 +40,7 @@ func clear_level_data():
 	level_data.clear()
 	
 func create_key(obj, key):
+	if obj == null: return key
 	return String(obj.get_rid().get_id()) + key
 	
 func set_level_data(obj, key, val):
@@ -48,6 +50,5 @@ func set_level_data(obj, key, val):
 func get_level_data(obj, key):
 	var rkey = create_key(obj, key)
 	if level_data.has(rkey): return level_data[rkey]
-	
 	return null
-	
+

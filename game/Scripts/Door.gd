@@ -20,3 +20,6 @@ func open_door():
 func _on_body_enter( body ):
 	if is_open && body extends preload("PlayerControl.gd"):
 		body.enter_door()
+
+func _on_Node_persisted():
+	is_open = true

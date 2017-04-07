@@ -93,7 +93,7 @@ func _ready():
 	_emit_count_change()
 	emit_signal("score_change", score)
 	
-	var l = VFX_Manager.add_light(self, 4.0)
+	var l = VFX_Manager.add_light(self, 6.0)
 	l.follow = "Camera2D"
 	l.follow_object = null
 
@@ -140,6 +140,9 @@ func _input(event):
 			dark -= 0.1
 			dark = clamp(dark, 0.0, 1.0)
 			VFX_Manager.set_darkness(dark)
+			
+		if key == KEY_J:
+			VFX_Manager.enable_darkness(true)
 
 func _process(delta):
 	var reach_pos = get_reach_pos()

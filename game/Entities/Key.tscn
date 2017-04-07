@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://Scripts/Key.gd" type="Script" id=1]
 [ext_resource path="res://2D/Abstract/Items/items_spritesheet.keyYellow.atex" type="Texture" id=2]
+[ext_resource path="res://Scripts/ObjectPersistence.gd" type="Script" id=3]
 
-
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 24, 24 )
@@ -13,7 +13,7 @@ extents = Vector2( 24, 24 )
 
 transform/pos = Vector2( 288, 162 )
 input/pickable = true
-shapes/0/shape = SubResource( 5 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -30,9 +30,16 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-shape = SubResource( 5 )
+shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
+
+[node name="Persistence" type="Node" parent="."]
+
+script/script = ExtResource( 3 )
+global_key = true
+persist_key = "Key"
+persist_mode = 0
 
 [connection signal="body_enter" from="." to="." method="_on_body_enter"]
 

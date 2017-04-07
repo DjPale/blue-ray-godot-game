@@ -36,7 +36,7 @@ func _ready():
 	
 	dir = start_dir
 	
-	if stop_on_edges: VFX_Manager.add_light(self, 2.0)
+	if stop_on_edges: VFX_Manager.add_light(self, 0.5)
 	
 	set_fixed_process(true)
 

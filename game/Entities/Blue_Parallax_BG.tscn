@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://Scripts/SetBGDarkness.gd" type="Script" id=1]
 [ext_resource path="res://2D/uncolored_desert.png" type="Texture" id=2]
 [ext_resource path="res://2D/set2_hills.png" type="Texture" id=3]
+[ext_resource path="res://2D/cave_bg.png" type="Texture" id=4]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
@@ -28,7 +29,6 @@ motion/mirroring = Vector2( 1024, 0 )
 
 transform/pos = Vector2( 511, 320 )
 texture = ExtResource( 2 )
-__meta__ = { "_edit_lock_":true }
 
 [node name="ParallaxLayer 2" type="ParallaxLayer" parent="."]
 
@@ -43,5 +43,19 @@ visibility/blend_mode = 1
 transform/pos = Vector2( 320, 398 )
 texture = ExtResource( 3 )
 __meta__ = { "_edit_lock_":true }
+
+[node name="ParallaxLayer 3" type="ParallaxLayer" parent="."]
+
+motion/scale = Vector2( 0.7, 0 )
+motion/offset = Vector2( 0, 0 )
+motion/mirroring = Vector2( 1024, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer 3"]
+
+transform/scale = Vector2( 2, 1.2 )
+texture = ExtResource( 4 )
+centered = false
+modulate = Color( 1, 1, 1, 0 )
+region_rect = Rect2( 0, 0, 1024, 600 )
 
 
