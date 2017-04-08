@@ -5,6 +5,7 @@ No idea... Alien something something
 - Outcast?
 - "Will never kill again"?
 - Invasion of home world?
+	- Main boss underground?
 
 ## Levels
 
@@ -114,10 +115,41 @@ No idea... Alien something something
 	- Spawnpoint + closing doors after each box.
 
 ### Pyramid / Downhill from here
-* State: Not started
-* Theme: 45-degree tiles
-* Size: Medium
+* State: Lack red tiles + polish
+* Theme: Darkness
+* Size: Medium+
 * Enemies:
-* Learn: ?
+	- All
+* Learn: Handle darkness
 * Description
 	- Extensive use of 45-degree tiles
+	- Downhill
+
+### Too greedily and too deep
+* State: Not started
+* Theme: Darkness + Big Enemy
+* Size: Small+
+* Enemies:
+	- Boss?
+* Learn: How to handle boss for the first and last time
+* Description:
+	- Get a lot of blocks up front
+	- Boss alternates between following attacks
+		- Spit a lot of fireballs in many directions
+		- Spit spinning enemies out words  (will only spin if not re-attached)
+	-  Weakness
+		- Capture spinners
+		- Redirect and hit eye to lose heart
+
+
+### Upstream
+* State: Not started
+* Theme: Uphill
+
+### Ending
+* State: Not started
+* Enemies get transformed to normal icons
+
+### Credit Scene
+* State: No started
+* Descript: Show credits

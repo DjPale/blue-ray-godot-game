@@ -142,7 +142,7 @@ enable = true
 
 [node name="Player" parent="." instance=ExtResource( 16 )]
 
-transform/pos = Vector2( 224, 992 )
+transform/pos = Vector2( 736, 1248 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
