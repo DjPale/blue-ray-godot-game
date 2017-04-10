@@ -1,10 +1,9 @@
 # Story & Level plan
 
 ## BG story
-No idea... Alien something something
-- Outcast?
-- "Will never kill again"?
 - Invasion of home world?
+	- Friends transformed to enemies
+		- Do not want to kill
 	- Main boss underground?
 
 ## Levels
@@ -67,7 +66,7 @@ No idea... Alien something something
 	- Block spacing
 * Description: Narrow platforms but not too hard
 
-### Flow manipulator
+### Do not go with the flow
 * State: Complete
 * Theme: Enemy "flow" and spawning
 * Size: 
@@ -75,6 +74,8 @@ No idea... Alien something something
 * Learn
 * Description:
 	- Medium difficulty
+* Feedback:
+	- Difficult to figure out
 
 ### The Tower
 * State: Complete(?)
@@ -102,6 +103,7 @@ No idea... Alien something something
 	- Use blocks extensively in order to disrupt enemy flow!
 * Description:
 	- May get stuck! (Hopefully with a way to get killed by fall / enemies)
+* Feedback: lacks spawn-point
 
 ### Outside the Box
 * State: Lack polish
@@ -113,6 +115,8 @@ No idea... Alien something something
 * Description: 
 	- Contained "boxes" with more advanced puzzles.
 	- Spawnpoint + closing doors after each box.
+* Feedback:
+	-  Hard to figure out where the key is
 
 ### Pyramid / Downhill from here
 * State: Lack red tiles + polish
@@ -122,8 +126,16 @@ No idea... Alien something something
 	- All
 * Learn: Handle darkness
 * Description
-	- Extensive use of 45-degree tiles
+	- Use of 45-degree tiles
 	- Downhill
+* Feedback:
+	- Hard to find correct path, especially at the end
+
+### Pre-boss level
+* State: Not started
+
+* Description:
+	- More red tiles
 
 ### Too greedily and too deep
 * State: Not started

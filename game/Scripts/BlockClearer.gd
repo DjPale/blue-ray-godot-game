@@ -21,7 +21,7 @@ func _close_door(body = null):
 	has_entered = true
 	if body != null: body.clear_tilecount()
 	anim.play("Close")
-	Global.set_level_data(self, "closed", true)
+	Global.set_level_data(self, "closed", true, 0)
 	VFX_Manager.destroy_light(self)
 
 func _on_body_enter( body ):

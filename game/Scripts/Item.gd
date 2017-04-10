@@ -6,9 +6,11 @@ export var points = 0
 export var hidden = false
 export(float) var appear_timeout = 0.3
 
+var persistant = null
+
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
+	if has_node("Persistant"): persistant = get_node("Persistant")
+	
 	_set_visibility(!hidden)
 	
 func _set_visibility(visible):
@@ -20,6 +22,7 @@ func _on_body_enter(body):
 	
 	if body extends preload("PlayerControl.gd"):
 		body.collect(points)
+		if persistant != null: persistant.persist()
 		queue_free()
 	
 func reveal():

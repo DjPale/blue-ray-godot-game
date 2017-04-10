@@ -12,4 +12,4 @@ func _ready():
 
 func _on_body_exit( body ):
 	VFX_Manager.enable_darkness(enable)
-	Global.set_level_data(null, "Darkness", enable)
+	Global.set_level_data(null, "Darkness", enable, 0)

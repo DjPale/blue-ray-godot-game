@@ -3,6 +3,7 @@ extends Node
 export(bool) var global_key = true
 export(String) var persist_key = "Persist"
 export(int, "Destroy", "Signal") var persist_mode = 0
+export(int, "Level", "Spawn") var persist_scope = 0
 
 signal persisted
 
@@ -13,7 +14,7 @@ var persist_obj = null
 
 func _ready():
 	if not global_key: 
-		persist_obj = self
+		persist_obj = get_parent()
 	else:
 		if persist_key.empty():
 			printerr("No key for persistence for object ", get_parent().get_name())
@@ -27,4 +28,4 @@ func _ready():
 
 func persist():
 	if not persisted:
-		Global.set_level_data(persist_obj, persist_key, true)
+		Global.set_level_data(persist_obj, persist_key, true, persist_scope)

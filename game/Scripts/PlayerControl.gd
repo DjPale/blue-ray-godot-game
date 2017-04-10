@@ -80,9 +80,9 @@ func _ready():
 
 	score += Global.score
 	orig_score = score
-		
+
 	if regain_destroyed_tiles: tile_map.connect("tile_destroyed", self, "_on_tile_destroyed")
-		
+
 	connect("score_change", get_node("../UI Layer/Money"), "_on_count_change")
 	connect("tile_count_change", get_node("../UI Layer/Block Count"), "_on_count_change")
 
@@ -379,7 +379,12 @@ func next_level():
 	Global.next_level()
 	
 func set_spawn(obj):
-	Global.spawn_point = obj.get_global_pos()
+	if Global.spawn_point == obj.get_global_pos():
+		return
+		
+	orig_score = score
+	Global.set_spawn(obj.get_global_pos())
+	
 	
 func _set_jump_equation(max_height, max_length, time_to_height):
 	gravity.y = (2.0 * max_height) / (time_to_height * time_to_height)

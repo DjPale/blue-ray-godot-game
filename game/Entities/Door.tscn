@@ -49,6 +49,7 @@ script/script = ExtResource( 4 )
 global_key = true
 persist_key = "Key"
 persist_mode = 1
+persist_scope = 0
 
 [connection signal="body_enter" from="." to="." method="_on_body_enter"]
 

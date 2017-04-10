@@ -50,7 +50,7 @@ func add_light(obj, scale = 1.0):
 	return l
 	
 func destroy_light(obj):
-	if light_root == null || obj == null: return
+	if light_root == null || str(light_root) == "[Deleted Object]" || obj == null: return
 	
 	for l in light_root.get_children():
 		if l != null && l.is_inside_tree() && l.follow_object == obj: 

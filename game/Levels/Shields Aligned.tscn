@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://Entities/Blue_Parallax_BG.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/TileMap-Decorations.tscn" type="PackedScene" id=2]
@@ -8,8 +8,9 @@
 [ext_resource path="res://Entities/EnemySpawner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Entities/EnemySpinning.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Entities/EnemyStaticDown.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Entities/UI Layer.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Entities/SpawnPoint.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Entities/UI Layer.tscn" type="PackedScene" id=11]
 
 [node name="Shields Aligned" type="Node"]
 
@@ -35,7 +36,8 @@ transform/pos = Vector2( 225, 96 )
 
 [node name="EnemySpawner" parent="TileMap/Enemies" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 160, 352 )
+transform/pos = Vector2( 224, 352 )
+spawn_interval = 4.0
 start_dir = 1
 
 [node name="EnemySpawner1" parent="TileMap/Enemies" instance=ExtResource( 6 )]
@@ -61,7 +63,11 @@ spawn_interval = 4.0
 transform/pos = Vector2( -544, 352 )
 spawn_interval = 4.0
 
-[node name="Player" parent="." instance=ExtResource( 9 )]
+[node name="Spawns" type="Node" parent="TileMap"]
+
+[node name="SpawnPoint-Key" parent="TileMap/Spawns" instance=ExtResource( 9 )]
+
+[node name="Player" parent="." instance=ExtResource( 10 )]
 
 transform/pos = Vector2( 416, 416 )
 
@@ -85,6 +91,6 @@ drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 __meta__ = { "_edit_lock_":true }
 
-[node name="UI Layer" parent="." instance=ExtResource( 10 )]
+[node name="UI Layer" parent="." instance=ExtResource( 11 )]
 
 

@@ -8,7 +8,7 @@
 
 ## Mechanics
 Related to core mechanics of the game
-	* Transformation of normal players to enemies (2 first levels)
+	* Transformation of normal players to enemies (2 first levels and back on the last level...)
 	* Title screen with intro-gfx
 	* Death timeout for player
 	* Some kind of introductory story?
