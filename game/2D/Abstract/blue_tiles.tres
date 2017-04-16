@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=56 format=1]
+[gd_resource type="TileSet" load_steps=106 format=1]
 
 [ext_resource path="res://2D/Abstract/abstract_tiles.tileBlue_01.atex" type="Texture" id=1]
 [ext_resource path="res://2D/Abstract/abstract_tiles.tileBlue_02.atex" type="Texture" id=2]
@@ -21,13 +21,38 @@
 [ext_resource path="res://2D/Abstract/abstract_tiles.tileBlue_26.atex" type="Texture" id=19]
 [ext_resource path="res://2D/Abstract/abstract_tiles.tileBlue_27.atex" type="Texture" id=20]
 [ext_resource path="res://2D/Abstract/abstract_tiles.tileBlock.atex" type="Texture" id=21]
-[ext_resource path="res://2D/Abstract/abstract_tiles.tileBlue_04.atex" type="Texture" id=22]
-[ext_resource path="res://2D/Abstract/abstract_tiles.tileBlue_05.atex" type="Texture" id=23]
-[ext_resource path="res://2D/Abstract/abstract_tiles.tileBlue_06.atex" type="Texture" id=24]
-[ext_resource path="res://2D/Abstract/abstract_tiles.tileBlue_07.atex" type="Texture" id=25]
-[ext_resource path="res://2D/Abstract/abstract_tiles.tileBlue_08.atex" type="Texture" id=26]
-[ext_resource path="res://2D/Abstract/abstract_tiles.tileBlue_09.atex" type="Texture" id=27]
-[ext_resource path="res://2D/Abstract/abstract_tiles.tileBlue_10.atex" type="Texture" id=28]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_01.atex" type="Texture" id=22]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_02.atex" type="Texture" id=23]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBlue_04.atex" type="Texture" id=24]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_03.atex" type="Texture" id=25]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_04.atex" type="Texture" id=26]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_27.atex" type="Texture" id=27]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_09.atex" type="Texture" id=28]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_18.atex" type="Texture" id=29]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_05.atex" type="Texture" id=30]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_06.atex" type="Texture" id=31]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_07.atex" type="Texture" id=32]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_08.atex" type="Texture" id=33]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_16.atex" type="Texture" id=34]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBlue_05.atex" type="Texture" id=35]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_17.atex" type="Texture" id=36]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_10.atex" type="Texture" id=37]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_11.atex" type="Texture" id=38]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_12.atex" type="Texture" id=39]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_13.atex" type="Texture" id=40]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_25.atex" type="Texture" id=41]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_26.atex" type="Texture" id=42]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_19.atex" type="Texture" id=43]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_20.atex" type="Texture" id=44]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_21.atex" type="Texture" id=45]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBlue_06.atex" type="Texture" id=46]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_22.atex" type="Texture" id=47]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_23.atex" type="Texture" id=48]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_24.atex" type="Texture" id=49]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBlue_07.atex" type="Texture" id=50]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBlue_08.atex" type="Texture" id=51]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBlue_09.atex" type="Texture" id=52]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBlue_10.atex" type="Texture" id=53]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -157,9 +182,134 @@ points = Vector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
 [sub_resource type="ConvexPolygonShape2D" id=26]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 32, -32, 32, 32, -32, 32 )
+points = Vector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=27]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=28]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=29]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, -26, 32, -26, 32, 22, -32, 22 )
+
+[sub_resource type="ConvexPolygonShape2D" id=30]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, -26, 32, -26, 32, 22, -32, 22 )
+
+[sub_resource type="ConvexPolygonShape2D" id=31]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, -26, 32, -26, 32, 22, -32, 22 )
+
+[sub_resource type="ConvexPolygonShape2D" id=32]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, -26, 32, -26, 32, 22, -32, 22 )
+
+[sub_resource type="ConvexPolygonShape2D" id=33]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=34]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=35]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=36]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 32, -32, 32, 32, -32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=37]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, -32, 32, 32, -32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=38]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 32, -32, 32, 32, -32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=39]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, -32, 32, 32, -32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=40]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, -32, 32, -32, 32, 32, -32, -8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=41]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, -32, 32, -32, 32, -8, -32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=42]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=43]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=44]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=45]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=46]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=47]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=48]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=49]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=50]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=51]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 32, -32, 32, 32, -32, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=52]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -32, -32, 32, 32, -32, 32 )
@@ -169,6 +319,7 @@ points = Vector2Array( -32, -32, 32, 32, -32, 32 )
 0/name = "tile_01"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 64, 50 )
 0/occluder_offset = Vector2( 32, 25 )
 0/navigation_offset = Vector2( 32, 25 )
@@ -177,6 +328,7 @@ points = Vector2Array( -32, -32, 32, 32, -32, 32 )
 1/name = "tile_02"
 1/texture = ExtResource( 2 )
 1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 0, 0, 64, 50 )
 1/occluder_offset = Vector2( 32, 25 )
 1/navigation_offset = Vector2( 32, 25 )
@@ -185,70 +337,79 @@ points = Vector2Array( -32, -32, 32, 32, -32, 32 )
 2/name = "tile_03"
 2/texture = ExtResource( 13 )
 2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 0, 0, 64, 64 )
 2/occluder_offset = Vector2( 32, 32 )
 2/navigation_offset = Vector2( 32, 32 )
 2/shape_offset = Vector2( 0, 0 )
 2/shapes = [  ]
 3/name = "tile_04"
-3/texture = ExtResource( 22 )
+3/texture = ExtResource( 24 )
 3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 0, 0, 64, 64 )
 3/occluder_offset = Vector2( 32, 32 )
 3/navigation_offset = Vector2( 32, 32 )
 3/shape_offset = Vector2( 32, 32 )
-3/shapes = [ SubResource( 21 ) ]
+3/shapes = [ SubResource( 23 ) ]
 4/name = "tile_05"
-4/texture = ExtResource( 23 )
+4/texture = ExtResource( 35 )
 4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 0, 0, 64, 64 )
 4/occluder_offset = Vector2( 32, 32 )
 4/navigation_offset = Vector2( 32, 32 )
 4/shape_offset = Vector2( 32, 32 )
-4/shapes = [ SubResource( 22 ) ]
+4/shapes = [ SubResource( 34 ) ]
 5/name = "tile_06"
-5/texture = ExtResource( 24 )
+5/texture = ExtResource( 46 )
 5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 0, 0, 64, 64 )
 5/occluder_offset = Vector2( 32, 32 )
 5/navigation_offset = Vector2( 32, 32 )
 5/shape_offset = Vector2( 32, 32 )
-5/shapes = [ SubResource( 23 ) ]
+5/shapes = [ SubResource( 45 ) ]
 6/name = "tile_07"
-6/texture = ExtResource( 25 )
+6/texture = ExtResource( 50 )
 6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
 6/region = Rect2( 0, 0, 64, 64 )
 6/occluder_offset = Vector2( 32, 32 )
 6/navigation_offset = Vector2( 32, 32 )
 6/shape_offset = Vector2( 32, 32 )
-6/shapes = [ SubResource( 24 ) ]
+6/shapes = [ SubResource( 49 ) ]
 7/name = "tile_08"
-7/texture = ExtResource( 26 )
+7/texture = ExtResource( 51 )
 7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
 7/region = Rect2( 0, 0, 64, 64 )
 7/occluder_offset = Vector2( 32, 32 )
 7/navigation_offset = Vector2( 32, 32 )
 7/shape_offset = Vector2( 32, 32 )
-7/shapes = [ SubResource( 25 ) ]
+7/shapes = [ SubResource( 50 ) ]
 8/name = "tile_09"
-8/texture = ExtResource( 27 )
+8/texture = ExtResource( 52 )
 8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
 8/region = Rect2( 0, 0, 64, 64 )
 8/occluder_offset = Vector2( 32, 32 )
 8/navigation_offset = Vector2( 32, 32 )
 8/shape_offset = Vector2( 32, 32 )
-8/shapes = [ SubResource( 26 ) ]
+8/shapes = [ SubResource( 51 ) ]
 9/name = "tile_10"
-9/texture = ExtResource( 28 )
+9/texture = ExtResource( 53 )
 9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
 9/region = Rect2( 0, 0, 64, 64 )
 9/occluder_offset = Vector2( 32, 32 )
 9/navigation_offset = Vector2( 32, 32 )
 9/shape_offset = Vector2( 32, 32 )
-9/shapes = [ SubResource( 27 ) ]
+9/shapes = [ SubResource( 52 ) ]
 10/name = "tile_11"
 10/texture = ExtResource( 3 )
 10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
 10/region = Rect2( 0, 0, 64, 64 )
 10/occluder_offset = Vector2( 32, 32 )
 10/navigation_offset = Vector2( 32, 32 )
@@ -257,6 +418,7 @@ points = Vector2Array( -32, -32, 32, 32, -32, 32 )
 11/name = "tile_12"
 11/texture = ExtResource( 4 )
 11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
 11/region = Rect2( 0, 0, 64, 64 )
 11/occluder_offset = Vector2( 32, 32 )
 11/navigation_offset = Vector2( 32, 32 )
@@ -265,6 +427,7 @@ points = Vector2Array( -32, -32, 32, 32, -32, 32 )
 12/name = "tile_13"
 12/texture = ExtResource( 5 )
 12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
 12/region = Rect2( 0, 0, 64, 64 )
 12/occluder_offset = Vector2( 32, 32 )
 12/navigation_offset = Vector2( 32, 32 )
@@ -273,6 +436,7 @@ points = Vector2Array( -32, -32, 32, 32, -32, 32 )
 13/name = "tile_14"
 13/texture = ExtResource( 6 )
 13/tex_offset = Vector2( 0, 0 )
+13/modulate = Color( 1, 1, 1, 1 )
 13/region = Rect2( 0, 0, 64, 64 )
 13/occluder_offset = Vector2( 32, 32 )
 13/navigation_offset = Vector2( 32, 32 )
@@ -281,6 +445,7 @@ points = Vector2Array( -32, -32, 32, 32, -32, 32 )
 14/name = "tile_15"
 14/texture = ExtResource( 7 )
 14/tex_offset = Vector2( 0, 0 )
+14/modulate = Color( 1, 1, 1, 1 )
 14/region = Rect2( 0, 0, 64, 64 )
 14/occluder_offset = Vector2( 32, 32 )
 14/navigation_offset = Vector2( 32, 32 )
@@ -289,6 +454,7 @@ points = Vector2Array( -32, -32, 32, 32, -32, 32 )
 15/name = "tile_16"
 15/texture = ExtResource( 8 )
 15/tex_offset = Vector2( 0, 0 )
+15/modulate = Color( 1, 1, 1, 1 )
 15/region = Rect2( 0, 0, 64, 64 )
 15/occluder_offset = Vector2( 32, 32 )
 15/navigation_offset = Vector2( 32, 32 )
@@ -297,6 +463,7 @@ points = Vector2Array( -32, -32, 32, 32, -32, 32 )
 16/name = "tile_17"
 16/texture = ExtResource( 9 )
 16/tex_offset = Vector2( 0, 0 )
+16/modulate = Color( 1, 1, 1, 1 )
 16/region = Rect2( 0, 0, 64, 64 )
 16/occluder_offset = Vector2( 32, 32 )
 16/navigation_offset = Vector2( 32, 32 )
@@ -305,6 +472,7 @@ points = Vector2Array( -32, -32, 32, 32, -32, 32 )
 17/name = "tile_18"
 17/texture = ExtResource( 10 )
 17/tex_offset = Vector2( 0, 0 )
+17/modulate = Color( 1, 1, 1, 1 )
 17/region = Rect2( 0, 0, 64, 64 )
 17/occluder_offset = Vector2( 32, 32 )
 17/navigation_offset = Vector2( 32, 32 )
@@ -313,6 +481,7 @@ points = Vector2Array( -32, -32, 32, 32, -32, 32 )
 18/name = "tile_19"
 18/texture = ExtResource( 11 )
 18/tex_offset = Vector2( 0, 0 )
+18/modulate = Color( 1, 1, 1, 1 )
 18/region = Rect2( 0, 0, 64, 64 )
 18/occluder_offset = Vector2( 32, 32 )
 18/navigation_offset = Vector2( 32, 32 )
@@ -321,6 +490,7 @@ points = Vector2Array( -32, -32, 32, 32, -32, 32 )
 19/name = "tile_20"
 19/texture = ExtResource( 12 )
 19/tex_offset = Vector2( 0, 0 )
+19/modulate = Color( 1, 1, 1, 1 )
 19/region = Rect2( 0, 0, 64, 64 )
 19/occluder_offset = Vector2( 32, 32 )
 19/navigation_offset = Vector2( 32, 32 )
@@ -329,6 +499,7 @@ points = Vector2Array( -32, -32, 32, 32, -32, 32 )
 20/name = "tile_21"
 20/texture = ExtResource( 14 )
 20/tex_offset = Vector2( 0, 0 )
+20/modulate = Color( 1, 1, 1, 1 )
 20/region = Rect2( 0, 0, 64, 64 )
 20/occluder_offset = Vector2( 32, 32 )
 20/navigation_offset = Vector2( 32, 32 )
@@ -337,6 +508,7 @@ points = Vector2Array( -32, -32, 32, 32, -32, 32 )
 21/name = "tile_22"
 21/texture = ExtResource( 15 )
 21/tex_offset = Vector2( 0, 0 )
+21/modulate = Color( 1, 1, 1, 1 )
 21/region = Rect2( 0, 0, 64, 64 )
 21/occluder_offset = Vector2( 32, 32 )
 21/navigation_offset = Vector2( 32, 32 )
@@ -345,6 +517,7 @@ points = Vector2Array( -32, -32, 32, 32, -32, 32 )
 22/name = "tile_23"
 22/texture = ExtResource( 16 )
 22/tex_offset = Vector2( 0, 0 )
+22/modulate = Color( 1, 1, 1, 1 )
 22/region = Rect2( 0, 0, 64, 64 )
 22/occluder_offset = Vector2( 32, 32 )
 22/navigation_offset = Vector2( 32, 32 )
@@ -353,6 +526,7 @@ points = Vector2Array( -32, -32, 32, 32, -32, 32 )
 23/name = "tile_24"
 23/texture = ExtResource( 17 )
 23/tex_offset = Vector2( 0, 0 )
+23/modulate = Color( 1, 1, 1, 1 )
 23/region = Rect2( 0, 0, 64, 64 )
 23/occluder_offset = Vector2( 32, 32 )
 23/navigation_offset = Vector2( 32, 32 )
@@ -361,6 +535,7 @@ points = Vector2Array( -32, -32, 32, 32, -32, 32 )
 24/name = "tile_25"
 24/texture = ExtResource( 18 )
 24/tex_offset = Vector2( 0, 0 )
+24/modulate = Color( 1, 1, 1, 1 )
 24/region = Rect2( 0, 0, 64, 64 )
 24/occluder_offset = Vector2( 32, 32 )
 24/navigation_offset = Vector2( 32, 32 )
@@ -369,6 +544,7 @@ points = Vector2Array( -32, -32, 32, 32, -32, 32 )
 25/name = "tile_26"
 25/texture = ExtResource( 19 )
 25/tex_offset = Vector2( 0, 0 )
+25/modulate = Color( 1, 1, 1, 1 )
 25/region = Rect2( 0, 0, 64, 50 )
 25/occluder_offset = Vector2( 32, 25 )
 25/navigation_offset = Vector2( 32, 25 )
@@ -377,6 +553,7 @@ points = Vector2Array( -32, -32, 32, 32, -32, 32 )
 26/name = "tile_27"
 26/texture = ExtResource( 20 )
 26/tex_offset = Vector2( 0, 0 )
+26/modulate = Color( 1, 1, 1, 1 )
 26/region = Rect2( 0, 0, 64, 50 )
 26/occluder_offset = Vector2( 32, 25 )
 26/navigation_offset = Vector2( 32, 25 )
@@ -385,9 +562,235 @@ points = Vector2Array( -32, -32, 32, 32, -32, 32 )
 27/name = "tile_28"
 27/texture = ExtResource( 21 )
 27/tex_offset = Vector2( 0, 0 )
+27/modulate = Color( 1, 1, 1, 1 )
 27/region = Rect2( 0, 0, 64, 64 )
 27/occluder_offset = Vector2( 32, 32 )
 27/navigation_offset = Vector2( 32, 32 )
 27/shape_offset = Vector2( 32, 32 )
 27/shapes = [ SubResource( 20 ) ]
+28/name = "tile_29"
+28/texture = ExtResource( 22 )
+28/tex_offset = Vector2( 0, 0 )
+28/modulate = Color( 1, 1, 1, 1 )
+28/region = Rect2( 0, 0, 64, 64 )
+28/occluder_offset = Vector2( 32, 32 )
+28/navigation_offset = Vector2( 32, 32 )
+28/shape_offset = Vector2( 32, 32 )
+28/shapes = [ SubResource( 21 ) ]
+29/name = "tile_30"
+29/texture = ExtResource( 23 )
+29/tex_offset = Vector2( 0, 0 )
+29/modulate = Color( 1, 1, 1, 1 )
+29/region = Rect2( 0, 0, 64, 64 )
+29/occluder_offset = Vector2( 32, 32 )
+29/navigation_offset = Vector2( 32, 32 )
+29/shape_offset = Vector2( 32, 32 )
+29/shapes = [ SubResource( 22 ) ]
+30/name = "tile_31"
+30/texture = ExtResource( 25 )
+30/tex_offset = Vector2( 0, 0 )
+30/modulate = Color( 1, 1, 1, 1 )
+30/region = Rect2( 0, 0, 64, 64 )
+30/occluder_offset = Vector2( 32, 32 )
+30/navigation_offset = Vector2( 32, 32 )
+30/shape_offset = Vector2( 32, 32 )
+30/shapes = [ SubResource( 24 ) ]
+31/name = "tile_32"
+31/texture = ExtResource( 26 )
+31/tex_offset = Vector2( 0, 0 )
+31/modulate = Color( 1, 1, 1, 1 )
+31/region = Rect2( 0, 0, 64, 64 )
+31/occluder_offset = Vector2( 32, 32 )
+31/navigation_offset = Vector2( 32, 32 )
+31/shape_offset = Vector2( 32, 32 )
+31/shapes = [ SubResource( 25 ) ]
+32/name = "tile_33"
+32/texture = ExtResource( 27 )
+32/tex_offset = Vector2( 0, 0 )
+32/modulate = Color( 1, 1, 1, 1 )
+32/region = Rect2( 0, 0, 64, 64 )
+32/occluder_offset = Vector2( 32, 32 )
+32/navigation_offset = Vector2( 32, 32 )
+32/shape_offset = Vector2( 32, 32 )
+32/shapes = [ SubResource( 26 ) ]
+33/name = "tile_34"
+33/texture = ExtResource( 28 )
+33/tex_offset = Vector2( 0, 0 )
+33/modulate = Color( 1, 1, 1, 1 )
+33/region = Rect2( 0, 0, 64, 64 )
+33/occluder_offset = Vector2( 32, 32 )
+33/navigation_offset = Vector2( 32, 32 )
+33/shape_offset = Vector2( 32, 32 )
+33/shapes = [ SubResource( 27 ) ]
+34/name = "tile_35"
+34/texture = ExtResource( 29 )
+34/tex_offset = Vector2( 0, 0 )
+34/modulate = Color( 1, 1, 1, 1 )
+34/region = Rect2( 0, 0, 64, 64 )
+34/occluder_offset = Vector2( 32, 32 )
+34/navigation_offset = Vector2( 32, 32 )
+34/shape_offset = Vector2( 32, 32 )
+34/shapes = [ SubResource( 28 ) ]
+35/name = "tile_36"
+35/texture = ExtResource( 30 )
+35/tex_offset = Vector2( 0, 0 )
+35/modulate = Color( 1, 1, 1, 1 )
+35/region = Rect2( 0, 0, 64, 53 )
+35/occluder_offset = Vector2( 32, 26.5 )
+35/navigation_offset = Vector2( 32, 26.5 )
+35/shape_offset = Vector2( 32, 26.5 )
+35/shapes = [ SubResource( 29 ) ]
+36/name = "tile_37"
+36/texture = ExtResource( 31 )
+36/tex_offset = Vector2( 0, 0 )
+36/modulate = Color( 1, 1, 1, 1 )
+36/region = Rect2( 0, 0, 64, 53 )
+36/occluder_offset = Vector2( 32, 26.5 )
+36/navigation_offset = Vector2( 32, 26.5 )
+36/shape_offset = Vector2( 32, 26.5 )
+36/shapes = [ SubResource( 30 ) ]
+37/name = "tile_38"
+37/texture = ExtResource( 32 )
+37/tex_offset = Vector2( 0, 0 )
+37/modulate = Color( 1, 1, 1, 1 )
+37/region = Rect2( 0, 0, 64, 53 )
+37/occluder_offset = Vector2( 32, 26.5 )
+37/navigation_offset = Vector2( 32, 26.5 )
+37/shape_offset = Vector2( 32, 26.5 )
+37/shapes = [ SubResource( 31 ) ]
+38/name = "tile_39"
+38/texture = ExtResource( 33 )
+38/tex_offset = Vector2( 0, 0 )
+38/modulate = Color( 1, 1, 1, 1 )
+38/region = Rect2( 0, 0, 64, 53 )
+38/occluder_offset = Vector2( 32, 26.5 )
+38/navigation_offset = Vector2( 32, 26.5 )
+38/shape_offset = Vector2( 32, 26.5 )
+38/shapes = [ SubResource( 32 ) ]
+39/name = "tile_40"
+39/texture = ExtResource( 34 )
+39/tex_offset = Vector2( 0, 0 )
+39/modulate = Color( 1, 1, 1, 1 )
+39/region = Rect2( 0, 0, 64, 64 )
+39/occluder_offset = Vector2( 32, 32 )
+39/navigation_offset = Vector2( 32, 32 )
+39/shape_offset = Vector2( 32, 32 )
+39/shapes = [ SubResource( 33 ) ]
+40/name = "tile_41"
+40/texture = ExtResource( 36 )
+40/tex_offset = Vector2( 0, 0 )
+40/modulate = Color( 1, 1, 1, 1 )
+40/region = Rect2( 0, 0, 64, 64 )
+40/occluder_offset = Vector2( 32, 32 )
+40/navigation_offset = Vector2( 32, 32 )
+40/shape_offset = Vector2( 32, 32 )
+40/shapes = [ SubResource( 35 ) ]
+41/name = "tile_42"
+41/texture = ExtResource( 37 )
+41/tex_offset = Vector2( 0, 0 )
+41/modulate = Color( 1, 1, 1, 1 )
+41/region = Rect2( 0, 0, 64, 64 )
+41/occluder_offset = Vector2( 32, 32 )
+41/navigation_offset = Vector2( 32, 32 )
+41/shape_offset = Vector2( 32, 32 )
+41/shapes = [ SubResource( 36 ) ]
+42/name = "tile_43"
+42/texture = ExtResource( 38 )
+42/tex_offset = Vector2( 0, 0 )
+42/modulate = Color( 1, 1, 1, 1 )
+42/region = Rect2( 0, 0, 64, 64 )
+42/occluder_offset = Vector2( 32, 32 )
+42/navigation_offset = Vector2( 32, 32 )
+42/shape_offset = Vector2( 32, 32 )
+42/shapes = [ SubResource( 37 ) ]
+43/name = "tile_44"
+43/texture = ExtResource( 39 )
+43/tex_offset = Vector2( 0, 0 )
+43/modulate = Color( 1, 1, 1, 1 )
+43/region = Rect2( 0, 0, 64, 64 )
+43/occluder_offset = Vector2( 32, 32 )
+43/navigation_offset = Vector2( 32, 32 )
+43/shape_offset = Vector2( 32, 32 )
+43/shapes = [ SubResource( 38 ) ]
+44/name = "tile_45"
+44/texture = ExtResource( 40 )
+44/tex_offset = Vector2( 0, 0 )
+44/modulate = Color( 1, 1, 1, 1 )
+44/region = Rect2( 0, 0, 64, 64 )
+44/occluder_offset = Vector2( 32, 32 )
+44/navigation_offset = Vector2( 32, 32 )
+44/shape_offset = Vector2( 32, 32 )
+44/shapes = [ SubResource( 39 ) ]
+45/name = "tile_46"
+45/texture = ExtResource( 41 )
+45/tex_offset = Vector2( 0, 0 )
+45/modulate = Color( 1, 1, 1, 1 )
+45/region = Rect2( 0, 0, 64, 64 )
+45/occluder_offset = Vector2( 32, 32 )
+45/navigation_offset = Vector2( 32, 32 )
+45/shape_offset = Vector2( 32, 32 )
+45/shapes = [ SubResource( 40 ) ]
+46/name = "tile_47"
+46/texture = ExtResource( 42 )
+46/tex_offset = Vector2( 0, 0 )
+46/modulate = Color( 1, 1, 1, 1 )
+46/region = Rect2( 0, 0, 64, 64 )
+46/occluder_offset = Vector2( 32, 32 )
+46/navigation_offset = Vector2( 32, 32 )
+46/shape_offset = Vector2( 32, 32 )
+46/shapes = [ SubResource( 41 ) ]
+47/name = "tile_48"
+47/texture = ExtResource( 43 )
+47/tex_offset = Vector2( 0, 0 )
+47/modulate = Color( 1, 1, 1, 1 )
+47/region = Rect2( 0, 0, 64, 64 )
+47/occluder_offset = Vector2( 32, 32 )
+47/navigation_offset = Vector2( 32, 32 )
+47/shape_offset = Vector2( 32, 32 )
+47/shapes = [ SubResource( 42 ) ]
+48/name = "tile_49"
+48/texture = ExtResource( 44 )
+48/tex_offset = Vector2( 0, 0 )
+48/modulate = Color( 1, 1, 1, 1 )
+48/region = Rect2( 0, 0, 64, 64 )
+48/occluder_offset = Vector2( 32, 32 )
+48/navigation_offset = Vector2( 32, 32 )
+48/shape_offset = Vector2( 32, 32 )
+48/shapes = [ SubResource( 43 ) ]
+49/name = "tile_50"
+49/texture = ExtResource( 45 )
+49/tex_offset = Vector2( 0, 0 )
+49/modulate = Color( 1, 1, 1, 1 )
+49/region = Rect2( 0, 0, 64, 64 )
+49/occluder_offset = Vector2( 32, 32 )
+49/navigation_offset = Vector2( 32, 32 )
+49/shape_offset = Vector2( 32, 32 )
+49/shapes = [ SubResource( 44 ) ]
+50/name = "tile_51"
+50/texture = ExtResource( 47 )
+50/tex_offset = Vector2( 0, 0 )
+50/modulate = Color( 1, 1, 1, 1 )
+50/region = Rect2( 0, 0, 64, 64 )
+50/occluder_offset = Vector2( 32, 32 )
+50/navigation_offset = Vector2( 32, 32 )
+50/shape_offset = Vector2( 32, 32 )
+50/shapes = [ SubResource( 46 ) ]
+51/name = "tile_52"
+51/texture = ExtResource( 48 )
+51/tex_offset = Vector2( 0, 0 )
+51/modulate = Color( 1, 1, 1, 1 )
+51/region = Rect2( 0, 0, 64, 64 )
+51/occluder_offset = Vector2( 32, 32 )
+51/navigation_offset = Vector2( 32, 32 )
+51/shape_offset = Vector2( 32, 32 )
+51/shapes = [ SubResource( 47 ) ]
+52/name = "tile_53"
+52/texture = ExtResource( 49 )
+52/tex_offset = Vector2( 0, 0 )
+52/modulate = Color( 1, 1, 1, 1 )
+52/region = Rect2( 0, 0, 64, 64 )
+52/occluder_offset = Vector2( 32, 32 )
+52/navigation_offset = Vector2( 32, 32 )
+52/shape_offset = Vector2( 32, 32 )
+52/shapes = [ SubResource( 48 ) ]
 

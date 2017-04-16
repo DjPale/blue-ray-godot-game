@@ -34,13 +34,16 @@ hitbox_offset = Vector2( 5, 5 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
-__meta__ = { "_edit_lock_":true }
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Particles2D" type="Particles2D" parent="."]
 
 config/amount = 16
 config/lifetime = 1.0
 config/time_scale = 5.0
+config/process_mode = 1
 config/local_space = false
 config/texture = ExtResource( 2 )
 params/direction = 0.0
@@ -61,6 +64,8 @@ params/anim_speed_scale = 1.0
 params/anim_initial_pos = 0.0
 randomness/spin_velocity = 0.5
 color/color_ramp = SubResource( 2 )
-__meta__ = { "_edit_lock_":true }
+__meta__ = {
+"_edit_lock_": true
+}
 
 
