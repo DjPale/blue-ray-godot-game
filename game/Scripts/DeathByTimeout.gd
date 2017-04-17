@@ -12,4 +12,7 @@ func _process(delta):
 	if cnt > 0:
 		cnt -= delta
 		if cnt <= 0:
-			queue_free()
+			if get_parent().has_method("die"):
+				get_parent().die()
+			else:
+				queue_free()

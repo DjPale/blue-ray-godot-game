@@ -1,7 +1,7 @@
 # TODO for Blue Ray
 
 ## Goals 
-* OK game with ~ 13 levels
+* OK game with 12 levels
 * Finsihed before LDJam #38 (21.04.17)
 * Put it on itch.io
 * Get it in the Godot showcase? :)
@@ -13,21 +13,17 @@ Related to core mechanics of the game
 	* Death timeout for player
 	* Some kind of introductory story?
 	* End-of-game screen
+## Enemies / AIeen
 
-## Enemies / AI
 Enemy types
-	* Final "boss"?
+	* Final "boss" - IN PROGRESS!!!1
 
 ## Gfx and misc fx
 Visual fx stuff
-	* Change tileset after level 10?
-	* Better beam-fx for placing / displacing block (player)
 	* Death animation / transition for player
-	* Small smoke-like particles for enemies when touching ground (walkers + spinners)
 
 ## Audio
 Audio-related things
-
 	* Figure out how audio works in Godot
 	* Create SFX_Manager? (See VFX_Manager pattern)
 	* Create / Download Sfx
@@ -35,14 +31,13 @@ Audio-related things
 
 ## Levels / game design
 Level design and story and stuff
-
 	* See "levels.md"
-	* Currently ~ 9 / 13
+	* Currently ~ 9 / 12
 
 ## Promotion [e]
 "Promoting" the game
-
 	* Create itch.io page
+		* Ask to be added to official Kenney.nl collection
 	* Twitter with cc to Kenney, Godot etc.
 	* Post in Godot forums
 	* Announce on Godot Discord server

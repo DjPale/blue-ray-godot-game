@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://Scripts/EnemySpinner.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/BasicEnemy.gd" type="Script" id=2]
+[ext_resource path="res://2D/Abstract/Enemies/spritesheet_enemies.enemyFloating_2.atex" type="Texture" id=3]
+[ext_resource path="res://Scripts/DeathByTimeout.gd" type="Script" id=4]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -15, -15, 15, -15, 15, 15, -15, 15 )
+
+[node name="EnemySpinning-Spawned" type="KinematicBody2D"]
+
+z/z = 1
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 2
+collision/mask = 0
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+speed = Vector2( 0, 0 )
+
+[node name="BasicEnemy" type="Node2D" parent="."]
+
+script/script = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+build_mode = 0
+polygon = Vector2Array( -15, -15, 15, -15, 15, 15, -15, 15 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 3 )
+modulate = Color( 0.527344, 0.447006, 0.467718, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Timeout" type="Node" parent="."]
+
+script/script = ExtResource( 4 )
+timeout = 15.0
+
+

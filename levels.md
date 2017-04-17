@@ -131,14 +131,8 @@
 * Feedback:
 	- Hard to find correct path, especially at the end
 
-### Pre-boss level
-* State: Not started
-
-* Description:
-	- More red tiles
-
 ### Too greedily and too deep
-* State: Not started
+* State: Started
 * Theme: Darkness + Big Enemy
 * Size: Small+
 * Enemies:

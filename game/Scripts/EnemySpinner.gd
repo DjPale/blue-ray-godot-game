@@ -98,3 +98,6 @@ func _update_anims(delta):
 		else:
 			indicator.set_hidden(true)
 	
+func die():
+	VFX_Manager.puff(get_tree().get_root(), self.get_global_pos())
+	queue_free()
