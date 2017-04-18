@@ -12,6 +12,7 @@ onready var top = get_node("Top Segment")
 onready var mid = get_node("Mid Segment")
 onready var bottom = get_node("Bottom Segment")
 onready var fb_point = get_node("Head/Flamepoint")
+onready var flash_anim = get_node("../FlashPlayer")
 
 onready var enemies = get_tree().get_root().find_node("Enemies", true, false)
 
@@ -75,6 +76,9 @@ func _reparent(old_parent, new_parent, the_node):
 	new_parent.add_child(the_node)
 	the_node.set_global_pos(old_parent.get_global_pos())
 
+func flash():
+	flash_anim.play("Flash")
+
 func _on_AnimationPlayer_finished():
 	anim.play("Bobbing-Sideways")
 
@@ -82,3 +86,4 @@ func _on_Eye__Weak_Spot_body_enter( body ):
 	print("Eye enter ", body.get_name())
 	if body extends preload("res://Scripts/EnemySpinner.gd"):
 		print("OUCH")
+		flash()
