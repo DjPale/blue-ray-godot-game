@@ -1,6 +1,6 @@
 [gd_resource type="CanvasItemMaterial" load_steps=2 format=1]
 
-[sub_resource type="CanvasItemShader" id=6]
+[sub_resource type="CanvasItemShader" id=1]
 
 _code = {
 "fragment": "uniform color flash_color;
@@ -21,7 +21,7 @@ COLOR = col;
 
 [resource]
 
-shader/shader = SubResource( 6 )
+shader/shader = SubResource( 1 )
 shader/shading_mode = 0
 shader_param/flash_color = Color( 0.777344, 0.416, 0.416, 1 )
 shader_param/flash_amount = 0.0

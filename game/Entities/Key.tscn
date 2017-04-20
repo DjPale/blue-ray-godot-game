@@ -26,7 +26,9 @@ script/script = ExtResource( 1 )
 
 transform/scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 2 )
-__meta__ = { "_edit_lock_":true }
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
