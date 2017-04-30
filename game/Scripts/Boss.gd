@@ -3,6 +3,7 @@ extends Node2D
 var Fireball = preload("res://Entities/Fireball-Big.tscn")
 var Spinner = preload("res://Entities/EnemySpinning-Spawned.tscn")
 
+export var segment_start_key = "start"
 export var fireball_speed = 150.0
 export var spinner_speed = Vector2(-150, 0)
 
@@ -15,12 +16,20 @@ onready var fb_point = get_node("Head/Flamepoint")
 
 onready var enemies = get_tree().get_root().find_node("Enemies", true, false)
 
-var segments = []
+var segments = {
+	"start": {name: "Appear-Start", next: ["idle"]},
+	"idle": {name: "Bobbing-Sideways", next: ["idle", "fireball"]},
+	"fireball": {name: "Fireball-RightToLeft", next: ["idle", "idle", "attach"]},
+	"attach": {name: "Disappear-Attach-Appear", next: ["spinners"]},
+	"spinners": {name: "Fire-Spinners", next: ["idle"]}
+}
 
 var fb_int_duration = 0.5
 
 var fb_counter = 0.0
 var fb_int_counter = 0.0
+
+var cur_segment = null
 
 func _ready():
 	segments.append(top)
@@ -75,8 +84,32 @@ func _reparent(old_parent, new_parent, the_node):
 	new_parent.add_child(the_node)
 	the_node.set_global_pos(old_parent.get_global_pos())
 
+func start_segments():
+	anim.stop()
+	if not segments.has(segment_start_key):
+		print("cannot find segment start key " + segment_start_key)
+		return
+	
+	var cur_segment = segments[segment_start_key]
+	anim.play(cur_segment.name)
+
+func next_segment():
+	if cur_segment == null:
+		print("no active segment for next_segment")
+		return
+
+	var nxt = cur_segment.next	
+	if nxt == null or nxt.size() == 0:
+		print("segments ended")
+		return
+
+	var r = int(rand_range(0, nxt.size()))
+	cur_segment = segments[nxt[r]]
+	
+	anim.play(cur_segment.name)
+	
 func _on_AnimationPlayer_finished():
-	anim.play("Bobbing-Sideways")
+	next_segment()
 
 func _on_Eye__Weak_Spot_body_enter( body ):
 	print("Eye enter ", body.get_name())
