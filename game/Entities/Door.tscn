@@ -12,14 +12,24 @@ extents = Vector2( 26, 24 )
 
 [sub_resource type="SpriteFrames" id=2]
 
-animations = [ { "frames":[ ExtResource( 2 ) ], "loop":true, "name":"open", "speed":0.0 }, { "frames":[ ExtResource( 3 ) ], "loop":true, "name":"closed", "speed":0.0 } ]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "open",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "closed",
+"speed": 0.0
+} ]
 
 [node name="Door" type="Area2D"]
 
 transform/pos = Vector2( 800, 352 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 8 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 7 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -33,15 +43,19 @@ is_open = false
 frames = SubResource( 2 )
 animation = "closed"
 playing = true
-__meta__ = { "_edit_lock_":true }
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( 0, 8 )
+transform/pos = Vector2( 0, 7 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
-__meta__ = { "_edit_lock_":true }
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Persistence" type="Node" parent="."]
 

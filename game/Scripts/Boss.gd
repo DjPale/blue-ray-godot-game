@@ -4,7 +4,7 @@ var Fireball = preload("res://Entities/Fireball-Big.tscn")
 var Spinner = preload("res://Entities/EnemySpinning-Spawned.tscn")
 var Key = preload("res://Entities/Key.tscn")
 
-export var segment_start_key = "start"
+export var phase_start_key = "start"
 export var fireball_speed = 150.0
 export var spinner_speed = Vector2(-150, 0)
 export var hitpoints = 3
@@ -22,12 +22,14 @@ onready var player = get_tree().get_root().find_node("Player", true, false)
 
 onready var VFX_Manager = get_node("/root/VFX_Manager")
 
-var segments = {
-	"start": {name: "Appear-Start", next: ["idle"]},
-	"idle": {name: "Bobbing-Sideways", next: ["idle", "fireball"]},
-	"fireball": {name: "Fireball-RightToLeft", next: ["idle", "idle", "attach"]},
-	"attach": {name: "Disappear-Attach-Appear", next: ["spinners"]},
-	"spinners": {name: "Fire-Spinners", next: ["idle"]}
+var segments = []
+
+var phases = {
+	"start": {"name": "Appear-Start", "next": ["idle"]},
+	"idle": {"name": "Bobbing-Sideways", "next": ["idle", "fireball"]},
+	"fireball": {"name": "Fireball-RightToLeft", "next": ["idle", "idle", "attach"]},
+	"attach": {"name": "Disappear-Attach-Appear", "next": ["spinners"]},
+	"spinners": {"name": "Fire-Spinners", "next": ["idle"]}
 }
 
 var fb_int_duration = 0.5
@@ -35,7 +37,7 @@ var fb_int_duration = 0.5
 var fb_counter = 0.0
 var fb_int_counter = 0.0
 
-var cur_segment = null
+var cur_phase = null
 var dying = false
 
 func _ready():
@@ -43,6 +45,8 @@ func _ready():
 	segments.append(mid)
 	#segments.append(bottom)
 	set_process(true)
+	
+	start_phase()
 	
 func _process_fireballs(delta):
 	if fb_counter > 0: 
@@ -91,38 +95,42 @@ func _reparent(old_parent, new_parent, the_node):
 	new_parent.add_child(the_node)
 	the_node.set_global_pos(old_parent.get_global_pos())
 
-func start_segments():
+func start_phase():
 	anim.stop()
-	if not segments.has(segment_start_key):
-		print("cannot find segment start key " + segment_start_key)
+	if not phases.has(phase_start_key):
+		print("cannot find phase start key " + phase_start_key)
 		return
 	
-	var cur_segment = segments[segment_start_key]
-	anim.play(cur_segment.name)
+	cur_phase = phases[phase_start_key]
+	anim.play(cur_phase.name)
+	prints("first phase", cur_phase.name)
 
-func next_segment():
-	if cur_segment == null:
-		print("no active segment for next_segment")
+func next_phase():
+	if cur_phase == null:
+		print("no active phase for next_segment")
 		return
 
-	var nxt = cur_segment.next	
+	var nxt = cur_phase.next
 	if nxt == null or nxt.size() == 0:
-		print("segments ended")
+		print("phases ended")
 		return
 
 	var r = int(rand_range(0, nxt.size()))
-	cur_segment = segments[nxt[r]]
-	
-	anim.play(cur_segment.name)
+	cur_phase = phases[nxt[r]]
+
+	prints("phase", cur_phase.name)
+		
+	anim.play(cur_phase.name)
 	
 func _on_AnimationPlayer_finished():
 	if dying:
 		return
 		
-	next_segment()
+	next_phase()
 
 func _on_Eye__Weak_Spot_body_enter( body ):
-	if dying: return
+	if dying: 
+		return
 	print("Eye enter ", body.get_name())
 	if body extends preload("res://Scripts/EnemySpinner.gd"):
 		flash()

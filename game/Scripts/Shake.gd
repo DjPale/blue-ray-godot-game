@@ -43,7 +43,7 @@ func _process(delta):
 			_target.set_offset(_target.get_offset() - _last_offset + new_offset)
 		_last_offset = new_offset
 		# Reset the offset when we're done shaking.
-		_timer = _timer - delta
+		_timer = _timer - delta * 60.0
 	if _timer <= 0:
 		_timer = 0
 		if _no_offset:
