@@ -266,6 +266,7 @@ __meta__ = {
 segment_start_key = "start"
 fireball_speed = 150.0
 spinner_speed = Vector2( -120, 0 )
+hitpoints = 3
 
 [node name="Head" type="KinematicBody2D" parent="TileMap/Enemies/BOSS/BossBase"]
 

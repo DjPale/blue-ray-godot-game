@@ -3,6 +3,7 @@ extends Node
 var FloatingText = preload("res://Entities/FloatingText.tscn")
 var Puff = preload("res://Entities/Puff.tscn")
 var Light = preload("res://Entities/Light.tscn")
+var Shake = preload("res://Scripts/Shake.gd")
 
 var light_root = null
 var darkness = null
@@ -57,4 +58,9 @@ func destroy_light(obj):
 			#prints("Removed light", l.get_name(), " for", obj.get_name())
 			l.queue_free()
 			return
-	
+
+func shake(obj, duration = 0.2, frequency = 15.0, amplitude = 8.0):
+	var n = Node.new()
+	n.set_script(Shake)
+	obj.add_child(n)
+	n.shake(obj, duration, frequency, amplitude)

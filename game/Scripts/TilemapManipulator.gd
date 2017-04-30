@@ -19,7 +19,7 @@ func _ready():
 	test_shape_query.set_shape(test_shape)
 	test_shape_query.set_exclude([self])
 	#test_shape_query.set_object_type_mask(test_shape_query.get_object_type_mask() | Physics2DDirectSpaceState.TYPE_MASK_AREA)
-	test_shape_query.set_object_type_mask(Physics2DDirectSpaceState.TYPE_MASK_KINEMATIC_BODY | Physics2DDirectSpaceState.TYPE_MASK_AREA | Physics2DDirectSpaceState.TYPE_MASK_STATIC_BODY)
+	test_shape_query.set_object_type_mask(Physics2DDirectSpaceState.TYPE_MASK_KINEMATIC_BODY | Physics2DDirectSpaceState.TYPE_MASK_AREA | Physics2DDirectSpaceState.TYPE_MASK_STATIC_BODY | PhysicsDirectSpaceState.TYPE_MASK_RIGID_BODY)
 	
 # only to be used by player placement
 func create_or_destroy_tile(tile_pos, can_create):
