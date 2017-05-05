@@ -141,8 +141,13 @@ func _on_Eye__Weak_Spot_body_enter( body ):
 func flash():
 	flash_anim.play("Flash")
 	
-func shake(duration, frequency = 50.0, amplitude = 6.0):
-	VFX_Manager.shake(player.get_node("Camera2D"), duration, frequency, amplitude)
+func shake(duration, use_camera = true, frequency = 50.0, amplitude = 6.0):
+	var n = player.get_node("Camera2D")
+	
+	if not use_camera:
+		n = get_node("Head/Head")
+	
+	VFX_Manager.shake(n, duration, frequency, amplitude)
 
 func player_input(enable_input):
 	player.input_enable = enable_input

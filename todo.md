@@ -2,7 +2,7 @@
 
 ## Goals 
 * OK game with 12 levels
-* Finsihed before LDJam #38 (21.04.17)
+* ~~Finsihed before LDJam #38 (21.04.17)~~ Finish before June 2017
 * Put it on itch.io
 * Get it in the Godot showcase? :)
 
