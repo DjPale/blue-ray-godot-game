@@ -8,6 +8,7 @@ export var phase_start_key = "start"
 export var fireball_speed = 150.0
 export var spinner_speed = Vector2(-150, 0)
 export var hitpoints = 3
+export var auto_start = false
 
 onready var anim = get_node("../AnimationPlayer")
 onready var head = get_node("Head")
@@ -27,7 +28,7 @@ var segments = []
 var phases = {
 	"start": {"name": "Appear-Start", "next": ["idle"]},
 	"idle": {"name": "Bobbing-Sideways", "next": ["idle", "fireball"]},
-	"fireball": {"name": "Fireball-RightToLeft", "next": ["idle", "idle", "attach"]},
+	"fireball": {"name": "Fireball-RightToLeft", "next": ["idle", "attach"]},
 	"attach": {"name": "Disappear-Attach-Appear", "next": ["spinners"]},
 	"spinners": {"name": "Fire-Spinners", "next": ["idle"]}
 }
@@ -46,8 +47,17 @@ func _ready():
 	#segments.append(bottom)
 	set_process(true)
 	
+	if auto_start:
+		start_phase()
+	
+func reveal():
+	player.say("???")
 	start_phase()
 	
+func unfreeze_player():
+	player.say("!!!")
+	player.input_enable = true
+
 func _process_fireballs(delta):
 	if fb_counter > 0: 
 		fb_counter -= delta
@@ -114,7 +124,7 @@ func next_phase():
 	if nxt == null or nxt.size() == 0:
 		print("phases ended")
 		return
-
+		
 	var r = int(rand_range(0, nxt.size()))
 	cur_phase = phases[nxt[r]]
 
@@ -129,9 +139,9 @@ func _on_AnimationPlayer_finished():
 	next_phase()
 
 func _on_Eye__Weak_Spot_body_enter( body ):
-	if dying: 
-		return
-	print("Eye enter ", body.get_name())
+	if dying: return
+	
+	#print("Eye enter ", body.get_name())
 	if body extends preload("res://Scripts/EnemySpinner.gd"):
 		flash()
 		hitpoints -= 1

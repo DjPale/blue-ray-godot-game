@@ -132,21 +132,20 @@
 	- Hard to find correct path, especially at the end
 
 ### Too greedily and too deep
-* State: Started
-* Theme: Darkness + Big Enemy
+* State: Lack polish (pickups)
+* Theme: Big Enemy
 * Size: Small+
 * Enemies:
-	- Boss?
-* Learn: How to handle boss for the first and last time
+	- Boss
+* Learn: How to handle boss for the first and last time--
 * Description:
 	- Get a lot of blocks up front
 	- Boss alternates between following attacks
 		- Spit a lot of fireballs in many directions
-		- Spit spinning enemies out words  (will only spin if not re-attached)
+		- Fetch and launch spinning enemies towards player (will only spin if not re-attached)
 	-  Weakness
 		- Capture spinners
-		- Redirect and hit eye to lose heart
-
+		- Redirect and hit eye to lose HP
 
 ### Upstream
 * State: Not started

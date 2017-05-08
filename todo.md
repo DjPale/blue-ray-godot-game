@@ -13,18 +13,14 @@ Related to core mechanics of the game
 	* Death timeout for player
 	* Some kind of introductory story?
 	* End-of-game screen
-## Enemies / AIeen
-
-Enemy types
-	* Final "boss" - IN PROGRESS!!!1
 
 ## Gfx and misc fx
 Visual fx stuff
+	* Floating text - speechbubble style
 	* Death animation / transition for player
 
 ## Audio
 Audio-related things
-	* Figure out how audio works in Godot
 	* Create SFX_Manager? (See VFX_Manager pattern)
 	* Create / Download Sfx
 	* Create / Download Music
@@ -32,7 +28,7 @@ Audio-related things
 ## Levels / game design
 Level design and story and stuff
 	* See "levels.md"
-	* Currently ~ 9 / 12
+	* Currently ~ 10 / 12
 
 ## Promotion [e]
 "Promoting" the game

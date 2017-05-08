@@ -1,21 +1,22 @@
-[gd_scene load_steps=29 format=1]
+[gd_scene load_steps=31 format=1]
 
 [ext_resource path="res://2D/cave_bg.png" type="Texture" id=1]
 [ext_resource path="res://Entities/TileMap-Decorations.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entities/TileMap-Blue.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Entities/Key.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scripts/Boss-Debug.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/ObjectPersistence.gd" type="Script" id=6]
-[ext_resource path="res://Scripts/Shake.gd" type="Script" id=7]
-[ext_resource path="res://Shaders/ColorMixMaterial.tres" type="CanvasItemMaterial" id=8]
-[ext_resource path="res://Scripts/Boss.gd" type="Script" id=9]
-[ext_resource path="res://2D/Abstract/Enemies/Boss-Head.png" type="Texture" id=10]
-[ext_resource path="res://2D/Abstract/Enemies/Boss-Eye.png" type="Texture" id=11]
-[ext_resource path="res://Scripts/FollowEye.gd" type="Script" id=12]
-[ext_resource path="res://2D/Abstract/Enemies/Boss-Segment.png" type="Texture" id=13]
-[ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Entities/UI Layer.tscn" type="PackedScene" id=15]
-[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_18.atex" type="Texture" id=16]
+[ext_resource path="res://Scripts/Boss-Debug.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/ObjectPersistence.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Shake.gd" type="Script" id=6]
+[ext_resource path="res://Shaders/ColorMixMaterial.tres" type="CanvasItemMaterial" id=7]
+[ext_resource path="res://Scripts/Boss.gd" type="Script" id=8]
+[ext_resource path="res://2D/Abstract/Enemies/Boss-Head.png" type="Texture" id=9]
+[ext_resource path="res://2D/Abstract/Enemies/Boss-Eye.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/FollowEye.gd" type="Script" id=11]
+[ext_resource path="res://2D/Abstract/Enemies/Boss-Segment.png" type="Texture" id=12]
+[ext_resource path="res://Entities/Door.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scripts/Trigger.gd" type="Script" id=14]
+[ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Entities/UI Layer.tscn" type="PackedScene" id=16]
+[ext_resource path="res://2D/Abstract/abstract_tiles.tileBrown_18.atex" type="Texture" id=17]
 
 [sub_resource type="Animation" id=1]
 
@@ -38,11 +39,14 @@ tracks/1/path = NodePath("BossBase")
 tracks/1/interp = 1
 tracks/1/imported = false
 tracks/1/keys = {
-"times": FloatArray( 0 ),
-"transitions": FloatArray( 1 ),
+"times": FloatArray( 0, 8 ),
+"transitions": FloatArray( 1, 1 ),
 "values": [ {
 "args": [ 6.0 ],
 "method": "shake"
+}, {
+"args": [  ],
+"method": "unfreeze_player"
 } ]
 }
 
@@ -186,7 +190,7 @@ tracks/0/path = NodePath("BossBase")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 1 ),
+"times": FloatArray( 1.75 ),
 "transitions": FloatArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -198,20 +202,20 @@ tracks/1/path = NodePath("BossBase/Head:transform/pos")
 tracks/1/interp = 1
 tracks/1/imported = false
 tracks/1/keys = {
-"times": FloatArray( 0, 1, 2.25, 2.75, 3.75 ),
-"transitions": FloatArray( 4, 0.25, 1, 1, 1 ),
+"times": FloatArray( 0, 1, 1.5, 2.5, 3, 4 ),
+"transitions": FloatArray( -4, 0.25, 0.25, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( -150, 80 ), Vector2( 160, 80 ), Vector2( 150, 80 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( -150, 80 ), Vector2( -150, 80 ), Vector2( 160, 80 ), Vector2( 150, 80 ), Vector2( 0, 0 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("BossBase/Head:transform/rot")
 tracks/2/interp = 1
 tracks/2/imported = false
 tracks/2/keys = {
-"times": FloatArray( 0, 1, 2.25, 2.75, 3.75 ),
-"transitions": FloatArray( 4, 0.25, 1, 1, 1 ),
+"times": FloatArray( 0, 1, 1.5, 2.5, 3, 4 ),
+"transitions": FloatArray( 4, 0.25, 0.25, 1, -4, 1 ),
 "update": 0,
-"values": [ 0.0, 60.0, -90.0, -80.0, 0.0 ]
+"values": [ 0.0, 60.0, 60.0, -90.0, -80.0, 0.0 ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -306,6 +310,11 @@ radius = 80.0
 custom_solver_bias = 0.0
 radius = 80.0
 
+[sub_resource type="RectangleShape2D" id=13]
+
+custom_solver_bias = 0.0
+extents = Vector2( 16, 350 )
+
 [node name="Too greedily and too deep" type="Node"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -338,26 +347,22 @@ region_rect = Rect2( 0, 0, 1024, 600 )
 
 [node name="TileMap" parent="." instance=ExtResource( 3 )]
 
-tile_data = IntArray( 65534, 27, 65535, 27, 131071, 27, 196607, 27, 262143, 27, 327679, 27, 393215, 27, 327680, 42, 458751, 27, 393216, 48, 393217, 42, 524287, 27, 458752, 32, 458753, 48, 458754, 42, 458758, 33, 589823, 27, 524288, 32, 524289, 32, 524290, 48, 524291, 29, 524292, 29, 524293, 29, 524294, 29, 524295, 46, 524299, 33, 524300, 34, 655359, 27, 589824, 32, 589825, 35, 589826, 36, 589827, 36, 589828, 36, 589829, 36, 589830, 36, 589831, 36, 589832, 37, 589835, 35, 589836, 36, 589837, 37, 720895, 27, 655360, 32, 655365, 34, 655368, 34, 655370, 33, 786431, 27, 720896, 39, 720897, 29, 720898, 29, 720899, 29, 720900, 29, 720901, 29, 720902, 29, 720903, 29, 720904, 40, 720906, 39, 720907, 29, 720908, 29, 720909, 29, 720910, 29, 720911, 29, 720912, 29, 720913, 40 )
+tile_data = IntArray( -1, 27, -65536, 27, -65535, 27, -65534, 27, -65533, 27, -65532, 27, -65531, 27, -65530, 27, -65529, 27, -65528, 27, -65527, 27, -65526, 27, -65525, 27, -65524, 27, -65523, 27, -65522, 27, -65521, 27, -65520, 27, -65519, 27, -65518, 27, -65517, 27, -65516, 27, -65515, 27, -65514, 27, -65513, 27, -65512, 27, -65511, 27, -65510, 27, -65509, 27, -65508, 27, -65507, 27, -65506, 27, -65505, 27, -65504, 27, -65503, 27, -65502, 27, -65501, 27, 65534, 27, 65535, 27, 35, 27, 131071, 27, 65571, 27, 196607, 27, 131107, 27, 262143, 27, 196643, 27, 327679, 27, 262179, 27, 393215, 27, 327680, 42, 327715, 27, 458751, 27, 393216, 48, 393217, 42, 393251, 27, 524287, 27, 458752, 32, 458753, 48, 458754, 42, 458758, 33, 458787, 27, 589823, 27, 524288, 32, 524289, 32, 524290, 48, 524291, 29, 524292, 29, 524293, 29, 524294, 29, 524295, 46, 524299, 33, 524300, 34, 524323, 27, 655359, 27, 589824, 32, 589825, 35, 589826, 36, 589827, 36, 589828, 36, 589829, 36, 589830, 36, 589831, 36, 589832, 37, 589835, 35, 589836, 36, 589837, 37, 589850, 35, 589851, 36, 589852, 36, 589853, 36, 589854, 36, 589855, 37, 589859, 27, 720895, 27, 655360, 32, 655365, 34, 655368, 34, 655370, 33, 655395, 27, 786431, 27, 720896, 39, 720897, 29, 720898, 29, 720899, 29, 720900, 29, 720901, 29, 720902, 29, 720903, 29, 720904, 40, 720906, 39, 720907, 29, 720908, 29, 720909, 29, 720910, 29, 720911, 29, 720912, 29, 720913, 40, 720920, 39, 720921, 29, 720922, 29, 720923, 29, 720924, 40, 720931, 27 )
 tile_num = 34
 tile_num_crack = 33
 
 [node name="Pickups" type="Node" parent="TileMap"]
-
-[node name="Door" parent="TileMap" instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 672, 480 )
 
 [node name="Enemies" type="Node" parent="TileMap"]
 
 [node name="BOSS" type="Node2D" parent="TileMap/Enemies"]
 
 transform/pos = Vector2( 1280, 360 )
-script/script = ExtResource( 5 )
+script/script = ExtResource( 4 )
 
 [node name="Persistence" type="Node" parent="TileMap/Enemies/BOSS"]
 
-script/script = ExtResource( 6 )
+script/script = ExtResource( 5 )
 global_key = true
 persist_key = "Key"
 persist_mode = 0
@@ -392,20 +397,22 @@ autoplay = ""
 
 [node name="ShakeFx" type="Node" parent="TileMap/Enemies/BOSS"]
 
-script/script = ExtResource( 7 )
+script/script = ExtResource( 6 )
 
 [node name="BossBase" type="Node2D" parent="TileMap/Enemies/BOSS"]
 
-material/material = ExtResource( 8 )
+material/material = ExtResource( 7 )
+transform/pos = Vector2( 0, 600 )
 z/z = -1
-script/script = ExtResource( 9 )
+script/script = ExtResource( 8 )
 __meta__ = {
 "_edit_lock_": true
 }
-phase_start_key = "idle"
+phase_start_key = "start"
 fireball_speed = 150.0
 spinner_speed = Vector2( -120, 0 )
-hitpoints = 1
+hitpoints = 3
+auto_start = false
 
 [node name="Head" type="KinematicBody2D" parent="TileMap/Enemies/BOSS/BossBase"]
 
@@ -422,7 +429,7 @@ collision/margin = 0.08
 [node name="Head" type="Sprite" parent="TileMap/Enemies/BOSS/BossBase/Head"]
 
 material/use_parent = true
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -431,9 +438,9 @@ __meta__ = {
 
 material/use_parent = true
 transform/pos = Vector2( 0, 20 )
-texture = ExtResource( 11 )
+texture = ExtResource( 10 )
 offset = Vector2( 0, 20 )
-script/script = ExtResource( 12 )
+script/script = ExtResource( 11 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -526,7 +533,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="TileMap/Enemies/BOSS/BossBase/Top Segment"]
 
 material/use_parent = true
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -584,7 +591,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="TileMap/Enemies/BOSS/BossBase/Mid Segment"]
 
 material/use_parent = true
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -642,7 +649,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="TileMap/Enemies/BOSS/BossBase/Bottom Segment"]
 
 material/use_parent = true
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -705,9 +712,50 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Player" parent="." instance=ExtResource( 14 )]
+[node name="Door" parent="TileMap" instance=ExtResource( 13 )]
 
-transform/pos = Vector2( 1056, 672 )
+transform/pos = Vector2( 1824, 544 )
+
+[node name="Triggers" type="Node" parent="TileMap"]
+
+[node name="Boss-Appear" type="Area2D" parent="TileMap/Triggers"]
+
+transform/pos = Vector2( 1056, 352 )
+input/pickable = true
+shapes/0/shape = SubResource( 13 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 14 )
+player_freeze = true
+player_freeze_timeout = 0.0
+trigger_once = true
+object_name = "BossBase"
+object_func = "reveal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Triggers/Boss-Appear"]
+
+shape = SubResource( 13 )
+trigger = false
+_update_shape_index = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Persistence" type="Node" parent="TileMap/Triggers/Boss-Appear"]
+
+script/script = ExtResource( 5 )
+global_key = true
+persist_key = "Key"
+persist_mode = 0
+persist_scope = 0
+
+[node name="Player" parent="." instance=ExtResource( 15 )]
+
+transform/pos = Vector2( 129, 666 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -716,8 +764,8 @@ rotating = false
 current = true
 zoom = Vector2( 1, 1 )
 limit/left = 0
-limit/top = -10000000
-limit/right = 10000000
+limit/top = 0
+limit/right = 2200
 limit/bottom = 800
 drag_margin/h_enabled = true
 drag_margin/v_enabled = true
@@ -731,15 +779,17 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="UI Layer" parent="." instance=ExtResource( 15 )]
+[node name="UI Layer" parent="." instance=ExtResource( 16 )]
 
 [node name="TextureFrame" parent="UI Layer"]
 
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 
 [connection signal="finished" from="TileMap/Enemies/BOSS/AnimationPlayer" to="TileMap/Enemies/BOSS/BossBase" method="_on_AnimationPlayer_finished"]
 
 [connection signal="body_enter" from="TileMap/Enemies/BOSS/BossBase/Head/Eye - Weak Spot" to="TileMap/Enemies/BOSS/BossBase" method="_on_Eye__Weak_Spot_body_enter"]
+
+[connection signal="body_enter" from="TileMap/Triggers/Boss-Appear" to="TileMap/Triggers/Boss-Appear" method="_on_body_enter"]
 
 
 [editable path="UI Layer"]

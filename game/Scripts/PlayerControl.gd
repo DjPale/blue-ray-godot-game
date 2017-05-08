@@ -104,6 +104,9 @@ func _ready():
 	set_process(true)
 	set_fixed_process(true)
 	
+func say(txt):
+	VFX_Manager.floating_text(self, txt)
+	
 func _on_transition_complete():
 	input_enable = true
 	
@@ -145,8 +148,15 @@ func _input(event):
 			VFX_Manager.enable_darkness(true)
 
 func _process(delta):
-	var reach_pos = get_reach_pos()
-	indicator.set_global_pos(reach_pos * Vector2(64, 64) + Vector2(32, 32))
+	if input_enable:
+		if indicator.is_hidden():
+			indicator.set_hidden(false)
+			
+		var reach_pos = get_reach_pos()
+		indicator.set_global_pos(reach_pos * Vector2(64, 64) + Vector2(32, 32))
+	else:
+		if indicator.is_visible():
+			indicator.set_hidden(true)
 
 func _fixed_process(delta):
 	_do_timers(delta)
